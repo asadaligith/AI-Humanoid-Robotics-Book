@@ -1,0 +1,70 @@
+# Target Object Classes for Capstone Demo
+# Subset of COCO dataset classes relevant for fetch-and-deliver tasks
+# Full COCO classes: https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml
+
+target_objects:
+  # Tableware (common fetch tasks)
+  - cup
+  - mug
+  - bottle
+  - wine glass
+  - bowl
+  - spoon
+  - fork
+  - knife
+
+  # Food items
+  - apple
+  - banana
+  - orange
+  - sandwich
+  - pizza
+  - donut
+  - cake
+
+  # Office items
+  - book
+  - laptop
+  - mouse
+  - keyboard
+  - cell phone
+  - remote
+
+  # Household items
+  - scissors
+  - teddy bear
+  - vase
+  - clock
+  - potted plant
+
+# Detection parameters
+detection_config:
+  confidence_threshold: 0.6  # Minimum confidence to publish detection
+  nms_threshold: 0.45  # Non-maximum suppression threshold (filter overlapping boxes)
+  max_detections: 10  # Maximum detections per frame
+  image_size: 640  # YOLO input size (640x640 default)
+
+# Class-specific overrides (optional)
+class_specific:
+  mug:
+    confidence_threshold: 0.7  # Higher threshold for mugs (reduce false positives)
+  bottle:
+    confidence_threshold: 0.65
+  apple:
+    confidence_threshold: 0.75  # Fruits often confused with other objects
+
+# Mapping from LLM object names to COCO class names
+llm_to_coco_mapping:
+  # LLM might say "coffee mug" → "mug"
+  "coffee mug": "mug"
+  "water bottle": "bottle"
+  "smartphone": "cell phone"
+  "phone": "cell phone"
+  "computer": "laptop"
+  "pen": "pen"  # Not in COCO, would need custom training
+
+# Notes:
+# - COCO dataset has 80 classes total
+# - YOLOv8 models (n/s/m/l/x) are pre-trained on COCO
+# - For custom objects not in COCO, fine-tune YOLOv8 on custom dataset
+# - See: https://docs.ultralytics.com/modes/train/

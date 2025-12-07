@@ -1,0 +1,91 @@
+# Dockerfile for NVIDIA Jetson Orin Deployment
+# Base: ROS 2 Humble + PyTorch for ARM64 (L4T)
+# Platform: linux/arm64
+# Build: docker build -t capstone-jetson:latest -f Dockerfile.jetson .
+
+FROM dustynv/ros:humble-pytorch-l4t-r35.3.1
+
+# Metadata
+LABEL maintainer="GIAIC Hackathon Q4 Team"
+LABEL description="AI Humanoid Robotics Capstone - Jetson Orin Deployment"
+LABEL version="1.0.0"
+
+# Environment setup
+ENV DEBIAN_FRONTEND=noninteractive
+ENV ROS_DISTRO=humble
+ENV PYTHONUNBUFFERED=1
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    # Audio support
+    python3-pip \
+    python3-dev \
+    ffmpeg \
+    portaudio19-dev \
+    libsndfile1 \
+    alsa-utils \
+    # Video/Camera support
+    v4l-utils \
+    libv4l-dev \
+    # ROS 2 dependencies
+    ros-${ROS_DISTRO}-cv-bridge \
+    ros-${ROS_DISTRO}-vision-msgs \
+    ros-${ROS_DISTRO}-sensor-msgs \
+    # Utilities
+    vim \
+    git \
+    wget \
+    curl \
+    htop \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy Python requirements
+COPY requirements.txt /tmp/requirements.txt
+
+# Install Python packages (optimized for Jetson)
+RUN pip3 install --no-cache-dir --upgrade pip && \
+    pip3 install --no-cache-dir \
+    openai-whisper \
+    openai \
+    sounddevice \
+    numpy \
+    opencv-python \
+    jsonschema \
+    pyyaml \
+    python-dotenv
+
+# Create ROS 2 workspace
+WORKDIR /ros2_ws
+RUN mkdir -p /ros2_ws/src
+
+# Copy capstone package
+COPY . /ros2_ws/src/capstone_demo/
+
+# Build ROS 2 workspace
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash && \
+    cd /ros2_ws && \
+    colcon build \
+    --cmake-args \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_CXX_FLAGS="-march=native -O3" \
+    --parallel-workers $(nproc)
+
+# Source workspace automatically
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /root/.bashrc && \
+    echo "source /ros2_ws/install/setup.bash" >> /root/.bashrc && \
+    echo "export ROS_DOMAIN_ID=42" >> /root/.bashrc
+
+# Create mount points for models and data
+RUN mkdir -p /models /data /logs
+
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+  CMD ros2 node list || exit 1
+
+# Expose ROS 2 DDS ports
+EXPOSE 7400-7500
+
+# Default command
+CMD ["/bin/bash"]

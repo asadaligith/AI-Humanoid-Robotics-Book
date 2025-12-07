@@ -1,0 +1,35 @@
+{
+  "name": "ai-humanoid-robotics-book",
+  "version": "1.0.0",
+  "description": "AI Humanoid Robotics Book - Educational content covering ROS 2, Gazebo, Isaac Sim, and Physical AI",
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "lint": "markdownlint docs/**/*.md",
+    "test": "pytest tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asadaligith/AI-Humanoid-Robotics-Book.git"
+  },
+  "keywords": ["robotics", "ros2", "gazebo", "isaac-sim", "physical-ai", "education", "humanoid"],
+  "author": "GIAIC Hackathon Q4 Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/asadaligith/AI-Humanoid-Robotics-Book/issues"
+  },
+  "homepage": "https://github.com/asadaligith/AI-Humanoid-Robotics-Book#readme",
+  "dependencies": {
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

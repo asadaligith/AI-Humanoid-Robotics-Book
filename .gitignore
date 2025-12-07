@@ -41,3 +41,30 @@ env/
 # Logs
 *.log
 logs/
+
+# ROS 2 specific
+install/
+log/
+build_isolated/
+devel_isolated/
+*.bag
+*.bag.active
+
+# Test coverage
+coverage/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Context7 cache
+.context7/cache/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Package locks (keep package.json but ignore locks for flexibility)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

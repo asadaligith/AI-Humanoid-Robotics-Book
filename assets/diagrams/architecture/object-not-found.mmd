@@ -1,0 +1,70 @@
+%% Object Not Found Scenario - Perception Failure with Clarification
+%% This diagram shows what happens when target object cannot be detected
+%% To generate PNG: mmdc -i object-not-found.mmd -o object-not-found.png
+
+sequenceDiagram
+    participant User
+    participant Integration as Integration<br/>Demo (FSM)
+    participant Perception as Object<br/>Detection
+    participant LLM as LLM Planner
+
+    User->>Integration: Command: "Bring me the red cup"
+
+    Note over Integration: Navigation successful (skipped for clarity)
+
+    Note over Integration: State: PERCEIVING (Attempt 1/3)
+    activate Integration
+    Integration->>Perception: detect_object(cup, red)
+    activate Perception
+    Perception->>Perception: Process camera feed (10s)
+    Perception->>Perception: YOLO inference
+    Perception->>Perception: Filter by class: cup
+    Perception->>Perception: Filter by color: red
+    Perception-->>Integration: ❌ No detections found
+    deactivate Perception
+
+    Note over Integration: Retry Logic: Attempt 1 failed<br/>Retry count: 1/3
+
+    Note over Integration: State: PERCEIVING (Attempt 2/3)
+    Integration->>Perception: detect_object(cup, red) [RETRY]
+    activate Perception
+    Perception->>Perception: Extend detection window (5s)
+    Perception->>Perception: Lower confidence threshold
+    Perception-->>Integration: ❌ Still no detections
+    deactivate Perception
+
+    Note over Integration: Retry Logic: Attempt 2 failed<br/>Retry count: 2/3
+
+    Note over Integration: State: AWAITING_CLARIFICATION
+    Integration->>LLM: Request alternative object suggestion
+    activate LLM
+    LLM->>LLM: Analyze failure context
+    LLM-->>Integration: Suggest: "Try detecting 'mug' instead?"
+    deactivate LLM
+
+    Integration->>User: 🤔 Cannot find red cup.<br/>Options:<br/>1. Point out the cup<br/>2. Try detecting red mug<br/>3. Abort task
+
+    User->>Integration: Response: "Try the blue cup instead"
+
+    Note over Integration: State: PLANNING (Re-plan with clarification)
+    Integration->>LLM: Update plan: detect blue cup
+    activate LLM
+    LLM-->>Integration: Updated action sequence
+    deactivate LLM
+
+    Note over Integration: State: PERCEIVING (Attempt 3/3 with new target)
+    Integration->>Perception: detect_object(cup, blue)
+    activate Perception
+    Perception->>Perception: YOLO inference
+    Perception-->>Integration: ✅ blue_cup_001 @ (3.1, 2.2, 0.75)
+    deactivate Perception
+
+    Note over Integration: Detection successful after clarification!
+
+    Note over Integration: State: MANIPULATING
+    Integration->>Integration: Continue with pick/place sequence
+    deactivate Integration
+
+    Note over User,LLM: ✅ SUCCESS with user clarification (extra ~30s)
+
+    Note right of Integration: Alternative Outcome:<br/>If user selects "Abort",<br/>transition to FAILED state

@@ -1,0 +1,160 @@
+{
+  "capabilities": [
+    {
+      "action": "navigate_to",
+      "description": "Move robot to a named location in the environment",
+      "params": {
+        "location": {
+          "type": "string",
+          "enum": [
+            "kitchen_table",
+            "living_room",
+            "user_location",
+            "charging_station",
+            "bedroom",
+            "bathroom",
+            "dining_table"
+          ],
+          "description": "Pre-mapped location name"
+        }
+      },
+      "examples": [
+        {"action": "navigate_to", "params": {"location": "kitchen_table"}},
+        {"action": "navigate_to", "params": {"location": "user_location"}}
+      ]
+    },
+    {
+      "action": "detect_object",
+      "description": "Identify and localize object in camera field of view",
+      "params": {
+        "name": {
+          "type": "string",
+          "enum": [
+            "cup",
+            "mug",
+            "bottle",
+            "plate",
+            "bowl",
+            "fork",
+            "spoon",
+            "knife",
+            "book",
+            "phone",
+            "remote",
+            "pen"
+          ],
+          "description": "Object class from COCO dataset (subset)"
+        },
+        "color": {
+          "type": "string",
+          "enum": ["red", "blue", "green", "yellow", "white", "black", "orange", "purple"],
+          "optional": true,
+          "description": "Optional color attribute to disambiguate objects"
+        },
+        "size": {
+          "type": "string",
+          "enum": ["small", "medium", "large"],
+          "optional": true,
+          "description": "Optional size attribute"
+        }
+      },
+      "examples": [
+        {"action": "detect_object", "params": {"name": "cup", "color": "red"}},
+        {"action": "detect_object", "params": {"name": "bottle"}},
+        {"action": "detect_object", "params": {"name": "plate", "color": "white", "size": "large"}}
+      ]
+    },
+    {
+      "action": "pick_object",
+      "description": "Grasp a detected object using robotic manipulator",
+      "params": {
+        "object_id": {
+          "type": "string",
+          "description": "Unique ID returned by detect_object action (use descriptive name based on object)"
+        }
+      },
+      "examples": [
+        {"action": "pick_object", "params": {"object_id": "red_cup_001"}},
+        {"action": "pick_object", "params": {"object_id": "water_bottle"}}
+      ],
+      "notes": "Must be called after detect_object for the same object. Will fail if object not currently visible or unreachable."
+    },
+    {
+      "action": "place_object",
+      "description": "Release grasped object at specified location",
+      "params": {
+        "location": {
+          "type": "string",
+          "enum": [
+            "table",
+            "user_hand",
+            "bin",
+            "shelf",
+            "counter",
+            "floor"
+          ],
+          "description": "Where to place the object"
+        }
+      },
+      "examples": [
+        {"action": "place_object", "params": {"location": "user_hand"}},
+        {"action": "place_object", "params": {"location": "table"}}
+      ],
+      "notes": "Must be called after pick_object while robot is holding an object."
+    },
+    {
+      "action": "open_gripper",
+      "description": "Open the robotic gripper to release object",
+      "params": {},
+      "examples": [
+        {"action": "open_gripper", "params": {}}
+      ]
+    },
+    {
+      "action": "close_gripper",
+      "description": "Close the robotic gripper to grasp object",
+      "params": {},
+      "examples": [
+        {"action": "close_gripper", "params": {}}
+      ]
+    },
+    {
+      "action": "wait",
+      "description": "Pause execution for specified duration",
+      "params": {
+        "duration": {
+          "type": "number",
+          "description": "Wait time in seconds",
+          "min": 0.1,
+          "max": 10.0
+        }
+      },
+      "examples": [
+        {"action": "wait", "params": {"duration": 2.0}}
+      ],
+      "notes": "Useful for stabilization after movement or waiting for human interaction."
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "robot": "Unitree G1 Humanoid",
+    "capabilities_count": 7,
+    "last_updated": "2025-12-07"
+  },
+  "task_patterns": {
+    "fetch_and_deliver": [
+      {"action": "navigate_to", "params": {"location": "<object_location>"}},
+      {"action": "detect_object", "params": {"name": "<object_name>", "color": "<optional>"}},
+      {"action": "pick_object", "params": {"object_id": "<detected_id>"}},
+      {"action": "navigate_to", "params": {"location": "user_location"}},
+      {"action": "place_object", "params": {"location": "user_hand"}}
+    ],
+    "tidy_up": [
+      {"action": "navigate_to", "params": {"location": "<object_location>"}},
+      {"action": "detect_object", "params": {"name": "<object_name>"}},
+      {"action": "pick_object", "params": {"object_id": "<detected_id>"}},
+      {"action": "navigate_to", "params": {"location": "<storage_location>"}},
+      {"action": "place_object", "params": {"location": "shelf"}}
+    ]
+  }
+}

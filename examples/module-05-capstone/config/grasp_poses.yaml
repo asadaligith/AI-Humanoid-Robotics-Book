@@ -1,0 +1,148 @@
+# Predefined Grasp Configurations for Common Objects
+# Pre-calibrated grasp poses for reliable pick-and-place operations
+# Coordinates in object's local frame (center of bounding box)
+
+grasp_library:
+  # Tableware
+  mug:
+    approach_vector: [0, 0, -1]  # Top-down approach (vertical)
+    grasp_width: 0.08  # 8cm gripper opening (handle grasp)
+    pre_grasp_offset: 0.10  # 10cm above object before descent
+    lift_offset: 0.15  # 15cm lift after grasp
+    orientation_euler: [0, 1.57, 0]  # Gripper pointing down (90° pitch)
+    force_threshold: 5.0  # Newtons (detect successful grasp)
+    notes: "Side grasp on handle preferred; top grasp as fallback"
+
+  cup:
+    approach_vector: [0, 0, -1]
+    grasp_width: 0.07
+    pre_grasp_offset: 0.08
+    lift_offset: 0.12
+    orientation_euler: [0, 1.57, 0]
+    force_threshold: 3.0
+    notes: "Fragile - use gentle grip force"
+
+  bottle:
+    approach_vector: [1, 0, 0]  # Side approach (horizontal)
+    grasp_width: 0.06  # 6cm for standard water bottle
+    pre_grasp_offset: 0.05
+    lift_offset: 0.20  # Higher lift (bottles tall)
+    orientation_euler: [0, 0, 1.57]  # Gripper pointing sideways (90° yaw)
+    force_threshold: 8.0  # Higher force (heavier when full)
+    notes: "Side grasp at bottle waist (narrowest point)"
+
+  wine_glass:
+    approach_vector: [1, 0, 0]
+    grasp_width: 0.04  # Narrow stem
+    pre_grasp_offset: 0.05
+    lift_offset: 0.10
+    orientation_euler: [0, 0, 1.57]
+    force_threshold: 2.0  # Very gentle (fragile)
+    notes: "FRAGILE - grasp stem only, not bowl"
+
+  bowl:
+    approach_vector: [0, 0, -1]
+    grasp_width: 0.12  # Wide rim grasp
+    pre_grasp_offset: 0.10
+    lift_offset: 0.15
+    orientation_euler: [0, 1.57, 0]
+    force_threshold: 6.0
+    notes: "Grasp rim at two points; check for contents before tilting"
+
+  # Food items (soft grasps)
+  apple:
+    approach_vector: [0, 0, -1]
+    grasp_width: 0.08
+    pre_grasp_offset: 0.08
+    lift_offset: 0.10
+    orientation_euler: [0, 1.57, 0]
+    force_threshold: 4.0
+    notes: "Soft grip to avoid bruising"
+
+  banana:
+    approach_vector: [1, 0, 0]
+    grasp_width: 0.05
+    pre_grasp_offset: 0.05
+    lift_offset: 0.10
+    orientation_euler: [0, 0, 1.57]
+    force_threshold: 2.0
+    notes: "Very soft grip; grasp at center of mass"
+
+  # Office items
+  book:
+    approach_vector: [1, 0, 0]
+    grasp_width: 0.02  # Thin edge grasp
+    pre_grasp_offset: 0.05
+    lift_offset: 0.15
+    orientation_euler: [0, 0, 1.57]
+    force_threshold: 5.0
+    notes: "Grasp spine or long edge; avoid page damage"
+
+  laptop:
+    approach_vector: [1, 0, 0]
+    grasp_width: 0.03  # Edge grasp
+    pre_grasp_offset: 0.05
+    lift_offset: 0.10
+    orientation_euler: [0, 0, 1.57]
+    force_threshold: 10.0  # Heavy
+    notes: "Grasp closed laptop at short edge; keep level"
+
+  cell_phone:
+    approach_vector: [0, 0, -1]
+    grasp_width: 0.07
+    pre_grasp_offset: 0.08
+    lift_offset: 0.10
+    orientation_euler: [0, 1.57, 0]
+    force_threshold: 3.0
+    notes: "Flat top grasp; avoid pressing buttons"
+
+  # Household items
+  scissors:
+    approach_vector: [0, 0, -1]
+    grasp_width: 0.05
+    pre_grasp_offset: 0.08
+    lift_offset: 0.12
+    orientation_euler: [0, 1.57, 0]
+    force_threshold: 4.0
+    notes: "Grasp at pivot point (safest); closed position only"
+
+  vase:
+    approach_vector: [1, 0, 0]
+    grasp_width: 0.08
+    pre_grasp_offset: 0.05
+    lift_offset: 0.15
+    orientation_euler: [0, 0, 1.57]
+    force_threshold: 7.0
+    notes: "FRAGILE - side grasp at waist; keep upright"
+
+# Default grasp for unknown objects (heuristic-based)
+default_grasp:
+  approach_vector: [0, 0, -1]  # Top-down (safest)
+  grasp_width: 0.08  # Medium width
+  pre_grasp_offset: 0.10
+  lift_offset: 0.15
+  orientation_euler: [0, 1.57, 0]
+  force_threshold: 5.0
+  notes: "Generic top-down grasp for unknown objects"
+
+# Gripper specifications (Robotiq 2F-85 example)
+gripper_specs:
+  model: "Robotiq 2F-85"
+  max_opening: 0.085  # 8.5cm maximum width
+  min_opening: 0.000  # Fully closed
+  force_range: [20, 235]  # Newtons (adjustable)
+  speed: 0.15  # m/s closing speed
+  weight: 0.9  # kg
+
+# Grasp quality metrics (used in validation)
+quality_thresholds:
+  min_force_detected: 1.0  # Newtons (below = no object grasped)
+  max_slip_velocity: 0.01  # m/s (object slipping threshold)
+  stability_duration: 1.0  # seconds (must hold for 1s to confirm)
+
+# Notes:
+# - Orientation in Euler angles (roll, pitch, yaw) radians
+# - All positions relative to object center (from bounding box)
+# - Force thresholds are guidelines; tune based on gripper hardware
+# - For two-finger grippers, approach_vector indicates primary approach axis
+# - Pre-grasp offset prevents collisions during approach phase

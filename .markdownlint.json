@@ -1,0 +1,78 @@
+{
+  "default": true,
+  "line-length": {
+    "line_length": 120,
+    "code_blocks": false,
+    "tables": false
+  },
+  "no-inline-html": {
+    "allowed_elements": ["br", "img", "details", "summary"]
+  },
+  "no-duplicate-heading": false,
+  "no-trailing-punctuation": {
+    "punctuation": ".,;:"
+  },
+  "no-hard-tabs": false,
+  "code-block-style": {
+    "style": "fenced"
+  },
+  "ul-style": {
+    "style": "dash"
+  },
+  "ol-prefix": {
+    "style": "one"
+  },
+  "list-marker-space": true,
+  "blanks-around-headings": true,
+  "blanks-around-lists": true,
+  "blanks-around-fences": true,
+  "heading-style": {
+    "style": "atx"
+  },
+  "no-multiple-blanks": {
+    "maximum": 2
+  },
+  "no-missing-space-atx": true,
+  "no-multiple-space-atx": true,
+  "no-missing-space-closed-atx": true,
+  "no-multiple-space-closed-atx": true,
+  "commands-show-output": false,
+  "code-fence-style": {
+    "style": "backtick"
+  },
+  "emphasis-style": {
+    "style": "asterisk"
+  },
+  "strong-style": {
+    "style": "asterisk"
+  },
+  "hr-style": {
+    "style": "---"
+  },
+  "no-trailing-spaces": true,
+  "no-multiple-space-blockquote": true,
+  "proper-names": {
+    "names": [
+      "ROS 2",
+      "Nav2",
+      "MoveIt 2",
+      "Gazebo",
+      "Isaac Sim",
+      "NVIDIA",
+      "Jetson",
+      "OpenAI",
+      "Whisper",
+      "GPT-4",
+      "YOLO",
+      "YOLOv8",
+      "Docker",
+      "Ubuntu",
+      "Python",
+      "C++",
+      "Unitree",
+      "URDF",
+      "USD"
+    ],
+    "code_blocks": false
+  }
+}
