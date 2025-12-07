@@ -64,7 +64,7 @@ htmlcov/
 *.temp
 *.bak
 
-# Package locks (keep package.json but ignore locks for flexibility)
-package-lock.json
+# Package locks (committed for CI/CD reproducibility)
+# package-lock.json is tracked for consistent builds
 yarn.lock
 pnpm-lock.yaml
