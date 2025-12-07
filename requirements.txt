@@ -1,0 +1,20 @@
+# Python dependencies for AI Humanoid Robotics Book
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Robotics (commented out - install separately based on platform)
+# rclpy  # ROS 2 Python client library - install via rosdep
+# nav2_simple_commander  # Nav2 Python API
+
+# AI/ML
+# openai-whisper  # Voice transcription (optional - large dependency)
+# anthropic  # Claude API client
+
+# Linting and formatting
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0
+
+# Documentation build dependencies are in package.json (Node.js/Docusaurus)

@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "project": {
+    "name": "AI Humanoid Robotics Book",
+    "description": "Educational content for Physical AI and humanoid robotics",
+    "citation_style": "APA"
+  },
+  "storage": {
+    "metadata_path": ".context7/metadata/citations.json",
+    "cache_path": ".context7/cache/"
+  },
+  "citation_config": {
+    "auto_generate": true,
+    "output_format": "markdown",
+    "target_count": 150,
+    "required_fields": ["id", "title", "authors", "year", "url"]
+  },
+  "modules": [
+    {
+      "id": "module-01",
+      "name": "ROS 2 Nervous System",
+      "target_citations": 15
+    },
+    {
+      "id": "module-02",
+      "name": "Digital Twin",
+      "target_citations": 20
+    },
+    {
+      "id": "module-03",
+      "name": "AI Robot Brain",
+      "target_citations": 25
+    },
+    {
+      "id": "module-04",
+      "name": "Vision-Language-Action",
+      "target_citations": 30
+    },
+    {
+      "id": "module-05",
+      "name": "Capstone",
+      "target_citations": 60
+    }
+  ]
+}

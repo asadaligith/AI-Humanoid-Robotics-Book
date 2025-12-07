@@ -1,0 +1,67 @@
+%% Navigation Failure Scenario - Blocked Path with Retry Logic
+%% This diagram shows what happens when navigation fails due to obstacles
+%% To generate PNG: mmdc -i navigation-failure.mmd -o navigation-failure.png
+
+sequenceDiagram
+    participant User
+    participant Integration as Integration<br/>Demo (FSM)
+    participant Nav as Navigation<br/>Controller
+    participant Costmap as Costmap<br/>Layer
+
+    User->>Integration: Command: "Go to kitchen table"
+
+    Note over Integration: State: NAVIGATING (Attempt 1/3)
+    activate Integration
+    Integration->>Nav: navigate_to(kitchen_table)
+    activate Nav
+    Nav->>Costmap: Request costmap
+    activate Costmap
+    Costmap-->>Nav: Current obstacles
+    deactivate Costmap
+    Nav->>Nav: Path planning
+    Nav->>Nav: Execute trajectory
+    Nav->>Nav: Obstacle detected! Path blocked
+    Nav-->>Integration: ❌ ABORTED: Navigation failed
+    deactivate Nav
+
+    Note over Integration: Retry Logic: Attempt 1 failed<br/>Retry count: 1/3
+
+    Note over Integration: State: NAVIGATING (Attempt 2/3)
+    Integration->>Nav: navigate_to(kitchen_table) [RETRY]
+    activate Nav
+    Nav->>Costmap: Request costmap update
+    activate Costmap
+    Costmap->>Costmap: Scan environment
+    Costmap-->>Nav: Updated obstacles
+    deactivate Costmap
+    Nav->>Nav: Replan with new costmap
+    Nav->>Nav: Execute alternate path
+    Nav->>Nav: Still blocked by obstacle
+    Nav-->>Integration: ❌ ABORTED: Navigation failed
+    deactivate Nav
+
+    Note over Integration: Retry Logic: Attempt 2 failed<br/>Retry count: 2/3
+
+    Note over Integration: State: NAVIGATING (Attempt 3/3)
+    Integration->>Nav: navigate_to(kitchen_table) [FINAL RETRY]
+    activate Nav
+    Nav->>Nav: Try alternate path planner
+    Nav->>Nav: A* → Dijkstra fallback
+    Nav->>Nav: No valid path found
+    Nav-->>Integration: ❌ ABORTED: No path exists
+    deactivate Nav
+
+    Note over Integration: Retry Logic: Attempt 3 failed<br/>Retry budget exhausted (3/3)
+
+    Note over Integration: State: FAILED
+    Integration->>Integration: Log failure:<br/>FAILURE_NAVIGATION (code 6)
+    Integration->>User: ❌ Task failed: Cannot reach kitchen table.<br/>Please clear obstacles or move manually.
+
+    Note over Integration: Cleanup & Reset
+    Integration->>Integration: Clear action plan
+    Integration->>Integration: Reset state machine
+
+    Note over Integration: State: IDLE
+    deactivate Integration
+
+    Note over User,Costmap: ❌ FAILURE after 3 retry attempts (~45 seconds)

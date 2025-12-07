@@ -1,0 +1,81 @@
+%% Nominal Execution Flow - Voice-Commanded Fetch and Deliver
+%% This Mermaid diagram shows the successful task execution sequence
+%% Command: "Bring me the red cup from the kitchen table"
+%% To generate PNG: mmdc -i nominal-flow.mmd -o nominal-flow.png
+
+sequenceDiagram
+    participant User
+    participant Voice as Voice Input<br/>Node
+    participant LLM as LLM Planner<br/>Node
+    participant Integration as Integration<br/>Demo (FSM)
+    participant Nav as Navigation<br/>Controller
+    participant Perception as Object<br/>Detection
+    participant Manipulation as Manipulation<br/>Controller
+
+    Note over User,Manipulation: State: IDLE → LISTENING
+
+    User->>Voice: Speaks: "Bring me the red cup"
+    activate Voice
+    Voice->>Voice: Capture audio (3s)
+    Note over Voice: State: TRANSCRIBING
+    Voice->>Voice: Whisper inference
+    Voice->>Integration: /voice/transcribed_text<br/>"Bring me the red cup from the kitchen table"
+    deactivate Voice
+
+    Note over Integration: State: PLANNING
+    activate Integration
+    Integration->>LLM: Forward transcription
+    activate LLM
+    LLM->>LLM: GPT-4 inference
+    LLM->>Integration: /planning/action_sequence<br/>[navigate_to, detect_object,<br/>pick_object, navigate_to, place_object]
+    deactivate LLM
+
+    Note over Integration: State: VALIDATING
+    Integration->>Integration: Validate plan schema
+    Integration->>Integration: Check actions exist
+
+    Note over Integration: State: NAVIGATING (Action 1/5)
+    Integration->>Nav: navigate_to(kitchen_table)
+    activate Nav
+    Nav->>Nav: Path planning
+    Nav->>Nav: Execute trajectory
+    Nav-->>Integration: Goal reached ✓
+    deactivate Nav
+
+    Note over Integration: State: PERCEIVING (Action 2/5)
+    Integration->>Perception: detect_object(cup, red)
+    activate Perception
+    Perception->>Perception: Process camera feed
+    Perception->>Perception: YOLO inference
+    Perception-->>Integration: /perception/detected_objects<br/>red_cup_001 @ (3.2, 2.1, 0.75)
+    deactivate Perception
+
+    Note over Integration: State: MANIPULATING (Action 3/5)
+    Integration->>Manipulation: pick_object(red_cup_001)
+    activate Manipulation
+    Manipulation->>Manipulation: Compute IK
+    Manipulation->>Manipulation: Execute grasp
+    Manipulation-->>Integration: Object grasped ✓
+    deactivate Manipulation
+
+    Note over Integration: State: NAVIGATING (Action 4/5)
+    Integration->>Nav: navigate_to(user_location)
+    activate Nav
+    Nav->>Nav: Return path planning
+    Nav->>Nav: Execute trajectory
+    Nav-->>Integration: Goal reached ✓
+    deactivate Nav
+
+    Note over Integration: State: MANIPULATING (Action 5/5)
+    Integration->>Manipulation: place_object(user_hand)
+    activate Manipulation
+    Manipulation->>Manipulation: Compute placement
+    Manipulation->>Manipulation: Release object
+    Manipulation-->>Integration: Object placed ✓
+    deactivate Manipulation
+
+    Note over Integration: State: COMPLETED
+    Integration->>User: Task complete!
+    deactivate Integration
+
+    Note over User,Manipulation: ✅ SUCCESS: Object delivered in ~52 seconds

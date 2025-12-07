@@ -1,0 +1,48 @@
+# Voice Input Node Configuration
+# Configuration file for Whisper-based voice transcription
+
+voice_input_node:
+  ros__parameters:
+    # Whisper model size: tiny, base, small, medium, large
+    # Tradeoff: accuracy vs speed
+    # - tiny (39M): ~10x realtime, good accuracy
+    # - base (74M): ~7x realtime, better accuracy [RECOMMENDED for Jetson]
+    # - small (244M): ~4x realtime, very good accuracy
+    # - medium (769M): ~2x realtime, excellent accuracy
+    # - large (1550M): ~1x realtime, best accuracy
+    whisper_model: "base"
+
+    # Language code (ISO 639-1)
+    # Supported: en, es, fr, de, zh, ja, ko, etc.
+    language: "en"
+
+    # Audio sample rate (Hz)
+    # Whisper expects 16kHz audio
+    sample_rate: 16000
+
+    # Recording duration per capture (seconds)
+    # Shorter = more responsive, but may clip long commands
+    # Longer = captures full commands, but adds latency
+    duration: 3.0
+
+    # Voice Activity Detection (VAD) threshold
+    # Energy threshold below which audio is considered silence
+    # Range: 0.0 (any sound) to 1.0 (very loud sound only)
+    # Tune based on microphone sensitivity and ambient noise
+    silence_threshold: 0.01
+
+    # Compute device: 'cpu' or 'cuda'
+    # Use 'cuda' if NVIDIA GPU available (faster inference)
+    # Use 'cpu' for compatibility (Jetson, cloud instances without GPU)
+    device: "cpu"
+
+    # Optional: Push-to-talk mode
+    # If true, only transcribe when /voice/start_listening service called
+    # If false, continuously listen (current implementation)
+    push_to_talk: false
+
+    # Optional: Confidence threshold
+    # Only publish transcriptions above this confidence (0.0-1.0)
+    # Whisper doesn't directly provide confidence, so this requires
+    # additional processing of log probabilities
+    # confidence_threshold: 0.7

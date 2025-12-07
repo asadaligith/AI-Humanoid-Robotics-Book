@@ -1,0 +1,146 @@
+/* Context7Citation Component Styles */
+
+/* Citation Link */
+.citationLink {
+  display: inline;
+  position: relative;
+}
+
+.link {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ifm-color-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.link:hover {
+  color: var(--ifm-color-primary-dark);
+  border-bottom: 1px solid var(--ifm-color-primary-dark);
+}
+
+.link strong {
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+/* Inline Citation */
+.inlineCitation {
+  display: block;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.inlineCitation strong {
+  color: var(--ifm-color-primary);
+  margin-right: 0.5rem;
+}
+
+/* Tooltip */
+.tooltip {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  max-width: 500px;
+  min-width: 300px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  pointer-events: none;
+}
+
+.tooltipCitation {
+  margin-bottom: 0.5rem;
+}
+
+.tooltipCitation:last-child {
+  margin-bottom: 0;
+}
+
+.tooltipId {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.tooltipContent {
+  color: var(--ifm-font-color-base);
+}
+
+.tooltipDivider {
+  border: none;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  margin: 0.75rem 0;
+}
+
+.tooltipFooter {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+  font-style: italic;
+}
+
+/* Citation List (for appendices page) */
+.citationList {
+  margin: 2rem 0;
+}
+
+.citationListItem {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--ifm-color-emphasis-100);
+  border-left: 3px solid var(--ifm-color-primary);
+  border-radius: 4px;
+  line-height: 1.6;
+  scroll-margin-top: 80px; /* For anchor navigation with fixed header */
+}
+
+.citationListItem strong {
+  color: var(--ifm-color-primary);
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 0.95em;
+}
+
+.citationListItem:hover {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+/* Error State */
+.error {
+  color: var(--ifm-color-danger);
+  font-weight: 600;
+  border-bottom: 2px solid var(--ifm-color-danger);
+  cursor: help;
+}
+
+/* Dark Mode Adjustments */
+[data-theme='dark'] .tooltip {
+  background-color: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-400);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .citationListItem {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .citationListItem:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tooltip {
+    max-width: 90vw;
+    min-width: auto;
+    left: 5vw !important;
+    right: 5vw !important;
+    transform: none;
+  }
+}

@@ -1,0 +1,321 @@
+/* ChapterTemplate Component Styles */
+
+.chapterTemplate {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Chapter Header */
+.chapterHeader {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--ifm-color-emphasis-300);
+}
+
+.chapterMeta {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.moduleTag,
+.chapterTag,
+.difficultyBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.moduleTag {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.chapterTag {
+  background-color: var(--ifm-color-secondary);
+  color: white;
+}
+
+.difficultyBadge {
+  color: white;
+}
+
+.chapterTitle {
+  margin: 0.5rem 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+}
+
+.timeEstimate {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+/* Learning Objectives */
+.objectivesSection {
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+.objectivesSection h2 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.objectivesList {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.objectivesList li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Prerequisites */
+.prerequisitesSection {
+  background-color: var(--ifm-color-warning-contrast-background);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--ifm-color-warning);
+}
+
+.prerequisitesSection h2 {
+  margin-top: 0;
+  color: var(--ifm-color-warning-dark);
+}
+
+.prerequisitesList {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.prerequisitesList li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Main Content */
+.mainContent {
+  margin-bottom: 3rem;
+  line-height: 1.7;
+}
+
+/* Checkpoints */
+.checkpointsSection {
+  margin-bottom: 3rem;
+}
+
+.checkpointsSection h2 {
+  color: var(--ifm-color-success);
+  margin-bottom: 1.5rem;
+}
+
+.checkpoint {
+  background-color: var(--ifm-color-success-contrast-background);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--ifm-color-success);
+}
+
+.checkpoint h3 {
+  margin-top: 0;
+  color: var(--ifm-color-success-dark);
+  font-size: 1.3rem;
+}
+
+.checkpoint h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.checkpoint ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.checkpoint ol li {
+  margin-bottom: 0.5rem;
+}
+
+.expectedOutput {
+  margin-top: 1rem;
+}
+
+.expectedOutput pre {
+  background-color: var(--ifm-code-background);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 0.5rem 0 0 0;
+}
+
+.expectedOutput code {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+}
+
+/* Exercises */
+.exercisesSection {
+  margin-bottom: 3rem;
+}
+
+.exercisesSection h2 {
+  color: var(--ifm-color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.exercise {
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+.exerciseHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.exerciseHeader h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.exerciseDifficulty {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.exerciseDifficulty.easy {
+  background-color: #28a745;
+  color: white;
+}
+
+.exerciseDifficulty.medium {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.exerciseDifficulty.hard {
+  background-color: #dc3545;
+  color: white;
+}
+
+.hints,
+.solution {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--ifm-color-emphasis-200);
+  border-radius: 4px;
+}
+
+.hints summary,
+.solution summary {
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+  padding: 0.25rem 0;
+}
+
+.hints summary:hover,
+.solution summary:hover {
+  color: var(--ifm-color-primary);
+}
+
+.hints ul {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.hints li {
+  margin-bottom: 0.5rem;
+}
+
+.solutionContent {
+  margin-top: 0.5rem;
+}
+
+/* Chapter Navigation */
+.chapterNavigation {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--ifm-color-emphasis-300);
+}
+
+.navButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.prevButton,
+.nextButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.prevButton:hover,
+.nextButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.prevButton:active,
+.nextButton:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chapterTemplate {
+    padding: 1rem 0.5rem;
+  }
+
+  .chapterTitle {
+    font-size: 2rem;
+  }
+
+  .exerciseHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navButtons {
+    flex-direction: column;
+  }
+
+  .prevButton,
+  .nextButton {
+    width: 100%;
+  }
+}

@@ -1,0 +1,97 @@
+#usda 1.0
+(
+    defaultPrim = "unitree_g1"
+    doc = "Unitree G1 Humanoid Robot USD Asset"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "unitree_g1" (
+    kind = "component"
+)
+{
+    def Scope "Looks"
+    {
+        def Material "RobotMaterial"
+        {
+            token outputs:surface.connect = </unitree_g1/Looks/RobotMaterial/PBRShader.outputs:surface>
+
+            def Shader "PBRShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.6, 0.6, 0.6)
+                float inputs:metallic = 0.5
+                float inputs:roughness = 0.3
+                token outputs:surface
+            }
+        }
+    }
+
+    def Xform "robot" (
+        references = @./unitree_g1_mesh.usd@</Robot>
+    )
+    {
+        double3 xformOp:translate = (0, 0, 0.76)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Scope "Physics"
+        {
+            # Physics properties would be defined here
+            # This is a placeholder for Isaac Sim physics configuration
+            custom bool physicsEnabled = 1
+            custom float mass = 35.0
+        }
+
+        def Scope "Articulation"
+        {
+            # Joint configuration for Isaac Sim
+            # Degrees of freedom: 23 (torso: 3, arms: 2x7, legs: 2x6)
+            custom int dof_count = 23
+        }
+
+        def Scope "Sensors"
+        {
+            def Camera "HeadCamera" (
+                kind = "component"
+            )
+            {
+                float2 clippingRange = (0.01, 1000)
+                float focalLength = 24
+                float horizontalAperture = 20.955
+                float verticalAperture = 15.2908
+                double3 xformOp:translate = (0.12, 0, 1.32)
+                double3 xformOp:rotateXYZ = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+
+                # ROS 2 publishing configuration
+                custom string ros2_topic = "/camera/image_raw"
+                custom int width = 640
+                custom int height = 480
+                custom float fps = 30
+            }
+
+            def DistanceSensor "DepthCamera"
+            {
+                double3 xformOp:translate = (0.12, 0, 1.32)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+
+                custom string ros2_topic = "/camera/depth/image_raw"
+                custom float max_range = 10.0
+            }
+        }
+    }
+}
+
+# Note: This is a simplified USD file for educational purposes.
+# In production, use Isaac Sim's URDF-to-USD converter:
+#   omni.isaac.urdf_importer
+#
+# To convert the URDF to full USD with physics:
+#   1. Open Isaac Sim
+#   2. File → Import → URDF
+#   3. Select assets/urdf/unitree_g1.urdf
+#   4. Configure articulation settings
+#   5. Export as assets/usd/unitree_g1.usd
+#
+# For this capstone demo, the URDF can be used directly in Gazebo.
+# USD assets are optional for Isaac Sim photorealistic rendering.
