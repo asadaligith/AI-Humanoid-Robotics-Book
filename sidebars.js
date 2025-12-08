@@ -142,14 +142,6 @@ const sidebars = {
         },
       ],
     },
-    {
-      type: 'category',
-      label: '📖 References',
-      collapsed: true,
-      items: [
-        // Appendices and references will be added here
-      ],
-    },
   ],
 };
 
