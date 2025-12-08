@@ -261,7 +261,7 @@ ros2 topic echo /navigation/status
 ### Symptoms
 - Perception node running but no detections published
 - System stuck in `PERCEIVING` state
-- Detection confidence too low (<0.6 threshold)
+- Detection confidence too low (&lt;0.6 threshold)
 - Wrong object detected (cup instead of mug)
 
 ### Root Causes
@@ -296,7 +296,7 @@ llm_to_coco_mapping:
 
 **C. Confidence Threshold Too High**
 
-Detection exists but confidence <0.6 (rejected).
+Detection exists but confidence &lt;0.6 (rejected).
 
 **Resolution**:
 ```python

@@ -166,8 +166,8 @@ if self.state == State.MANIPULATING:
 
 Per capstone spec (FR-009):
 - **Success Rate**: ≥70% for pick-and-place tasks
-- **Planning Time**: <2 seconds for IK solution
-- **Execution Time**: <15 seconds for full pick-and-place sequence
+- **Planning Time**: &lt;2 seconds for IK solution
+- **Execution Time**: &lt;15 seconds for full pick-and-place sequence
 - **Retry Limit**: Maximum 3 attempts before failure
 
 ## Research & Evidence

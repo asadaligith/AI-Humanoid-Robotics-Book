@@ -439,7 +439,7 @@ $ python scripts/testing/benchmark_capstone.py --trials 20
 
 **Expected Results**:
 - **Success Rate**: ≥60% (per AC-001)
-- **Mean End-to-End Latency**: <60 seconds (voice → delivery)
+- **Mean End-to-End Latency**: &lt;60 seconds (voice → delivery)
 - **Navigation Success**: ≥90% (when path exists)
 - **Detection Accuracy**: ≥85% (for known objects)
 - **Grasp Success**: ≥70% (for graspable objects)
@@ -448,13 +448,13 @@ $ python scripts/testing/benchmark_capstone.py --trials 20
 
 | Phase | Target (seconds) | Typical Range |
 |-------|------------------|---------------|
-| Voice Transcription | <3 | 2-4 |
-| LLM Planning | <10 | 5-15 |
-| Navigation (3m) | <15 | 10-20 |
-| Object Detection | <2 | 1-3 |
-| Grasp Planning | <5 | 3-7 |
-| Return Navigation | <15 | 10-20 |
-| **Total** | **<50** | **31-69** |
+| Voice Transcription | &lt;3 | 2-4 |
+| LLM Planning | &lt;10 | 5-15 |
+| Navigation (3m) | &lt;15 | 10-20 |
+| Object Detection | &lt;2 | 1-3 |
+| Grasp Planning | &lt;5 | 3-7 |
+| Return Navigation | &lt;15 | 10-20 |
+| **Total** | **&lt;50** | **31-69** |
 
 ## Research & Evidence
 

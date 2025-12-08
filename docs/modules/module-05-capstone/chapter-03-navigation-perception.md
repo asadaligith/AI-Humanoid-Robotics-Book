@@ -142,8 +142,8 @@ target_objects:
 
 Per the spec, object detection must achieve:
 - **Accuracy**: ≥85% precision on target objects
-- **Latency**: <100ms per frame (10 FPS minimum)
-- **False Positives**: <5% on background clutter
+- **Latency**: &lt;100ms per frame (10 FPS minimum)
+- **False Positives**: &lt;5% on background clutter
 
 ## Integration with State Machine
 

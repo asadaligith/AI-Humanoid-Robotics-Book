@@ -12,7 +12,7 @@ Systematic performance measurement validates that the autonomous system meets ac
 
 **Qualitative assessment** ("it works sometimes") is insufficient for production deployment. **Quantitative benchmarking** provides:
 
-1. **Acceptance Validation**: Verify system meets spec requirements (60% success rate, <30s latency)
+1. **Acceptance Validation**: Verify system meets spec requirements (60% success rate, &lt;30s latency)
 2. **Bottleneck Identification**: Isolate which component limits overall performance
 3. **Regression Detection**: Catch performance degradation during development
 4. **Optimization Guidance**: Prioritize improvements based on measured impact
@@ -85,7 +85,7 @@ success_rate = (num_successes / total_trials) * 100
 
 **Definition**: Total time from voice command received to task completion
 
-**Target**: <30 seconds (mean across successful trials)
+**Target**: &lt;30 seconds (mean across successful trials)
 
 **Measurement Points**:
 - T0: Voice transcription starts
@@ -105,10 +105,10 @@ total_latency = T5 - T0
 **3. Resource Utilization**
 
 **Measured on Jetson Orin Nano 8GB**:
-- **CPU Usage**: Target <80% sustained
-- **GPU Usage**: Target <90% peak
-- **Memory**: Target <6GB (leaving 2GB safety margin)
-- **Power**: Target <15W (within thermal envelope)
+- **CPU Usage**: Target &lt;80% sustained
+- **GPU Usage**: Target &lt;90% peak
+- **Memory**: Target &lt;6GB (leaving 2GB safety margin)
+- **Power**: Target &lt;15W (within thermal envelope)
 
 ## Component-Level Analysis
 

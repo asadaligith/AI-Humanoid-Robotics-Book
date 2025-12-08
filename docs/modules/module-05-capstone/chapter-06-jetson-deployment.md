@@ -305,7 +305,7 @@ trtexec --onnx=yolov8n.onnx \
 **Validation**:
 - [ ] Voice command transcribed correctly
 - [ ] Object detection achieves ≥85% accuracy
-- [ ] End-to-end task completes in <60 seconds
+- [ ] End-to-end task completes in &lt;60 seconds
 - [ ] System stable for 30+ minutes continuous operation
 
 ## Troubleshooting

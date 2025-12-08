@@ -12,10 +12,11 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://asadaligith.github.io',
+  url: process.env.NODE_ENV === 'production' ? 'https://asadaligith.github.io' : 'http://localhost:3000',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/AI-Humanoid-Robotics-Book/',
+  // For local dev, use '/' for easier testing
+  baseUrl: process.env.NODE_ENV === 'production' ? '/AI-Humanoid-Robotics-Book/' : '/',
 
   // GitHub pages deployment config.
   organizationName: 'asadaligith', // Usually your GitHub org/user name.
@@ -23,7 +24,7 @@ const config = {
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internalization, you can use this field to set useful

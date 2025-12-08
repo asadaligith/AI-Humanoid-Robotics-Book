@@ -6,7 +6,7 @@ sidebar_position: 7
 
 ## Overview
 
-This guide documents how to test each of the five capstone capabilities **independently** before attempting full integration. Independent testing isolates failures, accelerates debugging, and validates acceptance criteria (voice: 85% accuracy, navigation: <10% failure, detection: correct bounding boxes, manipulation: 70% success).
+This guide documents how to test each of the five capstone capabilities **independently** before attempting full integration. Independent testing isolates failures, accelerates debugging, and validates acceptance criteria (voice: 85% accuracy, navigation: &lt;10% failure, detection: correct bounding boxes, manipulation: 70% success).
 
 ## Why Test Capabilities in Isolation?
 
@@ -24,7 +24,7 @@ Debugging a failed end-to-end task ("fetch the mug from the kitchen") is difficu
 
 ### Acceptance Criteria
 - **Accuracy**: ≥85% word error rate (WER) on capstone command set
-- **Latency**: <5 seconds per 3-second audio clip
+- **Latency**: &lt;5 seconds per 3-second audio clip
 - **Coverage**: Handles all 20 test commands correctly
 
 ### Test Procedure
@@ -96,7 +96,7 @@ else:
 ### Acceptance Criteria
 - **Validity**: 100% of generated plans pass JSON schema validation
 - **Correctness**: ≥90% of plans semantically match command intent
-- **Latency**: <10 seconds per planning request (API call)
+- **Latency**: &lt;10 seconds per planning request (API call)
 
 ### Test Procedure
 
@@ -185,8 +185,8 @@ else:
 
 ### Acceptance Criteria
 - **Success Rate**: ≥90% of navigation goals reached within tolerance
-- **Failure Rate**: <10% aborted due to obstacles/planning failures
-- **Latency**: <15 seconds for typical 5-meter navigation
+- **Failure Rate**: &lt;10% aborted due to obstacles/planning failures
+- **Latency**: &lt;15 seconds for typical 5-meter navigation
 
 ### Test Procedure
 
@@ -252,7 +252,7 @@ print(f"Success rate: {success_rate * 100:.1f}%")
 **4. Pass/Fail Criteria**
 
 - **PASS**: ≥90% success rate (9 out of 10 waypoints reached)
-- **PASS**: All successful navigations complete in <15 seconds
+- **PASS**: All successful navigations complete in &lt;15 seconds
 - **FAIL**: If robot collides with obstacles (check /scan topic)
 
 ### Mock Mode
@@ -273,7 +273,7 @@ else:
 ### Acceptance Criteria
 - **Precision**: ≥85% correct detections (true positives)
 - **Bounding Box Accuracy**: IoU ≥ 0.5 with ground truth
-- **Latency**: <100ms per frame (≥10 FPS)
+- **Latency**: &lt;100ms per frame (≥10 FPS)
 
 ### Test Procedure
 
@@ -352,7 +352,7 @@ print(f"Precision: {precision * 100:.1f}%")
 
 - **PASS**: Precision ≥85%
 - **PASS**: Average IoU ≥0.5 for matched detections
-- **PASS**: Inference latency <100ms per frame (measure with `/perception/annotated_image` timestamp)
+- **PASS**: Inference latency &lt;100ms per frame (measure with `/perception/annotated_image` timestamp)
 
 ### Mock Mode
 
@@ -372,7 +372,7 @@ else:
 
 ### Acceptance Criteria
 - **Success Rate**: ≥70% of pick-and-place tasks complete successfully
-- **Latency**: <15 seconds per pick-and-place sequence
+- **Latency**: &lt;15 seconds per pick-and-place sequence
 - **Failure Recovery**: Retry logic activates and succeeds within 3 attempts
 
 ### Test Procedure
@@ -483,7 +483,7 @@ ros2 topic pub /voice/user_command std_msgs/String \
 - T+60s: Place and task complete
 
 **Integration Pass Criteria**:
-- Task completes successfully in <90 seconds
+- Task completes successfully in &lt;90 seconds
 - No failures in nominal scenario (all objects present, no obstacles)
 - Graceful degradation in edge cases (object not found → clarification)
 
@@ -510,8 +510,8 @@ Mock modes provide critical advantages for both development velocity and debuggi
 | Voice WER >20% | Background noise, poor microphone | Use headset mic, test in quiet room |
 | LLM invalid JSON | Prompt template outdated | Update prompt in `llm_prompts.md` contract |
 | Navigation aborts | Costmap inflation too conservative | Reduce `inflation_radius` in `nav2_params.yaml` |
-| Detection precision <70% | Wrong YOLO model or low confidence | Use YOLOv8m (not nano), lower threshold to 0.5 |
-| Manipulation <50% success | IK solver failing | Check joint limits, simplify target poses |
+| Detection precision &lt;70% | Wrong YOLO model or low confidence | Use YOLOv8m (not nano), lower threshold to 0.5 |
+| Manipulation &lt;50% success | IK solver failing | Check joint limits, simplify target poses |
 
 ---
 
@@ -523,7 +523,7 @@ Effective isolation testing requires systematic methodology to avoid common mist
 
 **Pitfall 2: Insufficient Test Dataset Diversity**. Testing with only 5-10 similar commands (e.g., "get the mug", "fetch the cup") produces artificially high success rates that collapse in production when users issue diverse commands. Best practice: Create test datasets with 20+ commands covering edge cases—ambiguous objects ("get the red thing"), multi-step tasks ("bring the mug and then navigate to the bedroom"), unknown locations ("find the remote"), and negation ("don't pick up the apple"). Acceptance criteria should hold across this diverse dataset, not just nominal cases.
 
-**Pitfall 3: Ignoring Latency Targets During Development**. Functional correctness ("it eventually works") is insufficient—autonomous systems must meet strict latency requirements to be practically useful. A navigation system that succeeds 100% but takes 45 seconds for a 5-meter path fails the <15 second acceptance criterion. Best practice: Measure and log latency for every test trial using ROS 2 timestamps, not wall-clock time. Track p50, p95, and p99 latencies to detect performance regressions early, before they compound into unacceptable end-to-end delays.
+**Pitfall 3: Ignoring Latency Targets During Development**. Functional correctness ("it eventually works") is insufficient—autonomous systems must meet strict latency requirements to be practically useful. A navigation system that succeeds 100% but takes 45 seconds for a 5-meter path fails the &lt;15 second acceptance criterion. Best practice: Measure and log latency for every test trial using ROS 2 timestamps, not wall-clock time. Track p50, p95, and p99 latencies to detect performance regressions early, before they compound into unacceptable end-to-end delays.
 
 ---
 
@@ -539,6 +539,6 @@ Independent capability testing is **essential** for validating complex autonomou
 
 ✅ **Parallelize development** (team members can work on separate capabilities)
 
-Once all five capabilities pass independent tests, full integration has a **>90% probability of success** on the first attempt—compared to <20% without isolation testing.
+Once all five capabilities pass independent tests, full integration has a **>90% probability of success** on the first attempt—compared to &lt;20% without isolation testing.
 
 **Next Steps**: Return to [Chapter 1: System Architecture](chapter-01-architecture.md) to see how these capabilities integrate, or proceed to [Performance Benchmarking](benchmarking.md) to measure end-to-end system performance.
