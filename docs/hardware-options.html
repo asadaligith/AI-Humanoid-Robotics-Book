@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-hardware-options" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Hardware Options | AI Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/hardware-options"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Hardware Options | AI Humanoid Robotics Book"><meta data-rh="true" name="description" content="This page provides guidance on selecting hardware for running the AI Humanoid Robotics Book examples, from simulation-only setups to real robot deployment."><meta data-rh="true" property="og:description" content="This page provides guidance on selecting hardware for running the AI Humanoid Robotics Book examples, from simulation-only setups to real robot deployment."><link data-rh="true" rel="icon" href="/AI-Humanoid-Robotics-Book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/hardware-options"><link data-rh="true" rel="alternate" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/hardware-options" hreflang="en"><link data-rh="true" rel="alternate" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/hardware-options" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hardware Options","item":"https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/hardware-options"}]}</script><link rel="stylesheet" href="/AI-Humanoid-Robotics-Book/assets/css/styles.022f424d.css">
+<script src="/AI-Humanoid-Robotics-Book/assets/js/runtime~main.7cf3a0ed.js" defer="defer"></script>
+<script src="/AI-Humanoid-Robotics-Book/assets/js/main.703da1ed.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/AI-Humanoid-Robotics-Book/"><div class="navbar__logo"><img src="/AI-Humanoid-Robotics-Book/img/logo.svg" alt="AI Humanoid Robotics Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/AI-Humanoid-Robotics-Book/img/logo.svg" alt="AI Humanoid Robotics Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">AI Humanoid Robotics</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/AI-Humanoid-Robotics-Book/docs/intro">Book</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AI-Humanoid-Robotics-Book/docs/intro"><span title="🏠 Getting Started" class="linkLabel_WmDU">🏠 Getting Started</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AI-Humanoid-Robotics-Book/docs/preface"><span title="Preface" class="linkLabel_WmDU">Preface</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AI-Humanoid-Robotics-Book/docs/how-to-use"><span title="How to Use This Book" class="linkLabel_WmDU">How to Use This Book</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/AI-Humanoid-Robotics-Book/docs/hardware-options"><span title="Hardware Options" class="linkLabel_WmDU">Hardware Options</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AI-Humanoid-Robotics-Book/docs/conventions"><span title="Conventions and Notation" class="linkLabel_WmDU">Conventions and Notation</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone"><span title="📚 Course Modules" class="categoryLinkLabel_W154">📚 Course Modules</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone"><span title="🤖 Module 05: Autonomous Humanoid Capstone" class="categoryLinkLabel_W154">🤖 Module 05: Autonomous Humanoid Capstone</span></a><button aria-label="Collapse sidebar category &#x27;🤖 Module 05: Autonomous Humanoid Capstone&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone/chapter-01-architecture"><span title="1️⃣ System Architecture" class="linkLabel_WmDU">1️⃣ System Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone/chapter-02-voice-llm"><span title="2️⃣ Voice &amp; LLM Integration" class="linkLabel_WmDU">2️⃣ Voice &amp; LLM Integration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone/chapter-03-navigation-perception"><span title="3️⃣ Navigation &amp; Perception" class="linkLabel_WmDU">3️⃣ Navigation &amp; Perception</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone/chapter-04-manipulation"><span title="4️⃣ Manipulation" class="linkLabel_WmDU">4️⃣ Manipulation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone/chapter-05-simulation-deployment"><span title="5️⃣ Simulation &amp; Deployment" class="linkLabel_WmDU">5️⃣ Simulation &amp; Deployment</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone/chapter-06-jetson-deployment"><span title="6️⃣ Jetson Hardware Deployment" class="linkLabel_WmDU">6️⃣ Jetson Hardware Deployment</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone/testing-methodology"><span title="🧪 Testing &amp; Validation" class="categoryLinkLabel_W154">🧪 Testing &amp; Validation</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone/troubleshooting"><span title="🔧 Troubleshooting" class="linkLabel_WmDU">🔧 Troubleshooting</span></a></li></ul></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/AI-Humanoid-Robotics-Book/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Hardware Options</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Hardware Options</h1></header>
+<p>This page provides guidance on selecting hardware for running the AI Humanoid Robotics Book examples, from simulation-only setups to real robot deployment.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h2>
+<p>You can complete this entire book using <strong>simulation only</strong> on a standard desktop or laptop. Physical hardware is <strong>optional</strong> and only required if you want to deploy to real robots.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hardware-tiers">Hardware Tiers<a href="#hardware-tiers" class="hash-link" aria-label="Direct link to Hardware Tiers" title="Direct link to Hardware Tiers" translate="no">​</a></h3>
+<table><thead><tr><th>Tier</th><th>Use Case</th><th>Estimated Cost</th><th>Performance</th></tr></thead><tbody><tr><td><strong>Minimum</strong></td><td>Simulation only (Gazebo)</td><td>$500-800</td><td>Basic ROS 2, limited AI</td></tr><tr><td><strong>Recommended</strong></td><td>Full simulation (Isaac Sim + AI)</td><td>$1,200-1,800</td><td>All modules, good performance</td></tr><tr><td><strong>Embedded</strong></td><td>Real robot deployment</td><td>$400-600 (compute only)</td><td>Edge inference, mobile</td></tr><tr><td><strong>Cloud</strong></td><td>No local hardware</td><td>$0.50-2.00/hour</td><td>Scalable, pay-per-use</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="recommended-configuration-from-spec">Recommended Configuration (From Spec)<a href="#recommended-configuration-from-spec" class="hash-link" aria-label="Direct link to Recommended Configuration (From Spec)" title="Direct link to Recommended Configuration (From Spec)" translate="no">​</a></h2>
+<p>This is the <strong>baseline configuration</strong> used for all book examples and verified through clarifications:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="desktoplaptop">Desktop/Laptop<a href="#desktoplaptop" class="hash-link" aria-label="Direct link to Desktop/Laptop" title="Direct link to Desktop/Laptop" translate="no">​</a></h3>
+<p><strong>CPU</strong>: 6-core processor or better</p>
+<ul>
+<li class="">Intel Core i5-12400 / i5-13400</li>
+<li class="">AMD Ryzen 5 5600X / 5600</li>
+<li class="">Base clock: 3.0+ GHz</li>
+</ul>
+<p><strong>GPU</strong>: NVIDIA RTX 3060 6GB or equivalent</p>
+<ul>
+<li class="">CUDA Compute Capability: 8.6+</li>
+<li class="">VRAM: 6GB minimum for Isaac Sim</li>
+<li class="">Ray tracing cores (useful for photorealistic rendering)</li>
+</ul>
+<p><strong>Memory</strong>: 16GB DDR4/DDR5</p>
+<ul>
+<li class="">3200MHz or faster recommended</li>
+<li class="">Dual-channel configuration</li>
+</ul>
+<p><strong>Storage</strong>: 100GB+ free SSD space</p>
+<ul>
+<li class="">NVMe SSD strongly recommended for Isaac Sim</li>
+<li class="">SATA SSD acceptable for Gazebo-only workflows</li>
+</ul>
+<p><strong>Operating System</strong>: Ubuntu 22.04 LTS</p>
+<ul>
+<li class="">Native installation (dual-boot or dedicated machine)</li>
+<li class="">WSL2 on Windows 11 (limited support, simulation only)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-this-configuration">Why This Configuration?<a href="#why-this-configuration" class="hash-link" aria-label="Direct link to Why This Configuration?" title="Direct link to Why This Configuration?" translate="no">​</a></h3>
+<p><strong>From Clarification Session 2025-12-07</strong>:</p>
+<blockquote>
+<p>Q: What are the recommended hardware specifications for running simulations?
+A: <strong>Mid-range desktop with 16GB RAM, RTX 3060, 6-core CPU</strong></p>
+</blockquote>
+<p><strong>Rationale</strong>:</p>
+<ul>
+<li class=""><strong>6-core CPU</strong>: Handles ROS 2 nodes, simulation physics, AI inference concurrently</li>
+<li class=""><strong>RTX 3060 6GB</strong>: Minimum for Isaac Sim + real-time object detection</li>
+<li class=""><strong>16GB RAM</strong>: Sufficient for ROS 2 workspace + Gazebo/Isaac Sim + models</li>
+<li class=""><strong>100GB SSD</strong>: ROS 2 (10GB) + Isaac Sim (50GB) + datasets (20GB) + workspace (20GB)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="minimum-configuration-budget">Minimum Configuration (Budget)<a href="#minimum-configuration-budget" class="hash-link" aria-label="Direct link to Minimum Configuration (Budget)" title="Direct link to Minimum Configuration (Budget)" translate="no">​</a></h2>
+<p>For students with budget constraints, this setup runs <strong>Gazebo only</strong> (no Isaac Sim):</p>
+<p><strong>CPU</strong>: 4-core processor</p>
+<ul>
+<li class="">Intel Core i3-12100 / AMD Ryzen 3 4100</li>
+<li class="">Integrated graphics acceptable</li>
+</ul>
+<p><strong>GPU</strong>: Not required (CPU fallback)</p>
+<ul>
+<li class="">Integrated Intel/AMD graphics</li>
+<li class="">NVIDIA GTX 1650 (optional, improves performance)</li>
+</ul>
+<p><strong>Memory</strong>: 8GB RAM</p>
+<ul>
+<li class="">Expect slower performance with large models</li>
+</ul>
+<p><strong>Storage</strong>: 50GB free SSD space</p>
+<p><strong>Limitations</strong>:</p>
+<ul>
+<li class="">⚠️ Cannot run Isaac Sim (requires NVIDIA RTX GPU)</li>
+<li class="">⚠️ Limited AI model training (use pre-trained models)</li>
+<li class="">⚠️ Slower Gazebo rendering with complex scenes</li>
+<li class="">✅ Can complete Modules 1-2 and most of Module 3</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="embedded-deployment-real-robots">Embedded Deployment (Real Robots)<a href="#embedded-deployment-real-robots" class="hash-link" aria-label="Direct link to Embedded Deployment (Real Robots)" title="Direct link to Embedded Deployment (Real Robots)" translate="no">​</a></h2>
+<p>For deploying to physical humanoid robots, use embedded computing platforms:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="nvidia-jetson-orin-nano-8gb">NVIDIA Jetson Orin Nano 8GB<a href="#nvidia-jetson-orin-nano-8gb" class="hash-link" aria-label="Direct link to NVIDIA Jetson Orin Nano 8GB" title="Direct link to NVIDIA Jetson Orin Nano 8GB" translate="no">​</a></h3>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li class=""><strong>GPU</strong>: 1024-core NVIDIA Ampere with 32 Tensor Cores</li>
+<li class=""><strong>CPU</strong>: 6-core ARM Cortex-A78AE (up to 2.0 GHz)</li>
+<li class=""><strong>Memory</strong>: 8GB LPDDR5 (128-bit)</li>
+<li class=""><strong>Storage</strong>: microSD (64GB+), NVMe SSD supported</li>
+<li class=""><strong>Power</strong>: 7W - 15W configurable</li>
+<li class=""><strong>I/O</strong>: GPIO, I2C, SPI, UART, USB 3.2, Gigabit Ethernet, CSI camera</li>
+</ul>
+<p><strong>Cost</strong>: ~$499 (Developer Kit)</p>
+<p><strong>Use Case</strong>:</p>
+<ul>
+<li class="">Onboard inference for object detection (COCO 20+ classes)</li>
+<li class="">VSLAM and Nav2 navigation</li>
+<li class="">Claude API calls (cloud-based task planning)</li>
+<li class="">Real-time sensor fusion</li>
+</ul>
+<p><strong>Performance</strong>:</p>
+<ul>
+<li class="">Object detection: 15-20 FPS (YOLOv8 medium)</li>
+<li class="">Navigation: Full Nav2 stack supported</li>
+<li class="">Voice transcription: Whisper base model (edge)</li>
+</ul>
+<p><strong>Limitations</strong>:</p>
+<ul>
+<li class="">Cannot train models (use pre-trained or cloud training)</li>
+<li class="">Limited simultaneous AI workloads</li>
+<li class="">Requires power optimization for battery operation</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternative-raspberry-pi-5-8gb">Alternative: Raspberry Pi 5 (8GB)<a href="#alternative-raspberry-pi-5-8gb" class="hash-link" aria-label="Direct link to Alternative: Raspberry Pi 5 (8GB)" title="Direct link to Alternative: Raspberry Pi 5 (8GB)" translate="no">​</a></h3>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li class=""><strong>CPU</strong>: Quad-core ARM Cortex-A76 (2.4 GHz)</li>
+<li class=""><strong>GPU</strong>: VideoCore VII (no CUDA)</li>
+<li class=""><strong>Memory</strong>: 8GB LPDDR4X</li>
+<li class=""><strong>Cost</strong>: ~$80 (board only)</li>
+</ul>
+<p><strong>Use Case</strong>:</p>
+<ul>
+<li class="">Low-cost ROS 2 experiments</li>
+<li class="">Sensor data collection</li>
+<li class="">Basic navigation (no AI perception)</li>
+</ul>
+<p><strong>Limitations</strong>:</p>
+<ul>
+<li class="">⚠️ No GPU acceleration for AI</li>
+<li class="">⚠️ Cannot run object detection in real-time</li>
+<li class="">⚠️ Limited to simple control tasks</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cloud-based-options">Cloud-Based Options<a href="#cloud-based-options" class="hash-link" aria-label="Direct link to Cloud-Based Options" title="Direct link to Cloud-Based Options" translate="no">​</a></h2>
+<p>For students without suitable hardware, use cloud GPU instances:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="aws-ec2-g4dn-instances">AWS EC2 G4dn Instances<a href="#aws-ec2-g4dn-instances" class="hash-link" aria-label="Direct link to AWS EC2 G4dn Instances" title="Direct link to AWS EC2 G4dn Instances" translate="no">​</a></h3>
+<p><strong>Recommended</strong>: <code>g4dn.xlarge</code></p>
+<ul>
+<li class=""><strong>GPU</strong>: NVIDIA T4 (16GB VRAM)</li>
+<li class=""><strong>CPU</strong>: 4 vCPUs (Intel Xeon)</li>
+<li class=""><strong>Memory</strong>: 16GB</li>
+<li class=""><strong>Storage</strong>: EBS (provision 100GB+)</li>
+<li class=""><strong>Cost</strong>: <del>$0.526/hour on-demand (</del>$1.00/hour with full setup)</li>
+</ul>
+<p><strong>Setup</strong>:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># Launch Ubuntu 22.04 Deep Learning AMI</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Pre-installed: CUDA, cuDNN, Docker, NVIDIA drivers</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Install ROS 2 Humble</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> update</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> ros-humble-desktop</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Install Isaac Sim (via Omniverse)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Follow NVIDIA Isaac Sim installation guide</span><br></span></code></pre></div></div>
+<p><strong>Estimated Monthly Cost</strong> (part-time usage):</p>
+<ul>
+<li class="">20 hours/month: ~$20</li>
+<li class="">40 hours/month: ~$40</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="google-cloud-platform-gcp">Google Cloud Platform (GCP)<a href="#google-cloud-platform-gcp" class="hash-link" aria-label="Direct link to Google Cloud Platform (GCP)" title="Direct link to Google Cloud Platform (GCP)" translate="no">​</a></h3>
+<p><strong>Recommended</strong>: <code>n1-standard-4</code> + NVIDIA T4</p>
+<ul>
+<li class="">Similar specs to AWS G4dn</li>
+<li class="">Cost: ~$0.35/hour (compute) + $0.35/hour (GPU) = $0.70/hour</li>
+<li class="">Preemptible instances: ~$0.25/hour (can be interrupted)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="paperspace-gradient">Paperspace Gradient<a href="#paperspace-gradient" class="hash-link" aria-label="Direct link to Paperspace Gradient" title="Direct link to Paperspace Gradient" translate="no">​</a></h3>
+<p><strong>Recommended</strong>: P4000 or RTX 4000 instances</p>
+<ul>
+<li class=""><strong>Cost</strong>: $0.51/hour (P4000), $0.76/hour (RTX 4000)</li>
+<li class=""><strong>Benefit</strong>: Jupyter notebook interface, easier for beginners</li>
+<li class=""><strong>Drawback</strong>: Less control than AWS/GCP</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cloud-limitations">Cloud Limitations<a href="#cloud-limitations" class="hash-link" aria-label="Direct link to Cloud Limitations" title="Direct link to Cloud Limitations" translate="no">​</a></h3>
+<ul>
+<li class="">⚠️ No persistent state (save work frequently)</li>
+<li class="">⚠️ Network latency for remote desktop</li>
+<li class="">⚠️ Data transfer costs for large datasets</li>
+<li class="">✅ No upfront hardware investment</li>
+<li class="">✅ Access to powerful GPUs on-demand</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="component-comparison">Component Comparison<a href="#component-comparison" class="hash-link" aria-label="Direct link to Component Comparison" title="Direct link to Component Comparison" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="gpu-options">GPU Options<a href="#gpu-options" class="hash-link" aria-label="Direct link to GPU Options" title="Direct link to GPU Options" translate="no">​</a></h3>
+<table><thead><tr><th>GPU Model</th><th>VRAM</th><th>CUDA Cores</th><th>Cost</th><th>Isaac Sim</th><th>Object Detection</th><th>Training</th></tr></thead><tbody><tr><td><strong>RTX 3060</strong></td><td>6GB</td><td>3584</td><td>$300</td><td>✅ Yes</td><td>✅ 25+ FPS</td><td>⚠️ Small models</td></tr><tr><td><strong>RTX 3070</strong></td><td>8GB</td><td>5888</td><td>$500</td><td>✅ Yes</td><td>✅ 40+ FPS</td><td>✅ Medium models</td></tr><tr><td><strong>RTX 4060 Ti</strong></td><td>8GB/16GB</td><td>4352</td><td>$400/$500</td><td>✅ Yes</td><td>✅ 50+ FPS</td><td>✅ Medium models</td></tr><tr><td><strong>RTX 4070</strong></td><td>12GB</td><td>5888</td><td>$600</td><td>✅ Yes</td><td>✅ 60+ FPS</td><td>✅ Large models</td></tr><tr><td>GTX 1650</td><td>4GB</td><td>896</td><td>$150</td><td>❌ No</td><td>⚠️ 8-10 FPS</td><td>❌ No</td></tr><tr><td>AMD RX 6600</td><td>8GB</td><td>N/A</td><td>$250</td><td>❌ No CUDA</td><td>❌ No</td><td>❌ No</td></tr></tbody></table>
+<p><strong>Key Takeaway</strong>: NVIDIA RTX series required for Isaac Sim. RTX 3060 is the minimum viable GPU.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cpu-options">CPU Options<a href="#cpu-options" class="hash-link" aria-label="Direct link to CPU Options" title="Direct link to CPU Options" translate="no">​</a></h3>
+<table><thead><tr><th>CPU Model</th><th>Cores</th><th>Base/Boost Clock</th><th>Cost</th><th>ROS 2 + Gazebo</th><th>ROS 2 + Isaac Sim</th></tr></thead><tbody><tr><td><strong>Intel i5-12400</strong></td><td>6 (6P)</td><td>2.5/4.4 GHz</td><td>$180</td><td>✅ Good</td><td>✅ Recommended</td></tr><tr><td><strong>AMD Ryzen 5 5600X</strong></td><td>6</td><td>3.7/4.6 GHz</td><td>$200</td><td>✅ Good</td><td>✅ Recommended</td></tr><tr><td>Intel i5-13400</td><td>10 (6P+4E)</td><td>2.5/4.6 GHz</td><td>$220</td><td>✅ Excellent</td><td>✅ Excellent</td></tr><tr><td>AMD Ryzen 7 5800X</td><td>8</td><td>3.8/4.7 GHz</td><td>$280</td><td>✅ Excellent</td><td>✅ Excellent</td></tr><tr><td>Intel i3-12100</td><td>4</td><td>3.3/4.3 GHz</td><td>$120</td><td>⚠️ Adequate</td><td>❌ Insufficient</td></tr></tbody></table>
+<p><strong>Key Takeaway</strong>: 6+ cores recommended. Intel 12th gen or AMD Ryzen 5000 series for best value.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="memory-requirements">Memory Requirements<a href="#memory-requirements" class="hash-link" aria-label="Direct link to Memory Requirements" title="Direct link to Memory Requirements" translate="no">​</a></h3>
+<table><thead><tr><th>Use Case</th><th>Minimum</th><th>Recommended</th><th>Optimal</th></tr></thead><tbody><tr><td>ROS 2 + Gazebo</td><td>8GB</td><td>16GB</td><td>32GB</td></tr><tr><td>ROS 2 + Isaac Sim</td><td>16GB</td><td>32GB</td><td>64GB</td></tr><tr><td>Training models locally</td><td>16GB</td><td>32GB</td><td>64GB+</td></tr><tr><td>Embedded (Jetson)</td><td>4GB</td><td>8GB</td><td>16GB (AGX)</td></tr></tbody></table>
+<p><strong>Memory Breakdown</strong> (16GB system running Isaac Sim):</p>
+<ul>
+<li class="">Ubuntu + desktop: 2GB</li>
+<li class="">ROS 2 workspace: 1GB</li>
+<li class="">Isaac Sim: 6-8GB</li>
+<li class="">AI models (inference): 2-3GB</li>
+<li class="">Buffers/overhead: 2-3GB</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="storage-considerations">Storage Considerations<a href="#storage-considerations" class="hash-link" aria-label="Direct link to Storage Considerations" title="Direct link to Storage Considerations" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="disk-space-requirements">Disk Space Requirements<a href="#disk-space-requirements" class="hash-link" aria-label="Direct link to Disk Space Requirements" title="Direct link to Disk Space Requirements" translate="no">​</a></h3>
+<table><thead><tr><th>Component</th><th>Space Required</th><th>Type</th></tr></thead><tbody><tr><td>Ubuntu 22.04</td><td>10GB</td><td>OS</td></tr><tr><td>ROS 2 Humble</td><td>5-8GB</td><td>Framework</td></tr><tr><td>Gazebo Fortress</td><td>2GB</td><td>Simulation</td></tr><tr><td>Isaac Sim 2023.1</td><td>50GB</td><td>Simulation + assets</td></tr><tr><td>COCO dataset</td><td>20GB</td><td>Training data</td></tr><tr><td>ROS 2 workspace</td><td>5-10GB</td><td>Code + builds</td></tr><tr><td>Bag files (recordings)</td><td>10-20GB</td><td>Data logs</td></tr><tr><td><strong>Total</strong></td><td><strong>100-120GB</strong></td><td></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ssd-vs-hdd">SSD vs HDD<a href="#ssd-vs-hdd" class="hash-link" aria-label="Direct link to SSD vs HDD" title="Direct link to SSD vs HDD" translate="no">​</a></h3>
+<p><strong>NVMe SSD</strong> (recommended for Isaac Sim):</p>
+<ul>
+<li class="">3000+ MB/s read/write</li>
+<li class="">Low latency for asset streaming</li>
+<li class="">Examples: Samsung 980 Pro, WD Black SN850</li>
+</ul>
+<p><strong>SATA SSD</strong> (acceptable for Gazebo):</p>
+<ul>
+<li class="">500+ MB/s read/write</li>
+<li class="">Sufficient for ROS 2 development</li>
+</ul>
+<p><strong>HDD</strong> (not recommended):</p>
+<ul>
+<li class="">❌ Slow Isaac Sim loading (minutes vs seconds)</li>
+<li class="">❌ Slow ROS 2 bag playback</li>
+<li class="">❌ Poor development experience</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="peripherals-and-accessories">Peripherals and Accessories<a href="#peripherals-and-accessories" class="hash-link" aria-label="Direct link to Peripherals and Accessories" title="Direct link to Peripherals and Accessories" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-development">For Development<a href="#for-development" class="hash-link" aria-label="Direct link to For Development" title="Direct link to For Development" translate="no">​</a></h3>
+<p><strong>Recommended</strong>:</p>
+<ul>
+<li class=""><strong>Webcam</strong>: Logitech C920 or better (testing vision pipelines)</li>
+<li class=""><strong>Microphone</strong>: USB microphone for Whisper testing</li>
+<li class=""><strong>Monitor</strong>: 1920x1080 minimum (1440p recommended for multi-window)</li>
+<li class=""><strong>Ethernet</strong>: Wired connection for stable ROS 2 communication</li>
+</ul>
+<p><strong>Optional</strong>:</p>
+<ul>
+<li class=""><strong>3D Mouse</strong>: SpaceMouse for Gazebo/Isaac Sim navigation</li>
+<li class=""><strong>Game Controller</strong>: Xbox/PS controller for teleoperation</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-physical-robot-deployment">For Physical Robot Deployment<a href="#for-physical-robot-deployment" class="hash-link" aria-label="Direct link to For Physical Robot Deployment" title="Direct link to For Physical Robot Deployment" translate="no">​</a></h3>
+<p><strong>Sensors</strong>:</p>
+<ul>
+<li class="">Intel RealSense D435i (~$300): RGB-D camera + IMU</li>
+<li class="">Hokuyo/SICK LIDAR (~$1000+): 2D laser scanning</li>
+<li class="">IMU: BNO055 (~$30) or higher-grade</li>
+</ul>
+<p><strong>Actuators</strong>:</p>
+<ul>
+<li class="">Dynamixel servos (MX/XM/X series): ~$50-200 each</li>
+<li class="">DC motors + encoders: Budget alternative</li>
+</ul>
+<p><strong>Power</strong>:</p>
+<ul>
+<li class="">LiPo battery: 14.8V 4S, 5000+ mAh</li>
+<li class="">Voltage regulators: 5V/12V for sensors and compute</li>
+</ul>
+<p><strong>Communication</strong>:</p>
+<ul>
+<li class="">Wi-Fi 6 router: Low-latency robot telemetry</li>
+<li class="">Ethernet switch: Wired sensor connections</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cost-estimates">Cost Estimates<a href="#cost-estimates" class="hash-link" aria-label="Direct link to Cost Estimates" title="Direct link to Cost Estimates" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="full-setup-costs">Full Setup Costs<a href="#full-setup-costs" class="hash-link" aria-label="Direct link to Full Setup Costs" title="Direct link to Full Setup Costs" translate="no">​</a></h3>
+<p><strong>Simulation-Only (Recommended)</strong>:</p>
+<ul>
+<li class="">Desktop PC (RTX 3060 build): $1,200-1,500</li>
+<li class="">Monitor + peripherals: $200-300</li>
+<li class=""><strong>Total</strong>: ~$1,500-1,800</li>
+</ul>
+<p><strong>Embedded Deployment</strong>:</p>
+<ul>
+<li class="">Jetson Orin Nano Dev Kit: $500</li>
+<li class="">RealSense D435i: $300</li>
+<li class="">Sensors + actuators: $500-1,000</li>
+<li class="">Mechanical parts: $300-500</li>
+<li class=""><strong>Total</strong>: ~$1,600-2,300 (plus simulation PC)</li>
+</ul>
+<p><strong>Cloud-Only (No Hardware)</strong>:</p>
+<ul>
+<li class="">AWS g4dn.xlarge: $0.50/hour</li>
+<li class="">40 hours/month for 4 months: ~$160 total</li>
+<li class=""><strong>Total</strong>: ~$160 (course duration)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="recommendations-by-student-profile">Recommendations by Student Profile<a href="#recommendations-by-student-profile" class="hash-link" aria-label="Direct link to Recommendations by Student Profile" title="Direct link to Recommendations by Student Profile" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="undergraduate-student-budget-conscious">Undergraduate Student (Budget-Conscious)<a href="#undergraduate-student-budget-conscious" class="hash-link" aria-label="Direct link to Undergraduate Student (Budget-Conscious)" title="Direct link to Undergraduate Student (Budget-Conscious)" translate="no">​</a></h3>
+<p><strong>Recommended</strong>: Cloud + Budget Laptop</p>
+<ul>
+<li class="">Use AWS/Paperspace for Isaac Sim work</li>
+<li class="">Budget laptop for ROS 2 coding (no simulation)</li>
+<li class=""><strong>Cost</strong>: ~$500 (laptop) + $100-200 (cloud)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="graduate-student--professional">Graduate Student / Professional<a href="#graduate-student--professional" class="hash-link" aria-label="Direct link to Graduate Student / Professional" title="Direct link to Graduate Student / Professional" translate="no">​</a></h3>
+<p><strong>Recommended</strong>: Mid-range Desktop</p>
+<ul>
+<li class="">RTX 3060 or 4060 desktop</li>
+<li class="">Run all modules locally</li>
+<li class=""><strong>Cost</strong>: ~$1,500-1,800</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="robotics-lab--team">Robotics Lab / Team<a href="#robotics-lab--team" class="hash-link" aria-label="Direct link to Robotics Lab / Team" title="Direct link to Robotics Lab / Team" translate="no">​</a></h3>
+<p><strong>Recommended</strong>: High-end Desktop + Embedded</p>
+<ul>
+<li class="">RTX 4070 or 4080 desktop (shared)</li>
+<li class="">Jetson Orin Nano for each team member</li>
+<li class=""><strong>Cost</strong>: ~$2,500-3,500</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hobbyist--self-learner">Hobbyist / Self-Learner<a href="#hobbyist--self-learner" class="hash-link" aria-label="Direct link to Hobbyist / Self-Learner" title="Direct link to Hobbyist / Self-Learner" translate="no">​</a></h3>
+<p><strong>Recommended</strong>: Gaming Laptop (if available)</p>
+<ul>
+<li class="">Repurpose existing gaming laptop with RTX 3060+</li>
+<li class="">Dual-boot Ubuntu 22.04</li>
+<li class=""><strong>Cost</strong>: $0 (if already owned)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="setup-guides">Setup Guides<a href="#setup-guides" class="hash-link" aria-label="Direct link to Setup Guides" title="Direct link to Setup Guides" translate="no">​</a></h2>
+<p>Detailed setup instructions for each hardware option are available in:</p>
+<ul>
+<li class=""><a class="" href="/AI-Humanoid-Robotics-Book/docs/appendices/environment-setup">Environment Setup Appendix</a>: Ubuntu, ROS 2, Gazebo, Isaac Sim installation</li>
+<li class=""><a class="" href="/AI-Humanoid-Robotics-Book/docs/.github/docker/ros2-humble.Dockerfile">Docker Configuration</a>: Reproducible environments</li>
+<li class="">Module-specific guides: Hardware integration in Module 5</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="frequently-asked-questions">Frequently Asked Questions<a href="#frequently-asked-questions" class="hash-link" aria-label="Direct link to Frequently Asked Questions" title="Direct link to Frequently Asked Questions" translate="no">​</a></h2>
+<p><strong>Q: Can I use Windows instead of Ubuntu?</strong>
+A: Windows 11 with WSL2 works for ROS 2 development and Gazebo, but Isaac Sim requires native Linux. Dual-boot recommended.</p>
+<p><strong>Q: Can I use a MacBook?</strong>
+A: ARM-based Macs (M1/M2/M3) cannot run ROS 2 natively or Isaac Sim. Use cloud instances or virtualization (limited support).</p>
+<p><strong>Q: Is AMD GPU supported?</strong>
+A: AMD GPUs work for Gazebo but not for Isaac Sim (requires NVIDIA CUDA). NVIDIA GPUs strongly recommended.</p>
+<p><strong>Q: Can I run this on a virtual machine?</strong>
+A: VMs can run ROS 2 and Gazebo (with GPU passthrough) but Isaac Sim is not supported in VMs. Use cloud instances instead.</p>
+<p><strong>Q: What if I already have different hardware?</strong>
+A: If you have 8+ cores, 16GB+ RAM, and an RTX 2060+, you can likely run everything. Test Isaac Sim compatibility first.</p>
+<hr>
+<p><strong>Need help choosing?</strong> Ask in <a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book/discussions" target="_blank" rel="noopener noreferrer" class="">GitHub Discussions</a> or consult the <a class="" href="/AI-Humanoid-Robotics-Book/docs/appendices/environment-setup">Environment Setup Guide</a>.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book/tree/main/docs/hardware-options.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/AI-Humanoid-Robotics-Book/docs/how-to-use"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">How to Use This Book</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/AI-Humanoid-Robotics-Book/docs/conventions"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Conventions and Notation</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a><ul><li><a href="#hardware-tiers" class="table-of-contents__link toc-highlight">Hardware Tiers</a></li></ul></li><li><a href="#recommended-configuration-from-spec" class="table-of-contents__link toc-highlight">Recommended Configuration (From Spec)</a><ul><li><a href="#desktoplaptop" class="table-of-contents__link toc-highlight">Desktop/Laptop</a></li><li><a href="#why-this-configuration" class="table-of-contents__link toc-highlight">Why This Configuration?</a></li></ul></li><li><a href="#minimum-configuration-budget" class="table-of-contents__link toc-highlight">Minimum Configuration (Budget)</a></li><li><a href="#embedded-deployment-real-robots" class="table-of-contents__link toc-highlight">Embedded Deployment (Real Robots)</a><ul><li><a href="#nvidia-jetson-orin-nano-8gb" class="table-of-contents__link toc-highlight">NVIDIA Jetson Orin Nano 8GB</a></li><li><a href="#alternative-raspberry-pi-5-8gb" class="table-of-contents__link toc-highlight">Alternative: Raspberry Pi 5 (8GB)</a></li></ul></li><li><a href="#cloud-based-options" class="table-of-contents__link toc-highlight">Cloud-Based Options</a><ul><li><a href="#aws-ec2-g4dn-instances" class="table-of-contents__link toc-highlight">AWS EC2 G4dn Instances</a></li><li><a href="#google-cloud-platform-gcp" class="table-of-contents__link toc-highlight">Google Cloud Platform (GCP)</a></li><li><a href="#paperspace-gradient" class="table-of-contents__link toc-highlight">Paperspace Gradient</a></li><li><a href="#cloud-limitations" class="table-of-contents__link toc-highlight">Cloud Limitations</a></li></ul></li><li><a href="#component-comparison" class="table-of-contents__link toc-highlight">Component Comparison</a><ul><li><a href="#gpu-options" class="table-of-contents__link toc-highlight">GPU Options</a></li><li><a href="#cpu-options" class="table-of-contents__link toc-highlight">CPU Options</a></li><li><a href="#memory-requirements" class="table-of-contents__link toc-highlight">Memory Requirements</a></li></ul></li><li><a href="#storage-considerations" class="table-of-contents__link toc-highlight">Storage Considerations</a><ul><li><a href="#disk-space-requirements" class="table-of-contents__link toc-highlight">Disk Space Requirements</a></li><li><a href="#ssd-vs-hdd" class="table-of-contents__link toc-highlight">SSD vs HDD</a></li></ul></li><li><a href="#peripherals-and-accessories" class="table-of-contents__link toc-highlight">Peripherals and Accessories</a><ul><li><a href="#for-development" class="table-of-contents__link toc-highlight">For Development</a></li><li><a href="#for-physical-robot-deployment" class="table-of-contents__link toc-highlight">For Physical Robot Deployment</a></li></ul></li><li><a href="#cost-estimates" class="table-of-contents__link toc-highlight">Cost Estimates</a><ul><li><a href="#full-setup-costs" class="table-of-contents__link toc-highlight">Full Setup Costs</a></li></ul></li><li><a href="#recommendations-by-student-profile" class="table-of-contents__link toc-highlight">Recommendations by Student Profile</a><ul><li><a href="#undergraduate-student-budget-conscious" class="table-of-contents__link toc-highlight">Undergraduate Student (Budget-Conscious)</a></li><li><a href="#graduate-student--professional" class="table-of-contents__link toc-highlight">Graduate Student / Professional</a></li><li><a href="#robotics-lab--team" class="table-of-contents__link toc-highlight">Robotics Lab / Team</a></li><li><a href="#hobbyist--self-learner" class="table-of-contents__link toc-highlight">Hobbyist / Self-Learner</a></li></ul></li><li><a href="#setup-guides" class="table-of-contents__link toc-highlight">Setup Guides</a></li><li><a href="#frequently-asked-questions" class="table-of-contents__link toc-highlight">Frequently Asked Questions</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Modules</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/AI-Humanoid-Robotics-Book/docs/intro">Module 1: ROS 2</a></li><li class="footer__item"><a class="footer__link-item" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone">Module 5: Capstone</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Technologies</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://docs.ros.org/en/humble/" target="_blank" rel="noopener noreferrer" class="footer__link-item">ROS 2<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://gazebosim.org/docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Gazebo<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://developer.nvidia.com/isaac-sim" target="_blank" rel="noopener noreferrer" class="footer__link-item">Isaac Sim<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.piaic.org/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GIAIC<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 GIAIC Hackathon Q4. Built with Docusaurus.</div></div></div></footer><button class="chatButton_ZHk5" aria-label="Toggle chat">💬</button></div>
+</body>
+</html>

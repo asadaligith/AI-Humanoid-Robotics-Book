@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-appendices/hardware-bom" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Hardware Bill of Materials (BOM) | AI Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/appendices/hardware-bom"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Hardware Bill of Materials (BOM) | AI Humanoid Robotics Book"><meta data-rh="true" name="description" content="This document provides detailed component lists and cost estimates for building a physical humanoid robot for Module 5 Capstone deployment."><meta data-rh="true" property="og:description" content="This document provides detailed component lists and cost estimates for building a physical humanoid robot for Module 5 Capstone deployment."><link data-rh="true" rel="icon" href="/AI-Humanoid-Robotics-Book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/appendices/hardware-bom"><link data-rh="true" rel="alternate" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/appendices/hardware-bom" hreflang="en"><link data-rh="true" rel="alternate" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/appendices/hardware-bom" hreflang="x-default"><link rel="stylesheet" href="/AI-Humanoid-Robotics-Book/assets/css/styles.022f424d.css">
+<script src="/AI-Humanoid-Robotics-Book/assets/js/runtime~main.7cf3a0ed.js" defer="defer"></script>
+<script src="/AI-Humanoid-Robotics-Book/assets/js/main.703da1ed.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/AI-Humanoid-Robotics-Book/"><div class="navbar__logo"><img src="/AI-Humanoid-Robotics-Book/img/logo.svg" alt="AI Humanoid Robotics Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/AI-Humanoid-Robotics-Book/img/logo.svg" alt="AI Humanoid Robotics Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">AI Humanoid Robotics</b></a><a class="navbar__item navbar__link" href="/AI-Humanoid-Robotics-Book/docs/intro">Book</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Hardware Bill of Materials (BOM)</h1></header>
+<p>This document provides detailed component lists and cost estimates for building a physical humanoid robot for Module 5 Capstone deployment.</p>
+<p><strong>Note</strong>: Physical hardware is <strong>optional</strong>. All modules can be completed in simulation only.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="complete-system-bom">Complete System BOM<a href="#complete-system-bom" class="hash-link" aria-label="Direct link to Complete System BOM" title="Direct link to Complete System BOM" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tier-1-basic-wheeled-platform-800-1200">Tier 1: Basic Wheeled Platform (~$800-1,200)<a href="#tier-1-basic-wheeled-platform-800-1200" class="hash-link" aria-label="Direct link to Tier 1: Basic Wheeled Platform (~$800-1,200)" title="Direct link to Tier 1: Basic Wheeled Platform (~$800-1,200)" translate="no">​</a></h3>
+<p>For students wanting to test on real hardware without full humanoid complexity.</p>
+<table><thead><tr><th>Category</th><th>Component</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Compute</strong></td><td>NVIDIA Jetson Orin Nano 8GB</td><td>1</td><td>$499</td><td>$499</td><td>Primary onboard computer</td></tr><tr><td><strong>Power</strong></td><td>14.8V 5000mAh LiPo Battery</td><td>1</td><td>$60</td><td>$60</td><td>4S battery for motors</td></tr><tr><td><strong>Power</strong></td><td>5V/5A Buck Converter</td><td>1</td><td>$15</td><td>$15</td><td>Power for Jetson</td></tr><tr><td><strong>Locomotion</strong></td><td>TT Gear Motors (200 RPM)</td><td>2</td><td>$8</td><td>$16</td><td>Wheel drive motors</td></tr><tr><td><strong>Locomotion</strong></td><td>Motor Driver (L298N)</td><td>1</td><td>$12</td><td>$12</td><td>H-bridge for motors</td></tr><tr><td><strong>Locomotion</strong></td><td>Robot Wheels (80mm)</td><td>2</td><td>$5</td><td>$10</td><td>Wheel assemblies</td></tr><tr><td><strong>Locomotion</strong></td><td>Caster Wheel</td><td>1</td><td>$8</td><td>$8</td><td>Balance wheel</td></tr><tr><td><strong>Perception</strong></td><td>Intel RealSense D435i</td><td>1</td><td>$299</td><td>$299</td><td>RGB-D camera + IMU</td></tr><tr><td><strong>Perception</strong></td><td>USB Microphone</td><td>1</td><td>$25</td><td>$25</td><td>For Whisper voice input</td></tr><tr><td><strong>Structure</strong></td><td>Aluminum Chassis Plate</td><td>2</td><td>$15</td><td>$30</td><td>Robot base</td></tr><tr><td><strong>Structure</strong></td><td>Standoffs and Hardware</td><td>1</td><td>$20</td><td>$20</td><td>M3/M4 screws, standoffs</td></tr><tr><td><strong>Networking</strong></td><td>Wi-Fi 6 USB Adapter</td><td>1</td><td>$30</td><td>$30</td><td>Low-latency telemetry</td></tr><tr><td><strong>Safety</strong></td><td>Emergency Stop Button</td><td>1</td><td>$12</td><td>$12</td><td>Physical e-stop</td></tr><tr><td><strong>Misc</strong></td><td>Cables and Connectors</td><td>1</td><td>$25</td><td>$25</td><td>USB-C, JST, XT60</td></tr><tr><td><strong>Total</strong></td><td></td><td></td><td></td><td><strong>$1,061</strong></td><td></td></tr></tbody></table>
+<p><strong>Capabilities</strong>:</p>
+<ul>
+<li class="">✅ Autonomous navigation</li>
+<li class="">✅ Object detection (20+ COCO classes)</li>
+<li class="">✅ Voice command via Whisper</li>
+<li class="">✅ LLM task planning (Claude API)</li>
+<li class="">❌ No manipulation (no arm)</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tier-2-mobile-manipulator-2500-3500">Tier 2: Mobile Manipulator (~$2,500-3,500)<a href="#tier-2-mobile-manipulator-2500-3500" class="hash-link" aria-label="Direct link to Tier 2: Mobile Manipulator (~$2,500-3,500)" title="Direct link to Tier 2: Mobile Manipulator (~$2,500-3,500)" translate="no">​</a></h3>
+<p>Adds a 6-DOF robotic arm for pick-and-place tasks.</p>
+<p><strong>Includes all Tier 1 components, plus</strong>:</p>
+<table><thead><tr><th>Category</th><th>Component</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Manipulation</strong></td><td>Dynamixel XM430-W350-T Servos</td><td>6</td><td>$180</td><td>$1,080</td><td>Shoulder (2), elbow, wrist (3)</td></tr><tr><td><strong>Manipulation</strong></td><td>Dynamixel U2D2 USB Adapter</td><td>1</td><td>$65</td><td>$65</td><td>Servo communication</td></tr><tr><td><strong>Manipulation</strong></td><td>Parallel Gripper Kit</td><td>1</td><td>$120</td><td>$120</td><td>End effector</td></tr><tr><td><strong>Manipulation</strong></td><td>Arm Structure (Aluminum)</td><td>1</td><td>$200</td><td>$200</td><td>Custom or kit (e.g., Interbotix)</td></tr><tr><td><strong>Power</strong></td><td>12V 10A Buck Converter</td><td>1</td><td>$25</td><td>$25</td><td>Additional power for servos</td></tr><tr><td><strong>Perception</strong></td><td>Additional RealSense D435i</td><td>1</td><td>$299</td><td>$299</td><td>Wrist-mounted camera</td></tr><tr><td><strong>Structure</strong></td><td>Reinforced Chassis</td><td>1</td><td>$80</td><td>$80</td><td>Stronger base for arm</td></tr><tr><td><strong>Tier 2 Add-On Total</strong></td><td></td><td></td><td></td><td><strong>$1,869</strong></td><td></td></tr><tr><td><strong>Tier 2 Complete Total</strong></td><td></td><td></td><td></td><td><strong>$2,930</strong></td><td></td></tr></tbody></table>
+<p><strong>Capabilities</strong>:</p>
+<ul>
+<li class="">✅ All Tier 1 features</li>
+<li class="">✅ 6-DOF manipulation</li>
+<li class="">✅ Pick-and-place tasks</li>
+<li class="">✅ Full Capstone project</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tier-3-bipedal-humanoid-8000-12000">Tier 3: Bipedal Humanoid (~$8,000-12,000)<a href="#tier-3-bipedal-humanoid-8000-12000" class="hash-link" aria-label="Direct link to Tier 3: Bipedal Humanoid (~$8,000-12,000)" title="Direct link to Tier 3: Bipedal Humanoid (~$8,000-12,000)" translate="no">​</a></h3>
+<p>Full humanoid with legs, torso, arms, and head. <strong>Advanced project</strong>, requires significant mechanical engineering.</p>
+<p><strong>Includes all Tier 2 components, replaces locomotion with legs</strong>:</p>
+<table><thead><tr><th>Category</th><th>Component</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Legs</strong></td><td>Dynamixel MX-106T Servos</td><td>12</td><td>$350</td><td>$4,200</td><td>6 per leg (hip, knee, ankle)</td></tr><tr><td><strong>Torso</strong></td><td>Dynamixel MX-64T Servos</td><td>3</td><td>$230</td><td>$690</td><td>Waist pitch/roll/yaw</td></tr><tr><td><strong>Arms</strong></td><td>Dynamixel XM430-W350-T</td><td>8</td><td>$180</td><td>$1,440</td><td>4 per arm (shoulder, elbow, wrist)</td></tr><tr><td><strong>Head</strong></td><td>Dynamixel XL430-W250-T</td><td>2</td><td>$60</td><td>$120</td><td>Pan/tilt for camera</td></tr><tr><td><strong>Gripper</strong></td><td>Parallel Grippers</td><td>2</td><td>$120</td><td>$240</td><td>Both hands</td></tr><tr><td><strong>IMU</strong></td><td>VectorNav VN-100</td><td>1</td><td>$600</td><td>$600</td><td>High-accuracy orientation</td></tr><tr><td><strong>Perception</strong></td><td>RealSense D435i (Head)</td><td>1</td><td>$299</td><td>$299</td><td>Primary vision</td></tr><tr><td><strong>Perception</strong></td><td>RealSense D435i (Wrist)</td><td>2</td><td>$299</td><td>$598</td><td>Hand cameras</td></tr><tr><td><strong>Power</strong></td><td>14.8V 10,000mAh LiPo</td><td>2</td><td>$120</td><td>$240</td><td>Extended runtime</td></tr><tr><td><strong>Power</strong></td><td>Power Distribution Board</td><td>1</td><td>$150</td><td>$150</td><td>Multi-voltage regulation</td></tr><tr><td><strong>Structure</strong></td><td>Humanoid Frame Kit</td><td>1</td><td>$1,500</td><td>$1,500</td><td>Aluminum/carbon fiber</td></tr><tr><td><strong>Compute</strong></td><td>Upgrade to Jetson AGX Orin</td><td>1</td><td>$1,999</td><td>$1,999</td><td>32GB, higher compute</td></tr><tr><td><strong>Tier 3 Add-On Total</strong></td><td></td><td></td><td></td><td><strong>$10,076</strong></td><td></td></tr><tr><td><strong>Tier 3 Complete Total</strong></td><td></td><td></td><td></td><td><strong>~$11,137</strong></td><td>Replaces Tier 1 locomotion</td></tr></tbody></table>
+<p><strong>Capabilities</strong>:</p>
+<ul>
+<li class="">✅ Bipedal walking (requires advanced control)</li>
+<li class="">✅ Dual-arm manipulation</li>
+<li class="">✅ Human-like interaction</li>
+<li class="">⚠️ Requires PhD-level robotics knowledge</li>
+</ul>
+<p><strong>Recommendation</strong>: Start with Tier 1 or Tier 2. Bipedal locomotion is beyond scope of this book.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="component-details">Component Details<a href="#component-details" class="hash-link" aria-label="Direct link to Component Details" title="Direct link to Component Details" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="compute-platforms">Compute Platforms<a href="#compute-platforms" class="hash-link" aria-label="Direct link to Compute Platforms" title="Direct link to Compute Platforms" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="nvidia-jetson-orin-nano-8gb-recommended">NVIDIA Jetson Orin Nano 8GB (Recommended)<a href="#nvidia-jetson-orin-nano-8gb-recommended" class="hash-link" aria-label="Direct link to NVIDIA Jetson Orin Nano 8GB (Recommended)" title="Direct link to NVIDIA Jetson Orin Nano 8GB (Recommended)" translate="no">​</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li class="">GPU: 1024-core NVIDIA Ampere, 32 Tensor Cores</li>
+<li class="">CPU: 6-core ARM Cortex-A78AE @ 2.0 GHz</li>
+<li class="">Memory: 8GB LPDDR5</li>
+<li class="">I/O: 4x USB 3.2, Gigabit Ethernet, GPIO, I2C, SPI, UART</li>
+<li class="">Power: 7W-15W (configurable)</li>
+</ul>
+<p><strong>Vendor</strong>: NVIDIA
+<strong>Part Number</strong>: 945-13766-0000-000
+<strong>Purchase</strong>: <a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/" target="_blank" rel="noopener noreferrer" class="">https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/</a></p>
+<p><strong>Alternatives</strong>:</p>
+<ul>
+<li class="">Jetson Orin NX 16GB ($699): More compute, higher cost</li>
+<li class="">Jetson AGX Orin 32GB ($1,999): Maximum performance for Tier 3</li>
+<li class="">Raspberry Pi 5 8GB ($80): Budget option, no GPU acceleration</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sensors">Sensors<a href="#sensors" class="hash-link" aria-label="Direct link to Sensors" title="Direct link to Sensors" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="intel-realsense-d435i-rgb-d-camera">Intel RealSense D435i (RGB-D Camera)<a href="#intel-realsense-d435i-rgb-d-camera" class="hash-link" aria-label="Direct link to Intel RealSense D435i (RGB-D Camera)" title="Direct link to Intel RealSense D435i (RGB-D Camera)" translate="no">​</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li class="">RGB: 1920x1080 @ 30 FPS</li>
+<li class="">Depth: Stereo cameras, 1280x720 @ 90 FPS</li>
+<li class="">Range: 0.2m - 10m (optimal: 0.3m - 3m)</li>
+<li class="">IMU: BMI055 (accel + gyro)</li>
+<li class="">Interface: USB 3.1 Type-C</li>
+<li class="">Dimensions: 90mm x 25mm x 25mm</li>
+</ul>
+<p><strong>Vendor</strong>: Intel
+<strong>Part Number</strong>: 82635AWGDVKPRQ
+<strong>Purchase</strong>: <a href="https://store.intelrealsense.com/buy-intel-realsense-depth-camera-d435i.html" target="_blank" rel="noopener noreferrer" class="">https://store.intelrealsense.com/buy-intel-realsense-depth-camera-d435i.html</a></p>
+<p><strong>Alternatives</strong>:</p>
+<ul>
+<li class="">RealSense D455 ($329): Longer range (up to 20m)</li>
+<li class="">RealSense L515 ($350): LiDAR-based, indoor only</li>
+<li class="">Kinect Azure ($399): Higher resolution, more expensive</li>
+</ul>
+<p><strong>ROS 2 Package</strong>: <code>ros-humble-realsense2-camera</code></p>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="usb-microphone-for-whisper">USB Microphone (For Whisper)<a href="#usb-microphone-for-whisper" class="hash-link" aria-label="Direct link to USB Microphone (For Whisper)" title="Direct link to USB Microphone (For Whisper)" translate="no">​</a></h4>
+<p><strong>Recommended</strong>: Blue Snowball iCE ($50)</p>
+<ul>
+<li class="">Type: Condenser</li>
+<li class="">Polar Pattern: Cardioid</li>
+<li class="">Sample Rate: 44.1 kHz</li>
+<li class="">Interface: USB 2.0</li>
+</ul>
+<p><strong>Budget Alternative</strong>: Mini USB Microphone ($15)</p>
+<ul>
+<li class="">Any USB microphone compatible with Linux ALSA</li>
+</ul>
+<p><strong>ROS 2 Package</strong>: <code>audio_common</code> (custom nodes for Whisper integration)</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="actuators">Actuators<a href="#actuators" class="hash-link" aria-label="Direct link to Actuators" title="Direct link to Actuators" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="dynamixel-xm430-w350-t-mid-range-servo">Dynamixel XM430-W350-T (Mid-Range Servo)<a href="#dynamixel-xm430-w350-t-mid-range-servo" class="hash-link" aria-label="Direct link to Dynamixel XM430-W350-T (Mid-Range Servo)" title="Direct link to Dynamixel XM430-W350-T (Mid-Range Servo)" translate="no">​</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li class="">Torque: 4.1 Nm @ 12V</li>
+<li class="">Speed: 46 RPM @ 12V (no load)</li>
+<li class="">Position Resolution: 0.088° (4096 positions/rev)</li>
+<li class="">Communication: TTL Half-Duplex UART</li>
+<li class="">Feedback: Position, velocity, current, temperature</li>
+<li class="">Dimensions: 28.5mm x 46.5mm x 34mm</li>
+<li class="">Weight: 82g</li>
+</ul>
+<p><strong>Vendor</strong>: ROBOTIS
+<strong>Part Number</strong>: XM430-W350-T
+<strong>Purchase</strong>: <a href="https://www.robotis.us/dynamixel-xm430-w350-t/" target="_blank" rel="noopener noreferrer" class="">https://www.robotis.us/dynamixel-xm430-w350-t/</a></p>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li class="">Robot arm joints (shoulder, elbow, wrist)</li>
+<li class="">Lightweight manipulation tasks</li>
+</ul>
+<p><strong>Alternatives</strong>:</p>
+<ul>
+<li class="">XM540-W270-T ($220): Higher torque (6.9 Nm)</li>
+<li class="">XL430-W250-T ($60): Lower torque (1.5 Nm), budget</li>
+</ul>
+<p><strong>ROS 2 Package</strong>: <code>dynamixel_sdk</code>, <code>dynamixel_workbench</code></p>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="dynamixel-mx-106t-high-torque-servo">Dynamixel MX-106T (High-Torque Servo)<a href="#dynamixel-mx-106t-high-torque-servo" class="hash-link" aria-label="Direct link to Dynamixel MX-106T (High-Torque Servo)" title="Direct link to Dynamixel MX-106T (High-Torque Servo)" translate="no">​</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li class="">Torque: 10.9 Nm @ 14.8V</li>
+<li class="">Speed: 41 RPM @ 14.8V</li>
+<li class="">Position Resolution: 0.088°</li>
+<li class="">Communication: RS-485</li>
+<li class="">Dimensions: 40.2mm x 65.1mm x 46mm</li>
+<li class="">Weight: 165g</li>
+</ul>
+<p><strong>Vendor</strong>: ROBOTIS
+<strong>Part Number</strong>: MX-106T
+<strong>Purchase</strong>: <a href="https://www.robotis.us/dynamixel-mx-106t/" target="_blank" rel="noopener noreferrer" class="">https://www.robotis.us/dynamixel-mx-106t/</a></p>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li class="">Leg joints (hip, knee, ankle) for bipedal robots</li>
+<li class="">High-load manipulation</li>
+</ul>
+<p><strong>Note</strong>: Expensive. Only needed for Tier 3 humanoid.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="power-systems">Power Systems<a href="#power-systems" class="hash-link" aria-label="Direct link to Power Systems" title="Direct link to Power Systems" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="148v-5000mah-lipo-battery-4s">14.8V 5000mAh LiPo Battery (4S)<a href="#148v-5000mah-lipo-battery-4s" class="hash-link" aria-label="Direct link to 14.8V 5000mAh LiPo Battery (4S)" title="Direct link to 14.8V 5000mAh LiPo Battery (4S)" translate="no">​</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li class="">Voltage: 14.8V nominal (16.8V fully charged)</li>
+<li class="">Capacity: 5000mAh (74 Wh)</li>
+<li class="">Discharge Rate: 30C (150A burst)</li>
+<li class="">Connector: XT60</li>
+<li class="">Weight: ~450g</li>
+</ul>
+<p><strong>Vendor</strong>: Turnigy, Tattu, or similar
+<strong>Purchase</strong>: HobbyKing, Amazon</p>
+<p><strong>Runtime Estimates</strong>:</p>
+<ul>
+<li class="">Jetson Orin Nano @ 10W: ~7 hours</li>
+<li class="">With 2 motors @ 5W each: ~4 hours</li>
+<li class="">With 6 servos @ 5W average: ~2 hours</li>
+</ul>
+<p><strong>⚠️ Safety</strong>:</p>
+<ul>
+<li class="">Use LiPo-safe charging bag</li>
+<li class="">Never discharge below 3.0V per cell</li>
+<li class="">Use fire-resistant storage</li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="buck-converters">Buck Converters<a href="#buck-converters" class="hash-link" aria-label="Direct link to Buck Converters" title="Direct link to Buck Converters" translate="no">​</a></h4>
+<p><strong>5V/5A Buck Converter</strong> (For Jetson):</p>
+<ul>
+<li class="">Input: 7V-24V</li>
+<li class="">Output: 5V @ 5A (25W)</li>
+<li class="">Efficiency: &gt;90%</li>
+<li class="">Part: UBEC or Pololu D24V50F5</li>
+</ul>
+<p><strong>12V/10A Buck Converter</strong> (For Servos):</p>
+<ul>
+<li class="">Input: 14.8V-24V</li>
+<li class="">Output: 12V @ 10A (120W)</li>
+<li class="">Part: LM2596-based or similar</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="structure-and-mechanics">Structure and Mechanics<a href="#structure-and-mechanics" class="hash-link" aria-label="Direct link to Structure and Mechanics" title="Direct link to Structure and Mechanics" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="aluminum-chassis-plates">Aluminum Chassis Plates<a href="#aluminum-chassis-plates" class="hash-link" aria-label="Direct link to Aluminum Chassis Plates" title="Direct link to Aluminum Chassis Plates" translate="no">​</a></h4>
+<p><strong>Material</strong>: 6061-T6 Aluminum
+<strong>Thickness</strong>: 3mm or 5mm
+<strong>Dimensions</strong>: 200mm x 300mm (typical)
+<strong>Purchase</strong>: eBay, McMaster-Carr, custom laser cutting</p>
+<p><strong>Alternatives</strong>:</p>
+<ul>
+<li class="">Acrylic sheets: Lighter, cheaper, less rigid</li>
+<li class="">Carbon fiber: Lighter, more expensive</li>
+<li class="">3D printed PLA: Prototyping only, low strength</li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="robot-arm-structure">Robot Arm Structure<a href="#robot-arm-structure" class="hash-link" aria-label="Direct link to Robot Arm Structure" title="Direct link to Robot Arm Structure" translate="no">​</a></h4>
+<p><strong>Option 1: Purchase Kit</strong></p>
+<ul>
+<li class="">Interbotix WidowX 250 Robot Arm Kit ($1,500)<!-- -->
+<ul>
+<li class="">Includes 5x Dynamixel servos, structure, gripper</li>
+<li class="">ROS 2 compatible</li>
+<li class="">Purchase: <a href="https://www.trossenrobotics.com/" target="_blank" rel="noopener noreferrer" class="">https://www.trossenrobotics.com/</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Option 2: Custom Build</strong></p>
+<ul>
+<li class="">Aluminum extrusions (8020 T-slot): $50-100</li>
+<li class="">Laser-cut brackets: $50-100</li>
+<li class="">3D printed parts: $20-50</li>
+<li class="">Total: ~$200 + servos</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="connectivity-and-networking">Connectivity and Networking<a href="#connectivity-and-networking" class="hash-link" aria-label="Direct link to Connectivity and Networking" title="Direct link to Connectivity and Networking" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="wi-fi-6-usb-adapter">Wi-Fi 6 USB Adapter<a href="#wi-fi-6-usb-adapter" class="hash-link" aria-label="Direct link to Wi-Fi 6 USB Adapter" title="Direct link to Wi-Fi 6 USB Adapter" translate="no">​</a></h3>
+<p><strong>Recommended</strong>: TP-Link Archer T3U Plus ($30)</p>
+<ul>
+<li class="">Standard: 802.11ax (Wi-Fi 6)</li>
+<li class="">Speed: Up to 1300 Mbps (5 GHz)</li>
+<li class="">Interface: USB 3.0</li>
+<li class="">Linux driver: Built-in kernel support</li>
+</ul>
+<p><strong>Purpose</strong>: Low-latency ROS 2 communication between robot and development PC.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ethernet-switch-optional">Ethernet Switch (Optional)<a href="#ethernet-switch-optional" class="hash-link" aria-label="Direct link to Ethernet Switch (Optional)" title="Direct link to Ethernet Switch (Optional)" translate="no">​</a></h3>
+<p><strong>Recommended</strong>: TP-Link TL-SG105 ($20)</p>
+<ul>
+<li class="">Ports: 5x Gigabit Ethernet</li>
+<li class="">Use case: Wired connection for multiple sensors</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tools-and-accessories">Tools and Accessories<a href="#tools-and-accessories" class="hash-link" aria-label="Direct link to Tools and Accessories" title="Direct link to Tools and Accessories" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="required-tools">Required Tools<a href="#required-tools" class="hash-link" aria-label="Direct link to Required Tools" title="Direct link to Required Tools" translate="no">​</a></h3>
+<table><thead><tr><th>Tool</th><th>Purpose</th><th>Estimated Cost</th></tr></thead><tbody><tr><td>Soldering Iron + Solder</td><td>Connector assembly</td><td>$30</td></tr><tr><td>Multimeter</td><td>Voltage/current testing</td><td>$20</td></tr><tr><td>Hex Key Set (Metric)</td><td>M2.5, M3, M4 screws</td><td>$15</td></tr><tr><td>Wire Strippers</td><td>Cable preparation</td><td>$15</td></tr><tr><td>LiPo Charger (Balance)</td><td>Battery charging</td><td>$50</td></tr><tr><td>Heat Shrink Tubing</td><td>Insulation</td><td>$10</td></tr><tr><td>Crimping Tool (JST)</td><td>Connector crimping</td><td>$25</td></tr><tr><td><strong>Total</strong></td><td></td><td><strong>~$165</strong></td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="optional-tools">Optional Tools<a href="#optional-tools" class="hash-link" aria-label="Direct link to Optional Tools" title="Direct link to Optional Tools" translate="no">​</a></h3>
+<table><thead><tr><th>Tool</th><th>Purpose</th><th>Estimated Cost</th></tr></thead><tbody><tr><td>3D Printer</td><td>Custom part fabrication</td><td>$200-500</td></tr><tr><td>Oscilloscope</td><td>Signal debugging</td><td>$100-300</td></tr><tr><td>Power Supply (Bench)</td><td>Testing without battery</td><td>$50-100</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="assembly-components">Assembly Components<a href="#assembly-components" class="hash-link" aria-label="Direct link to Assembly Components" title="Direct link to Assembly Components" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="connectors-and-cables">Connectors and Cables<a href="#connectors-and-cables" class="hash-link" aria-label="Direct link to Connectors and Cables" title="Direct link to Connectors and Cables" translate="no">​</a></h3>
+<table><thead><tr><th>Component</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Use Case</th></tr></thead><tbody><tr><td>XT60 Connectors (Male/Female)</td><td>5 pairs</td><td>$1.50</td><td>$7.50</td><td>Battery connections</td></tr><tr><td>JST-XH Balance Connectors</td><td>5</td><td>$0.50</td><td>$2.50</td><td>LiPo balance leads</td></tr><tr><td>USB-C to USB-A Cable (1m)</td><td>2</td><td>$8</td><td>$16</td><td>Jetson, RealSense</td></tr><tr><td>USB-A to Micro-USB (0.5m)</td><td>3</td><td>$5</td><td>$15</td><td>Dynamixel U2D2</td></tr><tr><td>Ethernet Cable (Cat6, 2m)</td><td>2</td><td>$5</td><td>$10</td><td>Wired networking</td></tr><tr><td>Jumper Wires (Male-Female)</td><td>40-pack</td><td>$8</td><td>$8</td><td>GPIO connections</td></tr><tr><td>Heat Shrink Tubing (Assorted)</td><td>1 pack</td><td>$10</td><td>$10</td><td>Insulation</td></tr><tr><td><strong>Total</strong></td><td></td><td></td><td><strong>$69</strong></td><td></td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fasteners-and-hardware">Fasteners and Hardware<a href="#fasteners-and-hardware" class="hash-link" aria-label="Direct link to Fasteners and Hardware" title="Direct link to Fasteners and Hardware" translate="no">​</a></h3>
+<table><thead><tr><th>Component</th><th>Quantity</th><th>Unit Price</th><th>Total</th></tr></thead><tbody><tr><td>M3 Screws (10mm, 20mm, 30mm)</td><td>100-pack</td><td>$8</td><td>$8</td></tr><tr><td>M4 Screws (10mm, 20mm, 30mm)</td><td>100-pack</td><td>$10</td><td>$10</td></tr><tr><td>M3 Standoffs (10mm, 20mm)</td><td>50-pack</td><td>$12</td><td>$12</td></tr><tr><td>M3/M4 Nuts and Washers</td><td>200-pack</td><td>$8</td><td>$8</td></tr><tr><td>Lock Washers (M3, M4)</td><td>100-pack</td><td>$5</td><td>$5</td></tr><tr><td>Cable Ties (Assorted)</td><td>200-pack</td><td>$8</td><td>$8</td></tr><tr><td><strong>Total</strong></td><td></td><td></td><td><strong>$51</strong></td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="vendor-directory">Vendor Directory<a href="#vendor-directory" class="hash-link" aria-label="Direct link to Vendor Directory" title="Direct link to Vendor Directory" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="electronics-and-robotics">Electronics and Robotics<a href="#electronics-and-robotics" class="hash-link" aria-label="Direct link to Electronics and Robotics" title="Direct link to Electronics and Robotics" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>ROBOTIS</strong>: Dynamixel servos and accessories<!-- -->
+<ul>
+<li class=""><a href="https://www.robotis.us/" target="_blank" rel="noopener noreferrer" class="">https://www.robotis.us/</a></li>
+</ul>
+</li>
+<li class=""><strong>Trossen Robotics</strong>: Interbotix robot kits<!-- -->
+<ul>
+<li class=""><a href="https://www.trossenrobotics.com/" target="_blank" rel="noopener noreferrer" class="">https://www.trossenrobotics.com/</a></li>
+</ul>
+</li>
+<li class=""><strong>Adafruit</strong>: Sensors, breakout boards, cables<!-- -->
+<ul>
+<li class=""><a href="https://www.adafruit.com/" target="_blank" rel="noopener noreferrer" class="">https://www.adafruit.com/</a></li>
+</ul>
+</li>
+<li class=""><strong>SparkFun</strong>: Electronics components<!-- -->
+<ul>
+<li class=""><a href="https://www.sparkfun.com/" target="_blank" rel="noopener noreferrer" class="">https://www.sparkfun.com/</a></li>
+</ul>
+</li>
+<li class=""><strong>Pololu</strong>: Motors, motor drivers, power supplies<!-- -->
+<ul>
+<li class=""><a href="https://www.pololu.com/" target="_blank" rel="noopener noreferrer" class="">https://www.pololu.com/</a></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="compute-and-ai">Compute and AI<a href="#compute-and-ai" class="hash-link" aria-label="Direct link to Compute and AI" title="Direct link to Compute and AI" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>NVIDIA</strong>: Jetson developer kits<!-- -->
+<ul>
+<li class=""><a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/" target="_blank" rel="noopener noreferrer" class="">https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/</a></li>
+</ul>
+</li>
+<li class=""><strong>Intel</strong>: RealSense cameras<!-- -->
+<ul>
+<li class=""><a href="https://store.intelrealsense.com/" target="_blank" rel="noopener noreferrer" class="">https://store.intelrealsense.com/</a></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="power-and-batteries">Power and Batteries<a href="#power-and-batteries" class="hash-link" aria-label="Direct link to Power and Batteries" title="Direct link to Power and Batteries" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>HobbyKing</strong>: LiPo batteries, chargers<!-- -->
+<ul>
+<li class=""><a href="https://hobbyking.com/" target="_blank" rel="noopener noreferrer" class="">https://hobbyking.com/</a></li>
+</ul>
+</li>
+<li class=""><strong>Amazon</strong>: General batteries and power supplies</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="structure-and-mechanics-1">Structure and Mechanics<a href="#structure-and-mechanics-1" class="hash-link" aria-label="Direct link to Structure and Mechanics" title="Direct link to Structure and Mechanics" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>McMaster-Carr</strong>: Fasteners, extrusions, raw materials<!-- -->
+<ul>
+<li class=""><a href="https://www.mcmaster.com/" target="_blank" rel="noopener noreferrer" class="">https://www.mcmaster.com/</a></li>
+</ul>
+</li>
+<li class=""><strong>80/20 Inc</strong>: Aluminum T-slot framing<!-- -->
+<ul>
+<li class=""><a href="https://8020.net/" target="_blank" rel="noopener noreferrer" class="">https://8020.net/</a></li>
+</ul>
+</li>
+<li class=""><strong>SendCutSend</strong>: Custom laser cutting service<!-- -->
+<ul>
+<li class=""><a href="https://sendcutsend.com/" target="_blank" rel="noopener noreferrer" class="">https://sendcutsend.com/</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cost-summary-by-tier">Cost Summary by Tier<a href="#cost-summary-by-tier" class="hash-link" aria-label="Direct link to Cost Summary by Tier" title="Direct link to Cost Summary by Tier" translate="no">​</a></h2>
+<table><thead><tr><th>Tier</th><th>Description</th><th>Hardware Cost</th><th>Tools Cost</th><th>Total</th></tr></thead><tbody><tr><td><strong>Tier 1</strong></td><td>Basic wheeled platform</td><td>$1,061</td><td>$165</td><td><strong>$1,226</strong></td></tr><tr><td><strong>Tier 2</strong></td><td>Mobile manipulator</td><td>$2,930</td><td>$165</td><td><strong>$3,095</strong></td></tr><tr><td><strong>Tier 3</strong></td><td>Bipedal humanoid</td><td>$11,137</td><td>$165 + $300</td><td><strong>$11,602</strong></td></tr></tbody></table>
+<p><strong>Additional Recurring Costs</strong>:</p>
+<ul>
+<li class="">LiPo battery replacement: $60/year (with care)</li>
+<li class="">Spare servos (failures): $100-200/year</li>
+<li class="">Claude API usage: ~$20-50/month (Module 4-5)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="purchasing-recommendations">Purchasing Recommendations<a href="#purchasing-recommendations" class="hash-link" aria-label="Direct link to Purchasing Recommendations" title="Direct link to Purchasing Recommendations" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-individual-learners">For Individual Learners<a href="#for-individual-learners" class="hash-link" aria-label="Direct link to For Individual Learners" title="Direct link to For Individual Learners" translate="no">​</a></h3>
+<p><strong>Start with</strong>: Simulation only ($0 hardware)
+<strong>Upgrade to</strong>: Tier 1 if budget allows (~$1,200)
+<strong>Skip</strong>: Tier 3 (bipedal) unless you have robotics lab access</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-university-labs">For University Labs<a href="#for-university-labs" class="hash-link" aria-label="Direct link to For University Labs" title="Direct link to For University Labs" translate="no">​</a></h3>
+<p><strong>Recommended</strong>: Tier 2 mobile manipulator (~$3,000)</p>
+<ul>
+<li class="">Sharable among students</li>
+<li class="">Covers full Capstone project</li>
+<li class="">Repairable (modular design)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-research-groups">For Research Groups<a href="#for-research-groups" class="hash-link" aria-label="Direct link to For Research Groups" title="Direct link to For Research Groups" translate="no">​</a></h3>
+<p><strong>Recommended</strong>: Multiple Tier 2 platforms + 1 Tier 3 (if grant funded)</p>
+<ul>
+<li class="">Tier 2 for student projects</li>
+<li class="">Tier 3 for advanced research (walking, balancing)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="maintenance-and-spare-parts">Maintenance and Spare Parts<a href="#maintenance-and-spare-parts" class="hash-link" aria-label="Direct link to Maintenance and Spare Parts" title="Direct link to Maintenance and Spare Parts" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="recommended-spares">Recommended Spares<a href="#recommended-spares" class="hash-link" aria-label="Direct link to Recommended Spares" title="Direct link to Recommended Spares" translate="no">​</a></h3>
+<table><thead><tr><th>Component</th><th>Quantity</th><th>Reason</th></tr></thead><tbody><tr><td>Dynamixel Servos</td><td>2</td><td>Burn-out from overload</td></tr><tr><td>LiPo Batteries</td><td>1</td><td>Degradation over time</td></tr><tr><td>RealSense D435i</td><td>0-1</td><td>Durable, rarely fails</td></tr><tr><td>Buck Converters</td><td>1</td><td>Failures from short circuits</td></tr><tr><td>Jetson Orin Nano</td><td>0</td><td>Reliable, expensive</td></tr></tbody></table>
+<p><strong>Estimated Spare Parts Cost</strong>: $400-500</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="import-and-shipping-considerations">Import and Shipping Considerations<a href="#import-and-shipping-considerations" class="hash-link" aria-label="Direct link to Import and Shipping Considerations" title="Direct link to Import and Shipping Considerations" translate="no">​</a></h2>
+<p><strong>International Shipping</strong>:</p>
+<ul>
+<li class="">RealSense cameras: Ships worldwide from Intel</li>
+<li class="">Dynamixel servos: Direct from ROBOTIS Korea or US distributors</li>
+<li class="">LiPo batteries: ⚠️ Restricted on air freight (ship ground/sea)</li>
+</ul>
+<p><strong>Import Duties</strong>:</p>
+<ul>
+<li class="">Vary by country (typically 5-25% for electronics)</li>
+<li class="">Check with local customs before large orders</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="safety-and-compliance">Safety and Compliance<a href="#safety-and-compliance" class="hash-link" aria-label="Direct link to Safety and Compliance" title="Direct link to Safety and Compliance" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="electrical-safety">Electrical Safety<a href="#electrical-safety" class="hash-link" aria-label="Direct link to Electrical Safety" title="Direct link to Electrical Safety" translate="no">​</a></h3>
+<ul>
+<li class="">Use fuses on battery lines (rated for max current)</li>
+<li class="">Install emergency stop button (wired to motor enable)</li>
+<li class="">Never operate near flammable materials</li>
+<li class="">Store LiPo batteries in fireproof bags</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mechanical-safety">Mechanical Safety<a href="#mechanical-safety" class="hash-link" aria-label="Direct link to Mechanical Safety" title="Direct link to Mechanical Safety" translate="no">​</a></h3>
+<ul>
+<li class="">Add soft padding to robot edges</li>
+<li class="">Limit servo speed during testing</li>
+<li class="">Implement collision detection in software</li>
+<li class="">Test in isolated area away from people</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="regulatory-compliance">Regulatory Compliance<a href="#regulatory-compliance" class="hash-link" aria-label="Direct link to Regulatory Compliance" title="Direct link to Regulatory Compliance" translate="no">​</a></h3>
+<ul>
+<li class="">FCC/CE certification not required for personal/research use</li>
+<li class="">If commercializing, consult with compliance expert</li>
+</ul>
+<hr>
+<p><strong>Ready to build?</strong> Start with <a class="" href="/AI-Humanoid-Robotics-Book/docs/appendices/environment-setup">Environment Setup</a> to configure software before ordering hardware.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book/tree/main/docs/appendices/hardware-bom.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#complete-system-bom" class="table-of-contents__link toc-highlight">Complete System BOM</a><ul><li><a href="#tier-1-basic-wheeled-platform-800-1200" class="table-of-contents__link toc-highlight">Tier 1: Basic Wheeled Platform (~$800-1,200)</a></li><li><a href="#tier-2-mobile-manipulator-2500-3500" class="table-of-contents__link toc-highlight">Tier 2: Mobile Manipulator (~$2,500-3,500)</a></li><li><a href="#tier-3-bipedal-humanoid-8000-12000" class="table-of-contents__link toc-highlight">Tier 3: Bipedal Humanoid (~$8,000-12,000)</a></li></ul></li><li><a href="#component-details" class="table-of-contents__link toc-highlight">Component Details</a><ul><li><a href="#compute-platforms" class="table-of-contents__link toc-highlight">Compute Platforms</a></li><li><a href="#sensors" class="table-of-contents__link toc-highlight">Sensors</a></li><li><a href="#actuators" class="table-of-contents__link toc-highlight">Actuators</a></li><li><a href="#power-systems" class="table-of-contents__link toc-highlight">Power Systems</a></li><li><a href="#structure-and-mechanics" class="table-of-contents__link toc-highlight">Structure and Mechanics</a></li></ul></li><li><a href="#connectivity-and-networking" class="table-of-contents__link toc-highlight">Connectivity and Networking</a><ul><li><a href="#wi-fi-6-usb-adapter" class="table-of-contents__link toc-highlight">Wi-Fi 6 USB Adapter</a></li><li><a href="#ethernet-switch-optional" class="table-of-contents__link toc-highlight">Ethernet Switch (Optional)</a></li></ul></li><li><a href="#tools-and-accessories" class="table-of-contents__link toc-highlight">Tools and Accessories</a><ul><li><a href="#required-tools" class="table-of-contents__link toc-highlight">Required Tools</a></li><li><a href="#optional-tools" class="table-of-contents__link toc-highlight">Optional Tools</a></li></ul></li><li><a href="#assembly-components" class="table-of-contents__link toc-highlight">Assembly Components</a><ul><li><a href="#connectors-and-cables" class="table-of-contents__link toc-highlight">Connectors and Cables</a></li><li><a href="#fasteners-and-hardware" class="table-of-contents__link toc-highlight">Fasteners and Hardware</a></li></ul></li><li><a href="#vendor-directory" class="table-of-contents__link toc-highlight">Vendor Directory</a><ul><li><a href="#electronics-and-robotics" class="table-of-contents__link toc-highlight">Electronics and Robotics</a></li><li><a href="#compute-and-ai" class="table-of-contents__link toc-highlight">Compute and AI</a></li><li><a href="#power-and-batteries" class="table-of-contents__link toc-highlight">Power and Batteries</a></li><li><a href="#structure-and-mechanics-1" class="table-of-contents__link toc-highlight">Structure and Mechanics</a></li></ul></li><li><a href="#cost-summary-by-tier" class="table-of-contents__link toc-highlight">Cost Summary by Tier</a></li><li><a href="#purchasing-recommendations" class="table-of-contents__link toc-highlight">Purchasing Recommendations</a><ul><li><a href="#for-individual-learners" class="table-of-contents__link toc-highlight">For Individual Learners</a></li><li><a href="#for-university-labs" class="table-of-contents__link toc-highlight">For University Labs</a></li><li><a href="#for-research-groups" class="table-of-contents__link toc-highlight">For Research Groups</a></li></ul></li><li><a href="#maintenance-and-spare-parts" class="table-of-contents__link toc-highlight">Maintenance and Spare Parts</a><ul><li><a href="#recommended-spares" class="table-of-contents__link toc-highlight">Recommended Spares</a></li></ul></li><li><a href="#import-and-shipping-considerations" class="table-of-contents__link toc-highlight">Import and Shipping Considerations</a></li><li><a href="#safety-and-compliance" class="table-of-contents__link toc-highlight">Safety and Compliance</a><ul><li><a href="#electrical-safety" class="table-of-contents__link toc-highlight">Electrical Safety</a></li><li><a href="#mechanical-safety" class="table-of-contents__link toc-highlight">Mechanical Safety</a></li><li><a href="#regulatory-compliance" class="table-of-contents__link toc-highlight">Regulatory Compliance</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Modules</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/AI-Humanoid-Robotics-Book/docs/intro">Module 1: ROS 2</a></li><li class="footer__item"><a class="footer__link-item" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone">Module 5: Capstone</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Technologies</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://docs.ros.org/en/humble/" target="_blank" rel="noopener noreferrer" class="footer__link-item">ROS 2<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://gazebosim.org/docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Gazebo<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://developer.nvidia.com/isaac-sim" target="_blank" rel="noopener noreferrer" class="footer__link-item">Isaac Sim<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.piaic.org/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GIAIC<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 GIAIC Hackathon Q4. Built with Docusaurus.</div></div></div></footer><button class="chatButton_ZHk5" aria-label="Toggle chat">💬</button></div>
+</body>
+</html>
