@@ -1,0 +1,35 @@
+# Render deployment configuration for RAG Chatbot Backend
+# Documentation: https://render.com/docs/infrastructure-as-code
+
+services:
+  - type: web
+    name: rag-chatbot-api
+    env: python
+    region: oregon # Choose closest region to users
+    plan: free # Free tier: 750 hours/month, 512MB RAM
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    startCommand: "uvicorn src.main:app --host 0.0.0.0 --port $PORT --workers 1"
+    healthCheckPath: /health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false # Manually set in Render dashboard for security
+      - key: QDRANT_URL
+        sync: false
+      - key: QDRANT_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: ENVIRONMENT
+        value: production
+      - key: ALLOWED_ORIGINS
+        value: https://asadaligith.github.io
+      - key: RATE_LIMIT_PER_MINUTE
+        value: 10
+      - key: SIMILARITY_THRESHOLD
+        value: 0.7
+      - key: MAX_CHUNKS
+        value: 5
+    autoDeploy: true # Auto-deploy on git push
+    preDeployCommand: "" # Add database migrations here if needed
+    dockerfilePath: ./Dockerfile # Use Docker for consistent builds
+    dockerContext: .
