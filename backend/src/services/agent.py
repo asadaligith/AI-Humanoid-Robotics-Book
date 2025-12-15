@@ -123,12 +123,12 @@ Answer:"""
         }
 
 
-def generate_answer(
+async def generate_answer(
     question: str,
     retrieved_chunks: List[Dict],
     conversation_history: Optional[List[Dict]] = None,
 ) -> Dict:
-    """Synchronous wrapper for generate_answer_async.
+    """Async wrapper for generate_answer_async (FastAPI compatible).
 
     Args:
         question: User's question
@@ -146,16 +146,8 @@ def generate_answer(
         history_str = str(conversation_history)
         session_id = hashlib.md5(history_str.encode()).hexdigest()
 
-    # Run async function in event loop
-    try:
-        loop = asyncio.get_event_loop()
-    except RuntimeError:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-
-    return loop.run_until_complete(
-        generate_answer_async(question, retrieved_chunks, session_id)
-    )
+    # Call async function directly (FastAPI handles the event loop)
+    return await generate_answer_async(question, retrieved_chunks, session_id)
 
 
 def format_retrieved_content(chunks: List[Dict]) -> str:
