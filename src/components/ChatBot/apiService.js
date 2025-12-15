@@ -3,7 +3,7 @@
  */
 
 const API_BASE_URL = process.env.NODE_ENV === 'production'
-  ? 'https://rag-chatbot-api.onrender.com'  // Update with your actual Render URL after deployment
+  ? 'https://rag-chatbot-api-ilmt.onrender.com'  // Production backend URL
   : 'http://localhost:8000';
 
 /**
