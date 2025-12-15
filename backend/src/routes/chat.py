@@ -61,7 +61,7 @@ async def ask_question(request: AskRequest) -> ChatResponse:
 
         # Step 4: Generate answer with Gemini
         try:
-            result = generate_answer(
+            result = await generate_answer(
                 question=request.question,
                 retrieved_chunks=retrieved_chunks,
                 conversation_history=conversation_history if conversation_history else None,
@@ -158,7 +158,7 @@ async def ask_about_selected_text(
 Question: {request.question}"""
 
         try:
-            result = generate_answer(
+            result = await generate_answer(
                 question=enhanced_question,
                 retrieved_chunks=retrieved_chunks,
                 conversation_history=conversation_history if conversation_history else None,
