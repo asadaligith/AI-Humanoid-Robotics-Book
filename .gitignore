@@ -68,3 +68,4 @@ htmlcov/
 # package-lock.json is tracked for consistent builds
 yarn.lock
 pnpm-lock.yaml
+# Deployment trigger
