@@ -35,7 +35,7 @@ CRITICAL RULES:
 chatbot_agent = Agent(
     name="AI Robotics Book Assistant",
     instructions=AGENT_INSTRUCTIONS,
-    model="litellm/gemini/gemini-1.5-flash",  # OpenAI Agents SDK requires litellm/ prefix
+    model="litellm/gemini/gemini-1.5-pro",  # Using Pro model for better availability
     model_settings=ModelSettings(
         temperature=0.3,  # Lower temperature for more factual responses
         max_tokens=2048,
