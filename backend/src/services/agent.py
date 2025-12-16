@@ -4,18 +4,15 @@ Uses Gemini model via OpenAI-compatible endpoint for generating answers
 with strict grounding to retrieved content from the AI Humanoid Robotics Book.
 """
 
-from agents import Agent, Runner, SQLiteSession, ModelSettings
-from agents.extensions.models.litellm_model import LitellmModel
+from agents import Agent, Runner, SQLiteSession, ModelSettings, set_default_openai_key
 from typing import List, Dict, Optional
 import asyncio
+import os
 
 from ..config import settings
 
-# Configure Gemini model via LiteLLM
-model = LitellmModel(
-    model="gemini/gemini-2.0-flash-exp",
-    api_key=settings.gemini_api_key,
-)
+# Set Gemini API key for LiteLLM (uses GEMINI_API_KEY env var)
+os.environ["GEMINI_API_KEY"] = settings.gemini_api_key
 
 # System instructions for the agent
 AGENT_INSTRUCTIONS = """You are a helpful assistant for the AI Humanoid Robotics Book. Your role is to answer questions based ONLY on the provided book content.
@@ -29,11 +26,11 @@ CRITICAL RULES:
 6. If asked about topics not covered in the retrieved content, clearly state that
 """
 
-# Create the agent with model settings
+# Create the agent with LiteLLM model string format
 chatbot_agent = Agent(
     name="AI Robotics Book Assistant",
     instructions=AGENT_INSTRUCTIONS,
-    model=model,
+    model="litellm/gemini/gemini-2.0-flash-exp",
     model_settings=ModelSettings(
         temperature=0.3,  # Lower temperature for more factual responses
         max_tokens=2048,
