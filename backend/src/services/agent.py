@@ -4,26 +4,17 @@ Uses Gemini model via OpenAI-compatible endpoint for generating answers
 with strict grounding to retrieved content from the AI Humanoid Robotics Book.
 """
 
-from agents import Agent, Runner, OpenAIChatCompletionsModel, SQLiteSession, ModelSettings, set_default_openai_api
-from openai import AsyncOpenAI
+from agents import Agent, Runner, SQLiteSession, ModelSettings
+from agents.extensions.models.litellm_model import LitellmModel
 from typing import List, Dict, Optional
 import asyncio
 
 from ..config import settings
 
-# Set API to chat_completions for Gemini compatibility
-set_default_openai_api("chat_completions")
-
-# Configure OpenAI-compatible client for Gemini
-external_client = AsyncOpenAI(
+# Configure Gemini model via LiteLLM
+model = LitellmModel(
+    model="gemini/gemini-2.0-flash-exp",
     api_key=settings.gemini_api_key,
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
-)
-
-# Configure model
-model = OpenAIChatCompletionsModel(
-    model="gemini-2.0-flash-exp",
-    openai_client=external_client,
 )
 
 # System instructions for the agent
