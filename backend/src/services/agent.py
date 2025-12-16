@@ -4,12 +4,15 @@ Uses Gemini model via OpenAI-compatible endpoint for generating answers
 with strict grounding to retrieved content from the AI Humanoid Robotics Book.
 """
 
-from agents import Agent, Runner, OpenAIChatCompletionsModel, SQLiteSession, ModelSettings
+from agents import Agent, Runner, OpenAIChatCompletionsModel, SQLiteSession, ModelSettings, set_default_openai_api
 from openai import AsyncOpenAI
 from typing import List, Dict, Optional
 import asyncio
 
 from ..config import settings
+
+# Set API to chat_completions for Gemini compatibility
+set_default_openai_api("chat_completions")
 
 # Configure OpenAI-compatible client for Gemini
 external_client = AsyncOpenAI(
