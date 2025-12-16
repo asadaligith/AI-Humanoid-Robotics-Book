@@ -97,7 +97,7 @@ Answer:"""
         # Create session for conversation history if session_id provided
         session = None
         if session_id:
-            session = SQLiteSession(session_id, "chat_sessions.db")
+            session = SQLiteSession(session_id, "/tmp/chat_sessions.db")
 
         # Run the agent
         result = await Runner.run(
