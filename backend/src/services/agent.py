@@ -8,11 +8,16 @@ from agents import Agent, Runner, SQLiteSession, ModelSettings, set_default_open
 from typing import List, Dict, Optional
 import asyncio
 import os
+import litellm
 
 from ..config import settings
 
 # Set Gemini API key for LiteLLM (uses GEMINI_API_KEY env var)
 os.environ["GEMINI_API_KEY"] = settings.gemini_api_key
+
+# Disable OpenAI tracing since we're using Gemini
+litellm.success_callback = []
+litellm.failure_callback = []
 
 # System instructions for the agent
 AGENT_INSTRUCTIONS = """You are a helpful assistant for the AI Humanoid Robotics Book. Your role is to answer questions based ONLY on the provided book content.
@@ -30,7 +35,7 @@ CRITICAL RULES:
 chatbot_agent = Agent(
     name="AI Robotics Book Assistant",
     instructions=AGENT_INSTRUCTIONS,
-    model="litellm/gemini/gemini-1.5-flash",  # Using stable model with higher quota
+    model="gemini/gemini-1.5-flash",  # Correct format for Google AI Studio
     model_settings=ModelSettings(
         temperature=0.3,  # Lower temperature for more factual responses
         max_tokens=2048,
