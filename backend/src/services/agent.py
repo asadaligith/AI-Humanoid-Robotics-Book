@@ -35,7 +35,7 @@ CRITICAL RULES:
 chatbot_agent = Agent(
     name="AI Robotics Book Assistant",
     instructions=AGENT_INSTRUCTIONS,
-    model="gemini/gemini-1.5-flash",  # Correct format for Google AI Studio
+    model="litellm/gemini/gemini-1.5-flash",  # OpenAI Agents SDK requires litellm/ prefix
     model_settings=ModelSettings(
         temperature=0.3,  # Lower temperature for more factual responses
         max_tokens=2048,
