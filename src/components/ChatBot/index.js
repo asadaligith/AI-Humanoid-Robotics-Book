@@ -18,6 +18,7 @@ export default function ChatBot() {
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [sessionId, setSessionId] = useState(null);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -54,14 +55,13 @@ export default function ChatBot() {
     setError(null);
 
     try {
-      // Prepare conversation history (last 5 messages)
-      const conversationHistory = messages.slice(-5).map(msg => ({
-        role: msg.role,
-        content: msg.content,
-      }));
+      // Call backend API with session ID
+      const response = await askQuestion(userMessage.content, sessionId);
 
-      // Call backend API
-      const response = await askQuestion(userMessage.content, conversationHistory);
+      // Store session ID from response for conversation continuity
+      if (response.session_id && !sessionId) {
+        setSessionId(response.session_id);
+      }
 
       // Add assistant response to chat
       const assistantMessage = {
@@ -94,6 +94,7 @@ export default function ChatBot() {
         content: 'Chat cleared! How can I help you?',
       },
     ]);
+    setSessionId(null);  // Reset session for new conversation
     setError(null);
   };
 
@@ -172,7 +173,7 @@ export default function ChatBot() {
 
           {/* Footer */}
           <div className={styles.chatFooter}>
-            Powered by Gemini 1.5 Pro & RAG
+            Powered by OpenAI GPT-4o-mini & RAG
           </div>
         </div>
       )}

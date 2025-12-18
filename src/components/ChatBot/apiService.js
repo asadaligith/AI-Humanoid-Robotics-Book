@@ -9,20 +9,22 @@ const API_BASE_URL = process.env.NODE_ENV === 'production'
 /**
  * Ask a question to the chatbot
  * @param {string} question - The user's question
- * @param {Array} conversationHistory - Previous conversation messages
+ * @param {string} sessionId - Optional session ID for conversation tracking
  * @returns {Promise<Object>} The chatbot response
  */
-export async function askQuestion(question, conversationHistory = []) {
+export async function askQuestion(question, sessionId = null) {
   try {
+    const requestBody = { question };
+    if (sessionId) {
+      requestBody.session_id = sessionId;
+    }
+
     const response = await fetch(`${API_BASE_URL}/api/ask`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        question,
-        conversation_history: conversationHistory,
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     if (!response.ok) {
