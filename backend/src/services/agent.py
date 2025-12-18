@@ -1,23 +1,19 @@
-"""RAG-based chatbot agent using OpenAI Agents SDK with Gemini.
+"""RAG-based chatbot agent using OpenAI Agents SDK.
 
-Uses Gemini model via OpenAI-compatible endpoint for generating answers
-with strict grounding to retrieved content from the AI Humanoid Robotics Book.
+Uses OpenAI GPT-4o-mini for generating answers with strict grounding
+to retrieved content from the AI Humanoid Robotics Book.
 """
 
 from agents import Agent, Runner, SQLiteSession, ModelSettings, set_default_openai_key
 from typing import List, Dict, Optional
 import asyncio
 import os
-import litellm
 
 from ..config import settings
 
-# Set Gemini API key for LiteLLM (uses GEMINI_API_KEY env var)
-os.environ["GEMINI_API_KEY"] = settings.gemini_api_key
-
-# Disable OpenAI tracing since we're using Gemini
-litellm.success_callback = []
-litellm.failure_callback = []
+# Set OpenAI API key for the Agents SDK
+os.environ["OPENAI_API_KEY"] = settings.openai_api_key
+set_default_openai_key(settings.openai_api_key)
 
 # System instructions for the agent
 AGENT_INSTRUCTIONS = """You are a helpful assistant for the AI Humanoid Robotics Book. Your role is to answer questions based ONLY on the provided book content.
@@ -31,11 +27,11 @@ CRITICAL RULES:
 6. If asked about topics not covered in the retrieved content, clearly state that
 """
 
-# Create the agent with LiteLLM model string format
+# Create the agent with OpenAI model
 chatbot_agent = Agent(
     name="AI Robotics Book Assistant",
     instructions=AGENT_INSTRUCTIONS,
-    model="litellm/gemini/gemini-1.5-flash",  # Stable model with proper quota
+    model="gpt-4o-mini",  # Fast, cost-effective OpenAI model
     model_settings=ModelSettings(
         temperature=0.3,  # Lower temperature for more factual responses
         max_tokens=2048,

@@ -10,8 +10,8 @@ from typing import List
 class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
 
-    # Gemini Configuration
-    gemini_api_key: str
+    # OpenAI Configuration
+    openai_api_key: str
 
     # Qdrant Configuration
     qdrant_url: str
