@@ -190,12 +190,12 @@ def extract_sources(chunks: List[Dict]) -> List[Dict]:
         content = payload.get("content_text", "")
         truncated_content = content[:200] + "..." if len(content) > 200 else content
 
-        # Match frontend expected structure
+        # Match Pydantic response model structure
         source = {
-            "file_path": payload.get("file_path", "Unknown"),
-            "section_heading": payload.get("section_heading", "Unknown Section"),
+            "file": payload.get("file_path", "Unknown"),
+            "section": payload.get("section_heading", "Unknown Section"),
             "chunk": truncated_content,
-            "score": round(score, 2),
+            "similarity": round(score, 2),
         }
 
         sources.append(source)
