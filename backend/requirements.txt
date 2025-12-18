@@ -6,11 +6,8 @@ uvicorn[standard]>=0.27.0
 pydantic>=2.9.0  # Updated for Python 3.13 compatibility
 pydantic-settings>=2.1.0
 
-# Google Gemini SDK (embeddings)
-google-generativeai==0.3.2
-
-# OpenAI Agents SDK (for agent implementation)
-openai-agents[litellm]>=0.6.0
+# OpenAI SDK (for chat and embeddings)
+openai-agents>=0.6.0
 openai>=1.0.0
 
 # Vector database client

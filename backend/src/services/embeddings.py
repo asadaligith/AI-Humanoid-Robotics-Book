@@ -1,48 +1,46 @@
-"""Google Gemini embedding generation service.
+"""OpenAI embedding generation service.
 
-Uses text-embedding-004 model for semantic search.
+Uses text-embedding-3-small model for semantic search.
 """
 
-import google.generativeai as genai
+from openai import OpenAI
 from typing import List
 import time
 
 from ..config import settings
 
-# Configure Gemini
-genai.configure(api_key=settings.gemini_api_key)
+# Configure OpenAI client
+client = OpenAI(api_key=settings.openai_api_key)
 
 # Constants
-EMBEDDING_MODEL = "models/text-embedding-004"
-EMBEDDING_DIMENSIONS = 768  # Gemini text-embedding-004 dimensions
+EMBEDDING_MODEL = "text-embedding-3-small"
+EMBEDDING_DIMENSIONS = 1536  # OpenAI text-embedding-3-small dimensions
 
 
 def embed_text(text: str, task_type: str = "RETRIEVAL_DOCUMENT") -> List[float]:
-    """Generate embedding vector for a single text using Gemini.
+    """Generate embedding vector for a single text using OpenAI.
 
     Args:
         text: Input text to embed
-        task_type: Task type for Gemini ("RETRIEVAL_DOCUMENT" for indexing,
-                   "RETRIEVAL_QUERY" for queries)
+        task_type: Task type (kept for compatibility, not used by OpenAI)
 
     Returns:
-        List of 768 floats representing the embedding vector
+        List of 1536 floats representing the embedding vector
 
     Raises:
         ValueError: If text is empty
-        API errors: If Gemini API call fails
+        API errors: If OpenAI API call fails
     """
     if not text or not text.strip():
         raise ValueError("Text cannot be empty")
 
     try:
-        result = genai.embed_content(
+        response = client.embeddings.create(
             model=EMBEDDING_MODEL,
-            content=text,
-            task_type=task_type,
+            input=text,
         )
 
-        embedding = result["embedding"]
+        embedding = response.data[0].embedding
 
         # Validate dimensions
         if len(embedding) != EMBEDDING_DIMENSIONS:
@@ -60,13 +58,13 @@ def embed_text(text: str, task_type: str = "RETRIEVAL_DOCUMENT") -> List[float]:
 def embed_query(text: str) -> List[float]:
     """Generate embedding for a search query.
 
-    Convenience function that uses RETRIEVAL_QUERY task type.
+    Convenience function for query embeddings.
 
     Args:
         text: Query text
 
     Returns:
-        List of 768 floats representing the embedding vector
+        List of 1536 floats representing the embedding vector
     """
     return embed_text(text, task_type="RETRIEVAL_QUERY")
 

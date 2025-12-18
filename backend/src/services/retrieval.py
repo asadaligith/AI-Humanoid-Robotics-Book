@@ -24,7 +24,7 @@ def create_collection():
     """Create Qdrant collection for book content.
 
     Collection schema:
-    - Vector size: 768 (Gemini text-embedding-004)
+    - Vector size: 1536 (OpenAI text-embedding-3-small)
     - Distance: Cosine
     - Indexed payload fields: chunk_id, file_path, section_heading, content_hash
     """
