@@ -26,6 +26,15 @@ const sidebars = {
     'conventions',
     {
       type: 'category',
+      label: '🚀 Getting Started',
+      collapsed: false,
+      items: [
+        'getting-started/prerequisites',
+        'getting-started/installation',
+      ],
+    },
+    {
+      type: 'category',
       label: '📚 Course Modules',
       collapsed: false,
       items: [
@@ -268,6 +277,23 @@ const sidebars = {
             },
           ],
         },
+      ],
+    },
+    {
+      type: 'category',
+      label: '🔧 Troubleshooting',
+      collapsed: true,
+      items: [
+        'troubleshooting/common-issues',
+      ],
+    },
+    {
+      type: 'category',
+      label: '📖 Reference',
+      collapsed: true,
+      items: [
+        'quality-gates',
+        'review-process',
       ],
     },
   ],
