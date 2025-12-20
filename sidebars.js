@@ -289,6 +289,24 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '🤖 RAG Chatbot',
+      collapsed: true,
+      items: [
+        'rag-chatbot/architecture',
+        'rag-chatbot/setup',
+        'rag-chatbot/deployment',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🔗 Integrations',
+      collapsed: true,
+      items: [
+        'integrations/api-reference',
+      ],
+    },
+    {
+      type: 'category',
       label: '📖 Reference',
       collapsed: true,
       items: [

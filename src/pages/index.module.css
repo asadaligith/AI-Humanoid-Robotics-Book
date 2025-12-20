@@ -57,6 +57,34 @@
   font-size: 1.25rem;
 }
 
+.moduleCard .card__footer {
+  padding: 1rem;
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--ifm-color-emphasis-200);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.progressFill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.statusBanner {
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin-top: 24px;
+  text-align: center;
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
@@ -64,5 +92,11 @@
 
   .features {
     padding: 2rem 0;
+  }
+
+  .moduleCard .card__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
