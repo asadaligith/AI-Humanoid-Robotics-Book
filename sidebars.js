@@ -307,6 +307,23 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '🧪 Testing',
+      collapsed: true,
+      items: [
+        'testing/integration-testing',
+      ],
+    },
+    {
+      type: 'category',
+      label: '🤝 Community',
+      collapsed: true,
+      items: [
+        'community/student-guide',
+        'contributing/how-to-contribute',
+      ],
+    },
+    {
+      type: 'category',
       label: '📖 Reference',
       collapsed: true,
       items: [
