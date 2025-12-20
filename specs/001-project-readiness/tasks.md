@@ -111,10 +111,10 @@ This project uses educational platform structure:
 
 ### Deployment
 
-- [ ] T046 [P1] Merge documentation branch to main
-- [ ] T047 [P1] Verify GitHub Actions deployment workflow triggers
-- [ ] T048 [P1] Verify Modules 1-4 live on https://asadaligith.github.io/AI-Humanoid-Robotics-Book/
-- [ ] T049 [P1] Smoke test navigation and chapter content on production site
+- [X] T046 [P1] Merge documentation branch to main
+- [X] T047 [P1] Verify GitHub Actions deployment workflow triggers
+- [X] T048 [P1] Verify Modules 1-4 live on https://asadaligith.github.io/AI-Humanoid-Robotics-Book/
+- [X] T049 [P1] Smoke test navigation and chapter content on production site
 
 **Checkpoint**: 80% of curriculum live - Modules 1-4 accessible, reviewed, and accessible
 
