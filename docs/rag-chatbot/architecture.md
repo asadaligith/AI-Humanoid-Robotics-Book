@@ -4,6 +4,15 @@
 
 The Retrieval-Augmented Generation (RAG) chatbot provides intelligent, context-aware assistance for the AI & Humanoid Robotics course. It combines vector search, PostgreSQL metadata storage, and Claude's language understanding to answer student questions.
 
+## ✨ New Features
+
+**Enhanced Conversational AI** (Latest Update):
+- ✅ **Greeting Support**: Responds naturally to casual greetings ("hi", "hello", "hey", etc.)
+- ✅ **Improved Answer Quality**: Resolved response generation issues - now provides accurate, comprehensive answers
+- ✅ **Full Book Integration**: All 32 chapters from 5 modules ingested into RAG system
+- ✅ **Context-Aware Responses**: Understands course structure and provides relevant module references
+- ✅ **Interactive Learning**: Asks clarifying questions when user intent is ambiguous
+
 ## System Architecture
 
 ```

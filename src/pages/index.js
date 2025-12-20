@@ -45,6 +45,15 @@ function HomepageFeatures() {
       ),
     },
     {
+      title: '💬 AI Learning Assistant',
+      description: (
+        <>
+          Get instant help from our RAG-powered chatbot with full book integration.
+          Ask questions, get code examples, and receive personalized guidance 24/7.
+        </>
+      ),
+    },
+    {
       title: '🚀 Capstone Project',
       description: (
         <>
@@ -60,7 +69,7 @@ function HomepageFeatures() {
       <div className="container">
         <div className="row">
           {features.map((feature, idx) => (
-            <div key={idx} className={clsx('col col--4')}>
+            <div key={idx} className={clsx('col col--6 col--lg--3')}>
               <div className="text--center padding-horiz--md">
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>

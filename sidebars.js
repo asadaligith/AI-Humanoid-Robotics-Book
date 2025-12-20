@@ -292,6 +292,7 @@ const sidebars = {
       label: '🤖 RAG Chatbot',
       collapsed: true,
       items: [
+        'rag-chatbot/user-guide',
         'rag-chatbot/architecture',
         'rag-chatbot/setup',
         'rag-chatbot/deployment',
