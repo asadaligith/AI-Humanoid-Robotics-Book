@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-review-process" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Review Process Workflow | AI Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/review-process"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Review Process Workflow | AI Humanoid Robotics Book"><meta data-rh="true" name="description" content="Document Type: Process Documentation"><meta data-rh="true" property="og:description" content="Document Type: Process Documentation"><link data-rh="true" rel="icon" href="/AI-Humanoid-Robotics-Book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/review-process"><link data-rh="true" rel="alternate" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/review-process" hreflang="en"><link data-rh="true" rel="alternate" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/review-process" hreflang="x-default"><link rel="stylesheet" href="/AI-Humanoid-Robotics-Book/assets/css/styles.022f424d.css">
+<script src="/AI-Humanoid-Robotics-Book/assets/js/runtime~main.87c71d43.js" defer="defer"></script>
+<script src="/AI-Humanoid-Robotics-Book/assets/js/main.ce54b1b1.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/AI-Humanoid-Robotics-Book/"><div class="navbar__logo"><img src="/AI-Humanoid-Robotics-Book/img/logo.svg" alt="AI Humanoid Robotics Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/AI-Humanoid-Robotics-Book/img/logo.svg" alt="AI Humanoid Robotics Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">AI Humanoid Robotics</b></a><a class="navbar__item navbar__link" href="/AI-Humanoid-Robotics-Book/docs/intro">Book</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Review Process Workflow</h1></header>
+<p><strong>Document Type</strong>: Process Documentation
+<strong>Last Updated</strong>: 2025-12-20
+<strong>Status</strong>: Active</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h2>
+<p>This document defines the review process for all content, code, and deliverables in the &quot;Physical AI &amp; Humanoid Robotics&quot; educational platform. The process ensures quality, consistency, and adherence to project standards before production deployment.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="review-roles-and-responsibilities">Review Roles and Responsibilities<a href="#review-roles-and-responsibilities" class="hash-link" aria-label="Direct link to Review Roles and Responsibilities" title="Direct link to Review Roles and Responsibilities" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-content-author">1. Content Author<a href="#1-content-author" class="hash-link" aria-label="Direct link to 1. Content Author" title="Direct link to 1. Content Author" translate="no">​</a></h3>
+<p><strong>Who</strong>: Technical writer, developer, or subject matter expert creating content</p>
+<p><strong>Responsibilities</strong>:</p>
+<ul>
+<li class="">Create content following project templates and constitution</li>
+<li class="">Self-review against quality gates before submission</li>
+<li class="">Run automated validation tools (linter, tests, build)</li>
+<li class="">Address reviewer feedback promptly</li>
+<li class="">Update content based on review comments</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-technical-reviewer-subject-matter-expert">2. Technical Reviewer (Subject Matter Expert)<a href="#2-technical-reviewer-subject-matter-expert" class="hash-link" aria-label="Direct link to 2. Technical Reviewer (Subject Matter Expert)" title="Direct link to 2. Technical Reviewer (Subject Matter Expert)" translate="no">​</a></h3>
+<p><strong>Who</strong>: Experienced robotics engineer or researcher (2+ years ROS 2)</p>
+<p><strong>Qualifications</strong>:</p>
+<ul>
+<li class="">Deep knowledge of ROS 2 Humble, robotics simulation, humanoid systems</li>
+<li class="">Familiarity with Isaac Sim, Gazebo, Nav2, MoveIt 2</li>
+<li class="">Understanding of VLA (Vision-Language-Action) pipelines</li>
+</ul>
+<p><strong>Responsibilities</strong>:</p>
+<ul>
+<li class="">Verify technical accuracy of all claims and code</li>
+<li class="">Check citations and source quality</li>
+<li class="">Validate code examples (test if possible)</li>
+<li class="">Review difficulty appropriateness for target audience</li>
+<li class="">Provide constructive feedback within 2 business days</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-accessibility-reviewer">3. Accessibility Reviewer<a href="#3-accessibility-reviewer" class="hash-link" aria-label="Direct link to 3. Accessibility Reviewer" title="Direct link to 3. Accessibility Reviewer" translate="no">​</a></h3>
+<p><strong>Who</strong>: Frontend developer with WCAG knowledge OR accessibility specialist</p>
+<p><strong>Qualifications</strong>:</p>
+<ul>
+<li class="">WCAG 2.1 Level AA certification (preferred) or demonstrated knowledge</li>
+<li class="">Experience with Lighthouse, axe DevTools, screen readers</li>
+</ul>
+<p><strong>Responsibilities</strong>:</p>
+<ul>
+<li class="">Run automated accessibility audits (Lighthouse, axe)</li>
+<li class="">Test keyboard navigation</li>
+<li class="">Test with screen reader (sample pages)</li>
+<li class="">Verify color contrast ratios</li>
+<li class="">Provide remediation guidance for violations</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-pedagogical-reviewer">4. Pedagogical Reviewer<a href="#4-pedagogical-reviewer" class="hash-link" aria-label="Direct link to 4. Pedagogical Reviewer" title="Direct link to 4. Pedagogical Reviewer" translate="no">​</a></h3>
+<p><strong>Who</strong>: Education specialist, instructor, or program manager</p>
+<p><strong>Qualifications</strong>:</p>
+<ul>
+<li class="">Understanding of instructional design principles</li>
+<li class="">Familiarity with Bloom&#x27;s taxonomy</li>
+<li class="">Experience with technical education (preferred)</li>
+</ul>
+<p><strong>Responsibilities</strong>:</p>
+<ul>
+<li class="">Validate learning objectives clarity and measurability</li>
+<li class="">Check progressive complexity and prerequisite alignment</li>
+<li class="">Review exercise relevance to learning outcomes</li>
+<li class="">Verify chapter structure consistency</li>
+<li class="">Assess overall pedagogical effectiveness</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-deployment-reviewer-devopstechnical-writer">5. Deployment Reviewer (DevOps/Technical Writer)<a href="#5-deployment-reviewer-devopstechnical-writer" class="hash-link" aria-label="Direct link to 5. Deployment Reviewer (DevOps/Technical Writer)" title="Direct link to 5. Deployment Reviewer (DevOps/Technical Writer)" translate="no">​</a></h3>
+<p><strong>Who</strong>: DevOps engineer or technical writer</p>
+<p><strong>Responsibilities</strong>:</p>
+<ul>
+<li class="">Verify markdown formatting correctness</li>
+<li class="">Run link checker (broken-link-checker)</li>
+<li class="">Test Docusaurus build</li>
+<li class="">Check for placeholders/TODOs</li>
+<li class="">Visual inspection of deployed content</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-approver-program-manager-or-lead">6. Approver (Program Manager or Lead)<a href="#6-approver-program-manager-or-lead" class="hash-link" aria-label="Direct link to 6. Approver (Program Manager or Lead)" title="Direct link to 6. Approver (Program Manager or Lead)" translate="no">​</a></h3>
+<p><strong>Who</strong>: Program manager or technical lead</p>
+<p><strong>Responsibilities</strong>:</p>
+<ul>
+<li class="">Final approval for production deployment</li>
+<li class="">Resolve conflicts between reviewers</li>
+<li class="">Approve quality gate exceptions</li>
+<li class="">Monitor overall project quality metrics</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="review-workflow">Review Workflow<a href="#review-workflow" class="hash-link" aria-label="Direct link to Review Workflow" title="Direct link to Review Workflow" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="phase-1-author-preparation-1-2-hours-per-chapter">Phase 1: Author Preparation (1-2 hours per chapter)<a href="#phase-1-author-preparation-1-2-hours-per-chapter" class="hash-link" aria-label="Direct link to Phase 1: Author Preparation (1-2 hours per chapter)" title="Direct link to Phase 1: Author Preparation (1-2 hours per chapter)" translate="no">​</a></h3>
+<ol>
+<li class="">
+<p><strong>Create Content</strong></p>
+<ul>
+<li class="">Follow chapter template structure</li>
+<li class="">Adhere to word count limits (700-1500 words)</li>
+<li class="">Include citations for technical claims</li>
+<li class="">Write code examples with comments</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Self-Review Checklist</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Learning objectives stated clearly</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->All technical claims cited (min 2 sources)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Code tested and runs without errors</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Word count within 700-1500 range</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Markdown formatting correct</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No placeholders or TODOs</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Images have alt text</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Automated Validation</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># Run linter</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npx markdownlint docs/modules/**/*.md</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Check word count</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">wc</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-w</span><span class="token plain"> docs/modules/module-01-ros2-fundamentals/chapter-02-pubsub.md</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Test build</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">npm</span><span class="token plain"> run build</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Check links</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npx broken-link-checker http://localhost:3000 </span><span class="token parameter variable" style="color:#36acaa">--recursive</span><br></span></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Submit for Review</strong></p>
+<ul>
+<li class="">Create pull request (PR) with descriptive title</li>
+<li class="">Assign reviewers: Technical, Accessibility, Pedagogical, Deployment</li>
+<li class="">Include self-review checklist in PR description</li>
+<li class="">Link to related issues/tasks</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="phase-2-technical-review-4-8-hours-per-module">Phase 2: Technical Review (4-8 hours per module)<a href="#phase-2-technical-review-4-8-hours-per-module" class="hash-link" aria-label="Direct link to Phase 2: Technical Review (4-8 hours per module)" title="Direct link to Phase 2: Technical Review (4-8 hours per module)" translate="no">​</a></h3>
+<p><strong>Timeline</strong>: Within 2 business days of submission</p>
+<p><strong>Reviewer Actions</strong>:</p>
+<ol>
+<li class="">
+<p><strong>Accuracy Verification</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->All technical claims have authoritative citations</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Citations link to correct sources (not 404)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Technical terminology accurate (e.g., &quot;topic&quot; not &quot;channel&quot; in ROS 2)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Version specificity correct (ROS 2 Humble, not generic ROS 2)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Code Validation</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Copy code snippets to isolated environment</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Execute code and verify expected output</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Check for syntax errors, deprecated APIs</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Validate best practices (error handling, logging)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Conceptual Review</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Explanations technically sound</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Diagrams accurately represent concepts</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Difficulty appropriate for intermediate-advanced learners</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Prerequisites correctly stated</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Feedback Submission</strong></p>
+<ul>
+<li class="">Use PR comments for inline feedback</li>
+<li class="">Categorize issues: Critical (must fix), Important (should fix), Suggestion (nice-to-have)</li>
+<li class="">Provide constructive alternatives where applicable</li>
+<li class="">Approve or request changes within 2 days</li>
+</ul>
+</li>
+</ol>
+<p><strong>Approval Criteria</strong>:</p>
+<ul>
+<li class="">✅ APPROVE: Zero critical issues, max 2 important issues</li>
+<li class="">⚠️ REQUEST CHANGES: 1+ critical issues OR 3+ important issues</li>
+<li class="">🚫 REJECT: Fundamental conceptual errors, require complete rewrite</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="phase-3-accessibility-review-2-4-hours-per-module">Phase 3: Accessibility Review (2-4 hours per module)<a href="#phase-3-accessibility-review-2-4-hours-per-module" class="hash-link" aria-label="Direct link to Phase 3: Accessibility Review (2-4 hours per module)" title="Direct link to Phase 3: Accessibility Review (2-4 hours per module)" translate="no">​</a></h3>
+<p><strong>Timeline</strong>: Can run in parallel with Technical Review</p>
+<p><strong>Reviewer Actions</strong>:</p>
+<ol>
+<li class="">
+<p><strong>Automated Audit</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># Run Lighthouse</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npx lighthouse http://localhost:3000/docs/path </span><span class="token parameter variable" style="color:#36acaa">--view</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Run axe DevTools</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npx axe http://localhost:3000/docs/path</span><br></span></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Keyboard Navigation Test</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Tab through all interactive elements</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Verify focus indicators visible</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Test keyboard shortcuts (e.g., Ctrl+K for search)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No keyboard traps (can escape all modals)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Screen Reader Test</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Install NVDA (Windows) or VoiceOver (macOS)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Navigate through chapter headings</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Verify all images have descriptive alt text</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Check code blocks are readable</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Color Contrast Check</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Use WebAIM Contrast Checker</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Verify normal text: 4.5:1 minimum</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Verify large text: 3:1 minimum</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Check interactive elements: 3:1 minimum</li>
+</ul>
+</li>
+</ol>
+<p><strong>Approval Criteria</strong>:</p>
+<ul>
+<li class="">✅ APPROVE: Lighthouse accessibility score ≥90, zero critical violations</li>
+<li class="">⚠️ REQUEST CHANGES: Score &lt;90 OR critical violations found</li>
+<li class="">📋 EXCEPTION: If third-party components cause violations, document exception</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="phase-4-pedagogical-review-2-4-hours-per-module">Phase 4: Pedagogical Review (2-4 hours per module)<a href="#phase-4-pedagogical-review-2-4-hours-per-module" class="hash-link" aria-label="Direct link to Phase 4: Pedagogical Review (2-4 hours per module)" title="Direct link to Phase 4: Pedagogical Review (2-4 hours per module)" translate="no">​</a></h3>
+<p><strong>Timeline</strong>: Can run in parallel with Technical/Accessibility Reviews</p>
+<p><strong>Reviewer Actions</strong>:</p>
+<ol>
+<li class="">
+<p><strong>Learning Objectives Validation</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Objectives use measurable action verbs (create, analyze, apply, NOT understand/know)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Objectives align with module-level outcomes</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->3-5 objectives per chapter (not too few/many)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Progressive Complexity Check</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Concepts build on previous chapters</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Prerequisites explicitly stated</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Difficulty appropriate for target audience (intermediate-advanced)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Advanced topics flagged as optional</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Exercise Validation</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->At least 1 hands-on exercise per chapter</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Exercises test specific learning objectives</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Exercise solvable with chapter content</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Real-world application demonstrated</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Structure Consistency</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Chapter follows template (Introduction, Concepts, Implementation, Exercises, Summary)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Word count within 700-1500 range</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Consistent tone and style across chapters</li>
+</ul>
+</li>
+</ol>
+<p><strong>Approval Criteria</strong>:</p>
+<ul>
+<li class="">✅ APPROVE: All criteria met, effective learning experience</li>
+<li class="">⚠️ REQUEST CHANGES: Learning objectives unclear OR exercises don&#x27;t test outcomes</li>
+<li class="">🚫 REJECT: Difficulty inappropriate OR missing critical structure elements</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="phase-5-deployment-readiness-review-1-2-hours">Phase 5: Deployment Readiness Review (1-2 hours)<a href="#phase-5-deployment-readiness-review-1-2-hours" class="hash-link" aria-label="Direct link to Phase 5: Deployment Readiness Review (1-2 hours)" title="Direct link to Phase 5: Deployment Readiness Review (1-2 hours)" translate="no">​</a></h3>
+<p><strong>Timeline</strong>: After Technical/Accessibility/Pedagogical approvals</p>
+<p><strong>Reviewer Actions</strong>:</p>
+<ol>
+<li class="">
+<p><strong>Markdown Formatting Validation</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># Lint markdown</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npx markdownlint docs/modules/module-01-ros2-fundamentals/*.md</span><br></span></code></pre></div></div>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Frontmatter YAML valid (title, description, sidebar_position)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Headings properly nested (# → ## → ###, no skips)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Code blocks have language specified</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Internal links use correct format</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Link Validation</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># Check all links</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npx broken-link-checker http://localhost:3000 </span><span class="token parameter variable" style="color:#36acaa">--recursive</span><span class="token plain"> --filter-level </span><span class="token number" style="color:#36acaa">3</span><br></span></code></pre></div></div>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No 404 errors (broken internal links)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->External links resolve (HTTP 200)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Anchor links point to existing headings</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Placeholder Scan</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># Search for incomplete content markers</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">grep</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-rn</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;TODO\|FIXME\|XXX\|TBD\|\[placeholder\]&quot;</span><span class="token plain"> docs/modules/module-01-ros2-fundamentals/</span><br></span></code></pre></div></div>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No TODO/FIXME/XXX markers</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No [placeholder] text</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->All content finalized</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Build Test</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># Production build</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">npm</span><span class="token plain"> run build</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Serve locally for inspection</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">npm</span><span class="token plain"> run serve</span><br></span></code></pre></div></div>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Build completes with zero errors</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No warnings about missing files</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Bundle size reasonable (&lt;50MB)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Visual Inspection</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Chapter renders correctly in browser</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Images load properly</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Code blocks formatted correctly</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Navigation functional (sidebar, next/prev)</li>
+</ul>
+</li>
+</ol>
+<p><strong>Approval Criteria</strong>:</p>
+<ul>
+<li class="">✅ APPROVE: Build succeeds, zero broken links, no placeholders</li>
+<li class="">⚠️ REQUEST CHANGES: Build warnings OR broken links found</li>
+<li class="">🚫 REJECT: Build fails</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="phase-6-final-approval-and-deployment-30-minutes">Phase 6: Final Approval and Deployment (30 minutes)<a href="#phase-6-final-approval-and-deployment-30-minutes" class="hash-link" aria-label="Direct link to Phase 6: Final Approval and Deployment (30 minutes)" title="Direct link to Phase 6: Final Approval and Deployment (30 minutes)" translate="no">​</a></h3>
+<p><strong>Approver Actions</strong>:</p>
+<ol>
+<li class="">
+<p><strong>Review Summary</strong></p>
+<ul>
+<li class="">Verify all 4 quality gates passed (Technical, Accessibility, Pedagogical, Deployment)</li>
+<li class="">Check that all reviewer feedback addressed</li>
+<li class="">Resolve any conflicts between reviewers</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Approve PR</strong></p>
+<ul>
+<li class="">Merge pull request to <code>main</code> branch</li>
+<li class="">Ensure commit message follows convention:<!-- -->
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">docs(module-01): add Chapter 2 - Pub/Sub Pattern</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Add learning objectives for publisher-subscriber pattern</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Include code examples for topic communication</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Add exercise for sensor data logging</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Closes #123</span><br></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Monitor Deployment</strong></p>
+<ul>
+<li class="">GitHub Actions workflow triggers automatically</li>
+<li class="">Verify deployment succeeds (check Actions tab)</li>
+<li class="">Smoke test live site: <a href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/" target="_blank" rel="noopener noreferrer" class="">https://asadaligith.github.io/AI-Humanoid-Robotics-Book/</a></li>
+</ul>
+</li>
+<li class="">
+<p><strong>Post-Deployment Validation</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Chapter accessible on live site</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Navigation works (sidebar shows new chapter)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Links functional</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Images load correctly</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->ChatGPT widget still functional (if integrated)</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="review-timeline-expectations">Review Timeline Expectations<a href="#review-timeline-expectations" class="hash-link" aria-label="Direct link to Review Timeline Expectations" title="Direct link to Review Timeline Expectations" translate="no">​</a></h2>
+<table><thead><tr><th>Review Type</th><th>Expected Turnaround</th><th>Escalation If Delayed</th></tr></thead><tbody><tr><td>Technical Review</td><td>2 business days</td><td>Notify program manager after 3 days</td></tr><tr><td>Accessibility Review</td><td>2 business days</td><td>Notify program manager after 3 days</td></tr><tr><td>Pedagogical Review</td><td>2 business days</td><td>Notify program manager after 3 days</td></tr><tr><td>Deployment Review</td><td>1 business day</td><td>Notify DevOps lead after 2 days</td></tr><tr><td>Final Approval</td><td>1 business day</td><td>Notify program manager after 2 days</td></tr></tbody></table>
+<p><strong>Total Expected Timeline</strong>: 5-7 business days (assuming parallel reviews)</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedback-guidelines">Feedback Guidelines<a href="#feedback-guidelines" class="hash-link" aria-label="Direct link to Feedback Guidelines" title="Direct link to Feedback Guidelines" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-reviewers">For Reviewers<a href="#for-reviewers" class="hash-link" aria-label="Direct link to For Reviewers" title="Direct link to For Reviewers" translate="no">​</a></h3>
+<p><strong>DO</strong>:</p>
+<ul>
+<li class="">Be specific (cite line numbers, provide examples)</li>
+<li class="">Be constructive (suggest alternatives, not just criticize)</li>
+<li class="">Prioritize issues (Critical &gt; Important &gt; Suggestion)</li>
+<li class="">Explain reasoning (why something is incorrect or problematic)</li>
+<li class="">Acknowledge good work (positive reinforcement)</li>
+</ul>
+<p><strong>DON&#x27;T</strong>:</p>
+<ul>
+<li class="">Use vague language (&quot;this section needs work&quot; without specifics)</li>
+<li class="">Make personal attacks or dismissive comments</li>
+<li class="">Block on style preferences (unless violates standards)</li>
+<li class="">Request changes outside project scope</li>
+<li class="">Delay feedback beyond expected timeline</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-authors">For Authors<a href="#for-authors" class="hash-link" aria-label="Direct link to For Authors" title="Direct link to For Authors" translate="no">​</a></h3>
+<p><strong>DO</strong>:</p>
+<ul>
+<li class="">Respond to all feedback points (even if declining suggestion)</li>
+<li class="">Ask clarifying questions if feedback unclear</li>
+<li class="">Make requested changes promptly (within 1-2 days)</li>
+<li class="">Mark resolved comments (GitHub &quot;Resolve conversation&quot;)</li>
+<li class="">Notify reviewers when ready for re-review</li>
+</ul>
+<p><strong>DON&#x27;T</strong>:</p>
+<ul>
+<li class="">Ignore reviewer comments without explanation</li>
+<li class="">Argue defensively (assume good intent)</li>
+<li class="">Make partial fixes (address all issues before re-submitting)</li>
+<li class="">Sneak in unrelated changes (keep PRs focused)</li>
+<li class="">Rush through revisions (quality over speed)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="exception-handling">Exception Handling<a href="#exception-handling" class="hash-link" aria-label="Direct link to Exception Handling" title="Direct link to Exception Handling" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="quality-gate-cannot-be-met">Quality Gate Cannot Be Met<a href="#quality-gate-cannot-be-met" class="hash-link" aria-label="Direct link to Quality Gate Cannot Be Met" title="Direct link to Quality Gate Cannot Be Met" translate="no">​</a></h3>
+<p>If a quality gate cannot be passed due to technical constraints:</p>
+<ol>
+<li class="">
+<p><strong>Document Exception Request</strong></p>
+<ul>
+<li class="">Which gate cannot be met</li>
+<li class="">Reason (technical constraint, third-party dependency, etc.)</li>
+<li class="">Proposed mitigation (alternative approach)</li>
+<li class="">Impact assessment (how does this affect users?)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Approval Process</strong></p>
+<ul>
+<li class="">Submit exception request to program manager</li>
+<li class="">Program manager reviews with technical lead</li>
+<li class="">Decision within 1 business day</li>
+<li class="">Document approval in exceptions log</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Track Exception</strong></p>
+<ul>
+<li class="">Add to <code>docs/exceptions-log.md</code></li>
+<li class="">Include resolution plan (when can this be fixed?)</li>
+<li class="">Schedule review (quarterly check for resolution)</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reviewer-conflict">Reviewer Conflict<a href="#reviewer-conflict" class="hash-link" aria-label="Direct link to Reviewer Conflict" title="Direct link to Reviewer Conflict" translate="no">​</a></h3>
+<p>If reviewers disagree on approval decision:</p>
+<ol>
+<li class=""><strong>Reviewers discuss</strong> (async via PR comments or sync via meeting)</li>
+<li class=""><strong>Program manager mediates</strong> if no consensus after 1 day</li>
+<li class=""><strong>Final decision</strong> by program manager or technical lead</li>
+<li class=""><strong>Document decision</strong> in PR comments for transparency</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="urgent-hotfix">Urgent Hotfix<a href="#urgent-hotfix" class="hash-link" aria-label="Direct link to Urgent Hotfix" title="Direct link to Urgent Hotfix" translate="no">​</a></h3>
+<p>For critical bugs requiring immediate fix:</p>
+<ol>
+<li class=""><strong>Create hotfix PR</strong> with <code>[URGENT]</code> prefix</li>
+<li class=""><strong>Fast-track review</strong> (4-hour turnaround expected)</li>
+<li class=""><strong>Skip non-critical gates</strong> (e.g., pedagogical review for bug fix)</li>
+<li class=""><strong>Deploy immediately</strong> after technical + deployment reviews</li>
+<li class=""><strong>Backfill skipped reviews</strong> within 1 week</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="continuous-improvement">Continuous Improvement<a href="#continuous-improvement" class="hash-link" aria-label="Direct link to Continuous Improvement" title="Direct link to Continuous Improvement" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="quarterly-review-process-audit">Quarterly Review Process Audit<a href="#quarterly-review-process-audit" class="hash-link" aria-label="Direct link to Quarterly Review Process Audit" title="Direct link to Quarterly Review Process Audit" translate="no">​</a></h3>
+<p>Every quarter (January, April, July, October):</p>
+<ol>
+<li class="">
+<p><strong>Collect Metrics</strong></p>
+<ul>
+<li class="">Average review turnaround time</li>
+<li class="">Number of rejected PRs</li>
+<li class="">Most common review issues</li>
+<li class="">Reviewer workload balance</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Analyze Bottlenecks</strong></p>
+<ul>
+<li class="">Identify slow stages (Technical? Accessibility?)</li>
+<li class="">Root cause analysis (lack of reviewers? unclear standards?)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Update Process</strong></p>
+<ul>
+<li class="">Refine review criteria based on learnings</li>
+<li class="">Adjust timelines if consistently unmet</li>
+<li class="">Add new automated checks to reduce manual load</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Train Reviewers</strong></p>
+<ul>
+<li class="">Share common issues and resolutions</li>
+<li class="">Update reviewer guidelines</li>
+<li class="">Onboard new reviewers as project scales</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tools-and-resources">Tools and Resources<a href="#tools-and-resources" class="hash-link" aria-label="Direct link to Tools and Resources" title="Direct link to Tools and Resources" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="automated-validation-tools">Automated Validation Tools<a href="#automated-validation-tools" class="hash-link" aria-label="Direct link to Automated Validation Tools" title="Direct link to Automated Validation Tools" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># Install tools</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">npm</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-g</span><span class="token plain"> markdownlint-cli broken-link-checker lighthouse axe-cli</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Lint markdown</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npx markdownlint docs/modules/**/*.md</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Check links</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npx broken-link-checker http://localhost:3000 </span><span class="token parameter variable" style="color:#36acaa">--recursive</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Accessibility audit</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npx lighthouse http://localhost:3000/docs/path </span><span class="token parameter variable" style="color:#36acaa">--view</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npx axe http://localhost:3000/docs/path</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Word count</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">wc</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-w</span><span class="token plain"> docs/modules/module-01-ros2-fundamentals/chapter-02-pubsub.md</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Build test</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">npm</span><span class="token plain"> run build</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="review-templates">Review Templates<a href="#review-templates" class="hash-link" aria-label="Direct link to Review Templates" title="Direct link to Review Templates" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>PR Description Template</strong>: <code>.github/PULL_REQUEST_TEMPLATE.md</code></li>
+<li class=""><strong>Technical Review Checklist</strong>: <code>docs/review-checklists/technical-review.md</code></li>
+<li class=""><strong>Accessibility Review Checklist</strong>: <code>docs/review-checklists/accessibility-review.md</code></li>
+<li class=""><strong>Pedagogical Review Checklist</strong>: <code>docs/review-checklists/pedagogical-review.md</code></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reference-documents">Reference Documents<a href="#reference-documents" class="hash-link" aria-label="Direct link to Reference Documents" title="Direct link to Reference Documents" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Quality Gates</strong>: <code>docs/quality-gates.md</code></li>
+<li class=""><strong>Constitution</strong>: <code>.specify/memory/constitution.md</code></li>
+<li class=""><strong>Chapter Template</strong>: <code>docs/templates/chapter-template.md</code> (if exists)</li>
+<li class=""><strong>Style Guide</strong>: <code>docs/style-guide.md</code> (if exists)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="revision-history">Revision History<a href="#revision-history" class="hash-link" aria-label="Direct link to Revision History" title="Direct link to Revision History" translate="no">​</a></h2>
+<table><thead><tr><th>Date</th><th>Version</th><th>Changes</th><th>Author</th></tr></thead><tbody><tr><td>2025-12-20</td><td>1.0</td><td>Initial review process documentation</td><td>AI Assistant</td></tr></tbody></table>
+<hr>
+<p><strong>Status</strong>: ✅ Active
+<strong>Next Review</strong>: 2026-01-20 (monthly review)</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book/tree/main/docs/review-process.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#review-roles-and-responsibilities" class="table-of-contents__link toc-highlight">Review Roles and Responsibilities</a><ul><li><a href="#1-content-author" class="table-of-contents__link toc-highlight">1. Content Author</a></li><li><a href="#2-technical-reviewer-subject-matter-expert" class="table-of-contents__link toc-highlight">2. Technical Reviewer (Subject Matter Expert)</a></li><li><a href="#3-accessibility-reviewer" class="table-of-contents__link toc-highlight">3. Accessibility Reviewer</a></li><li><a href="#4-pedagogical-reviewer" class="table-of-contents__link toc-highlight">4. Pedagogical Reviewer</a></li><li><a href="#5-deployment-reviewer-devopstechnical-writer" class="table-of-contents__link toc-highlight">5. Deployment Reviewer (DevOps/Technical Writer)</a></li><li><a href="#6-approver-program-manager-or-lead" class="table-of-contents__link toc-highlight">6. Approver (Program Manager or Lead)</a></li></ul></li><li><a href="#review-workflow" class="table-of-contents__link toc-highlight">Review Workflow</a><ul><li><a href="#phase-1-author-preparation-1-2-hours-per-chapter" class="table-of-contents__link toc-highlight">Phase 1: Author Preparation (1-2 hours per chapter)</a></li><li><a href="#phase-2-technical-review-4-8-hours-per-module" class="table-of-contents__link toc-highlight">Phase 2: Technical Review (4-8 hours per module)</a></li><li><a href="#phase-3-accessibility-review-2-4-hours-per-module" class="table-of-contents__link toc-highlight">Phase 3: Accessibility Review (2-4 hours per module)</a></li><li><a href="#phase-4-pedagogical-review-2-4-hours-per-module" class="table-of-contents__link toc-highlight">Phase 4: Pedagogical Review (2-4 hours per module)</a></li><li><a href="#phase-5-deployment-readiness-review-1-2-hours" class="table-of-contents__link toc-highlight">Phase 5: Deployment Readiness Review (1-2 hours)</a></li><li><a href="#phase-6-final-approval-and-deployment-30-minutes" class="table-of-contents__link toc-highlight">Phase 6: Final Approval and Deployment (30 minutes)</a></li></ul></li><li><a href="#review-timeline-expectations" class="table-of-contents__link toc-highlight">Review Timeline Expectations</a></li><li><a href="#feedback-guidelines" class="table-of-contents__link toc-highlight">Feedback Guidelines</a><ul><li><a href="#for-reviewers" class="table-of-contents__link toc-highlight">For Reviewers</a></li><li><a href="#for-authors" class="table-of-contents__link toc-highlight">For Authors</a></li></ul></li><li><a href="#exception-handling" class="table-of-contents__link toc-highlight">Exception Handling</a><ul><li><a href="#quality-gate-cannot-be-met" class="table-of-contents__link toc-highlight">Quality Gate Cannot Be Met</a></li><li><a href="#reviewer-conflict" class="table-of-contents__link toc-highlight">Reviewer Conflict</a></li><li><a href="#urgent-hotfix" class="table-of-contents__link toc-highlight">Urgent Hotfix</a></li></ul></li><li><a href="#continuous-improvement" class="table-of-contents__link toc-highlight">Continuous Improvement</a><ul><li><a href="#quarterly-review-process-audit" class="table-of-contents__link toc-highlight">Quarterly Review Process Audit</a></li></ul></li><li><a href="#tools-and-resources" class="table-of-contents__link toc-highlight">Tools and Resources</a><ul><li><a href="#automated-validation-tools" class="table-of-contents__link toc-highlight">Automated Validation Tools</a></li><li><a href="#review-templates" class="table-of-contents__link toc-highlight">Review Templates</a></li><li><a href="#reference-documents" class="table-of-contents__link toc-highlight">Reference Documents</a></li></ul></li><li><a href="#revision-history" class="table-of-contents__link toc-highlight">Revision History</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Modules</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/AI-Humanoid-Robotics-Book/docs/intro">Module 1: ROS 2</a></li><li class="footer__item"><a class="footer__link-item" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone">Module 5: Capstone</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Technologies</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://docs.ros.org/en/humble/" target="_blank" rel="noopener noreferrer" class="footer__link-item">ROS 2<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://gazebosim.org/docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Gazebo<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://developer.nvidia.com/isaac-sim" target="_blank" rel="noopener noreferrer" class="footer__link-item">Isaac Sim<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.piaic.org/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GIAIC<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 GIAIC Hackathon Q4. Built with Docusaurus.</div></div></div></footer><button class="chatButton_ZHk5" aria-label="Toggle chat">💬</button></div>
+</body>
+</html>

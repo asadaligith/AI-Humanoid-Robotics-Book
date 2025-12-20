@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-quality-gates" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Quality Gates - Project Readiness | AI Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/quality-gates"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Quality Gates - Project Readiness | AI Humanoid Robotics Book"><meta data-rh="true" name="description" content="Document Type: Quality Assurance Guidelines"><meta data-rh="true" property="og:description" content="Document Type: Quality Assurance Guidelines"><link data-rh="true" rel="icon" href="/AI-Humanoid-Robotics-Book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/quality-gates"><link data-rh="true" rel="alternate" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/quality-gates" hreflang="en"><link data-rh="true" rel="alternate" href="https://asadaligith.github.io/AI-Humanoid-Robotics-Book/docs/quality-gates" hreflang="x-default"><link rel="stylesheet" href="/AI-Humanoid-Robotics-Book/assets/css/styles.022f424d.css">
+<script src="/AI-Humanoid-Robotics-Book/assets/js/runtime~main.87c71d43.js" defer="defer"></script>
+<script src="/AI-Humanoid-Robotics-Book/assets/js/main.ce54b1b1.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/AI-Humanoid-Robotics-Book/"><div class="navbar__logo"><img src="/AI-Humanoid-Robotics-Book/img/logo.svg" alt="AI Humanoid Robotics Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/AI-Humanoid-Robotics-Book/img/logo.svg" alt="AI Humanoid Robotics Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">AI Humanoid Robotics</b></a><a class="navbar__item navbar__link" href="/AI-Humanoid-Robotics-Book/docs/intro">Book</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Quality Gates - Project Readiness</h1></header>
+<p><strong>Document Type</strong>: Quality Assurance Guidelines
+<strong>Last Updated</strong>: 2025-12-20
+<strong>Status</strong>: Active</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h2>
+<p>This document defines the quality gates that all content, code, and deliverables must pass before being deployed to production. These gates ensure technical accuracy, accessibility, pedagogical effectiveness, and deployment readiness.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="gate-1-technical-accuracy">Gate 1: Technical Accuracy<a href="#gate-1-technical-accuracy" class="hash-link" aria-label="Direct link to Gate 1: Technical Accuracy" title="Direct link to Gate 1: Technical Accuracy" translate="no">​</a></h2>
+<p><strong>Purpose</strong>: Ensure all technical claims, code examples, and explanations are factually correct and cite authoritative sources.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="acceptance-criteria">Acceptance Criteria<a href="#acceptance-criteria" class="hash-link" aria-label="Direct link to Acceptance Criteria" title="Direct link to Acceptance Criteria" translate="no">​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Minimum 2 authoritative sources</strong> per technical claim</p>
+<ul>
+<li class="">Authoritative sources include: Official documentation, peer-reviewed papers, recognized textbooks, established open-source projects</li>
+<li class="">Examples: ROS 2 official docs, NVIDIA developer documentation, IEEE papers, O&#x27;Reilly robotics books</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>All code snippets tested</strong> in isolated environment</p>
+<ul>
+<li class="">Python code: Tested with Python 3.10+ on Ubuntu 22.04</li>
+<li class="">C++ code: Compiled with GCC 11+ and tested</li>
+<li class="">ROS 2 code: Tested with ROS 2 Humble in clean workspace</li>
+<li class="">Commands: Verified to execute without errors</li>
+<li class="">Expected output documented</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Peer review by subject matter expert</strong></p>
+<ul>
+<li class="">Technical reviewer must have:<!-- -->
+<ul>
+<li class="">2+ years experience with ROS 2</li>
+<li class="">Familiarity with robotics simulation (Gazebo/Isaac Sim)</li>
+<li class="">Understanding of humanoid robotics concepts</li>
+</ul>
+</li>
+<li class="">Review checklist:<!-- -->
+<ul>
+<li class="">Terminology accuracy</li>
+<li class="">Conceptual correctness</li>
+<li class="">Code quality and best practices</li>
+<li class="">Appropriate difficulty level for target audience</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Version specificity</strong></p>
+<ul>
+<li class="">All software versions explicitly stated (e.g., &quot;ROS 2 Humble&quot;, not &quot;ROS 2&quot;)</li>
+<li class="">Compatibility constraints documented</li>
+<li class="">Deprecation warnings noted where applicable</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="review-process">Review Process<a href="#review-process" class="hash-link" aria-label="Direct link to Review Process" title="Direct link to Review Process" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>Self-review</strong>: Author verifies all citations and tests all code</li>
+<li class=""><strong>Peer review</strong>: Subject matter expert reviews content</li>
+<li class=""><strong>Correction</strong>: Author addresses reviewer feedback</li>
+<li class=""><strong>Sign-off</strong>: Reviewer approves final version</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="failure-criteria">Failure Criteria<a href="#failure-criteria" class="hash-link" aria-label="Direct link to Failure Criteria" title="Direct link to Failure Criteria" translate="no">​</a></h3>
+<p>❌ <strong>REJECT</strong> if:</p>
+<ul>
+<li class="">Technical claim lacks citation</li>
+<li class="">Code snippet fails to execute</li>
+<li class="">Incorrect terminology used</li>
+<li class="">Outdated API referenced without deprecation notice</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="gate-2-accessibility-wcag-21-aa-compliance">Gate 2: Accessibility (WCAG 2.1 AA Compliance)<a href="#gate-2-accessibility-wcag-21-aa-compliance" class="hash-link" aria-label="Direct link to Gate 2: Accessibility (WCAG 2.1 AA Compliance)" title="Direct link to Gate 2: Accessibility (WCAG 2.1 AA Compliance)" translate="no">​</a></h2>
+<p><strong>Purpose</strong>: Ensure platform is usable by people with disabilities, meeting WCAG 2.1 Level AA standards.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="acceptance-criteria-1">Acceptance Criteria<a href="#acceptance-criteria-1" class="hash-link" aria-label="Direct link to Acceptance Criteria" title="Direct link to Acceptance Criteria" translate="no">​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Lighthouse accessibility score &gt;90</strong></p>
+<ul>
+<li class="">Test with Chrome Lighthouse audit</li>
+<li class="">Address all critical and major issues</li>
+<li class="">Document any acceptable deviations with justification</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Keyboard navigation functional</strong></p>
+<ul>
+<li class="">All interactive elements reachable via Tab key</li>
+<li class="">Focus indicators clearly visible</li>
+<li class="">Keyboard shortcuts documented (e.g., Cmd/Ctrl + K for search)</li>
+<li class="">No keyboard traps</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Screen reader compatibility</strong></p>
+<ul>
+<li class="">Test with NVDA (Windows) or VoiceOver (macOS)</li>
+<li class="">All images have descriptive alt text</li>
+<li class="">Headings properly nested (no skipped levels)</li>
+<li class="">ARIA labels on custom components</li>
+<li class="">Form inputs have associated labels</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Color contrast ratios</strong></p>
+<ul>
+<li class="">Normal text: Minimum 4.5:1 contrast ratio</li>
+<li class="">Large text (18pt+): Minimum 3:1 contrast ratio</li>
+<li class="">Interactive elements: Minimum 3:1 contrast ratio</li>
+<li class="">Test with WebAIM Contrast Checker</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Alternative formats</strong></p>
+<ul>
+<li class="">Code blocks have syntax highlighting and copy button</li>
+<li class="">Diagrams have text descriptions</li>
+<li class="">Video content (if added) has captions/transcripts</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="review-process-1">Review Process<a href="#review-process-1" class="hash-link" aria-label="Direct link to Review Process" title="Direct link to Review Process" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>Automated audit</strong>: Run Lighthouse, axe DevTools</li>
+<li class=""><strong>Manual testing</strong>: Keyboard navigation, screen reader</li>
+<li class=""><strong>Contrast validation</strong>: Check all color combinations</li>
+<li class=""><strong>Remediation</strong>: Fix identified issues</li>
+<li class=""><strong>Re-test</strong>: Verify fixes pass all checks</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="failure-criteria-1">Failure Criteria<a href="#failure-criteria-1" class="hash-link" aria-label="Direct link to Failure Criteria" title="Direct link to Failure Criteria" translate="no">​</a></h3>
+<p>❌ <strong>REJECT</strong> if:</p>
+<ul>
+<li class="">Lighthouse accessibility score &lt;90</li>
+<li class="">Keyboard trap identified</li>
+<li class="">Missing alt text on images</li>
+<li class="">Contrast ratio below minimum</li>
+<li class="">Screen reader cannot navigate content</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="gate-3-pedagogical-review">Gate 3: Pedagogical Review<a href="#gate-3-pedagogical-review" class="hash-link" aria-label="Direct link to Gate 3: Pedagogical Review" title="Direct link to Gate 3: Pedagogical Review" translate="no">​</a></h2>
+<p><strong>Purpose</strong>: Ensure content effectively teaches concepts and supports learning outcomes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="acceptance-criteria-2">Acceptance Criteria<a href="#acceptance-criteria-2" class="hash-link" aria-label="Direct link to Acceptance Criteria" title="Direct link to Acceptance Criteria" translate="no">​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Learning objectives clearly stated</strong></p>
+<ul>
+<li class="">Each chapter begins with &quot;By the end of this chapter, you will be able to...&quot;</li>
+<li class="">Objectives use measurable verbs (Bloom&#x27;s taxonomy: understand, apply, analyze, create)</li>
+<li class="">Objectives align with module-level outcomes</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Progressive complexity</strong></p>
+<ul>
+<li class="">Concepts build on previous chapters</li>
+<li class="">Prerequisites explicitly stated</li>
+<li class="">Advanced topics flagged as optional</li>
+<li class="">Difficulty appropriate for intermediate-to-advanced learners</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Exercises map to learning outcomes</strong></p>
+<ul>
+<li class="">At least 1 hands-on exercise per chapter</li>
+<li class="">Exercises test specific learning objectives</li>
+<li class="">Solutions or hints provided (in separate file if needed)</li>
+<li class="">Real-world application demonstrated</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Chapter structure consistency</strong></p>
+<ul>
+<li class="">Introduction (motivation, context)</li>
+<li class="">Concepts (theory, explanations)</li>
+<li class="">Implementation (code examples)</li>
+<li class="">Exercises (practice tasks)</li>
+<li class="">Summary (key takeaways)</li>
+<li class="">Further reading (optional resources)</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Word count within range</strong></p>
+<ul>
+<li class="">Minimum: 700 words (ensures sufficient depth)</li>
+<li class="">Maximum: 1500 words (maintains focus)</li>
+<li class="">Excludes code blocks and diagrams</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="review-process-2">Review Process<a href="#review-process-2" class="hash-link" aria-label="Direct link to Review Process" title="Direct link to Review Process" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>Learning objective validation</strong>: Check alignment with outcomes</li>
+<li class=""><strong>Complexity assessment</strong>: Verify appropriate difficulty progression</li>
+<li class=""><strong>Exercise validation</strong>: Test that exercises are solvable and relevant</li>
+<li class=""><strong>Structure check</strong>: Ensure all chapters follow template</li>
+<li class=""><strong>Readability</strong>: Check for clarity, conciseness, appropriate jargon</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="failure-criteria-2">Failure Criteria<a href="#failure-criteria-2" class="hash-link" aria-label="Direct link to Failure Criteria" title="Direct link to Failure Criteria" translate="no">​</a></h3>
+<p>❌ <strong>REJECT</strong> if:</p>
+<ul>
+<li class="">Learning objectives missing or vague</li>
+<li class="">Concepts introduced without prerequisites</li>
+<li class="">Exercises don&#x27;t test stated objectives</li>
+<li class="">Word count outside 700-1500 range</li>
+<li class="">Chapter structure deviates from template</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="gate-4-deployment-readiness">Gate 4: Deployment Readiness<a href="#gate-4-deployment-readiness" class="hash-link" aria-label="Direct link to Gate 4: Deployment Readiness" title="Direct link to Gate 4: Deployment Readiness" translate="no">​</a></h2>
+<p><strong>Purpose</strong>: Ensure content is production-ready and won&#x27;t break the platform.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="acceptance-criteria-3">Acceptance Criteria<a href="#acceptance-criteria-3" class="hash-link" aria-label="Direct link to Acceptance Criteria" title="Direct link to Acceptance Criteria" translate="no">​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Markdown formatting correct</strong></p>
+<ul>
+<li class="">Frontmatter YAML valid (title, description, sidebar_position)</li>
+<li class="">Headings properly nested (# → ## → ###)</li>
+<li class="">Code blocks have language specified (```python)</li>
+<li class="">Internal links use correct format (<a class="" href="/AI-Humanoid-Robotics-Book/docs/path">text</a>)</li>
+<li class="">External links open in new tab (when appropriate)</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>All links functional</strong></p>
+<ul>
+<li class="">No 404 errors (broken internal links)</li>
+<li class="">External links resolve successfully</li>
+<li class="">Use <code>npx broken-link-checker</code> for validation</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>No placeholders or TODO markers</strong></p>
+<ul>
+<li class="">Search for: TODO, FIXME, XXX, TBD, [placeholder]</li>
+<li class="">All content finalized before deployment</li>
+<li class="">Temporary notes removed</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Docusaurus build succeeds</strong></p>
+<ul>
+<li class="">Run <code>npm run build</code> with zero errors</li>
+<li class="">No warnings about missing files</li>
+<li class="">Bundle size within reasonable limits (&lt;50MB for docs)</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <strong>Images and assets optimized</strong></p>
+<ul>
+<li class="">Images in WebP or PNG format (not BMP)</li>
+<li class="">Responsive images for different screen sizes</li>
+<li class="">File size &lt;500KB per image</li>
+<li class="">Alt text on all images</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="review-process-3">Review Process<a href="#review-process-3" class="hash-link" aria-label="Direct link to Review Process" title="Direct link to Review Process" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>Formatting validation</strong>: Lint markdown files</li>
+<li class=""><strong>Link check</strong>: Run broken-link-checker</li>
+<li class=""><strong>Placeholder scan</strong>: Grep for TODO/FIXME/XXX</li>
+<li class=""><strong>Build test</strong>: Run production build</li>
+<li class=""><strong>Visual inspection</strong>: Review deployed page in browser</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="failure-criteria-3">Failure Criteria<a href="#failure-criteria-3" class="hash-link" aria-label="Direct link to Failure Criteria" title="Direct link to Failure Criteria" translate="no">​</a></h3>
+<p>❌ <strong>REJECT</strong> if:</p>
+<ul>
+<li class="">Docusaurus build fails</li>
+<li class="">Broken links detected</li>
+<li class="">Placeholders found in content</li>
+<li class="">Invalid frontmatter YAML</li>
+<li class="">Missing required images</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="quality-gate-execution-workflow">Quality Gate Execution Workflow<a href="#quality-gate-execution-workflow" class="hash-link" aria-label="Direct link to Quality Gate Execution Workflow" title="Direct link to Quality Gate Execution Workflow" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pre-deployment-checklist">Pre-Deployment Checklist<a href="#pre-deployment-checklist" class="hash-link" aria-label="Direct link to Pre-Deployment Checklist" title="Direct link to Pre-Deployment Checklist" translate="no">​</a></h3>
+<p>For each new chapter or content update:</p>
+<ol>
+<li class="">
+<p><strong>Author completes content</strong></p>
+<ul>
+<li class="">Self-review against all 4 gates</li>
+<li class="">Run automated checks (linter, link checker, build test)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Technical Accuracy Gate</strong></p>
+<ul>
+<li class="">Submit to SME reviewer</li>
+<li class="">Address feedback</li>
+<li class="">Obtain sign-off</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Accessibility Gate</strong></p>
+<ul>
+<li class="">Run Lighthouse audit</li>
+<li class="">Test keyboard navigation</li>
+<li class="">Test screen reader (sample)</li>
+<li class="">Fix issues, re-test</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Pedagogical Review Gate</strong></p>
+<ul>
+<li class="">Validate learning objectives</li>
+<li class="">Check exercises</li>
+<li class="">Verify word count and structure</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Deployment Readiness Gate</strong></p>
+<ul>
+<li class="">Run Docusaurus build</li>
+<li class="">Run link checker</li>
+<li class="">Final visual review</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Approval</strong></p>
+<ul>
+<li class="">Program manager or lead approves deployment</li>
+<li class="">Merge to main branch</li>
+<li class="">GitHub Actions deploys to production</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="continuous-monitoring">Continuous Monitoring<a href="#continuous-monitoring" class="hash-link" aria-label="Direct link to Continuous Monitoring" title="Direct link to Continuous Monitoring" translate="no">​</a></h3>
+<p>Post-deployment:</p>
+<ul>
+<li class="">Monitor user feedback (GitHub Issues)</li>
+<li class="">Track error reports in production</li>
+<li class="">Quarterly content review for accuracy (technology changes)</li>
+<li class="">Annual pedagogy review (learning outcome assessment)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="gate-responsibilities">Gate Responsibilities<a href="#gate-responsibilities" class="hash-link" aria-label="Direct link to Gate Responsibilities" title="Direct link to Gate Responsibilities" translate="no">​</a></h2>
+<table><thead><tr><th>Gate</th><th>Primary Reviewer</th><th>Secondary Reviewer</th><th>Automated Tools</th></tr></thead><tbody><tr><td>Technical Accuracy</td><td>Subject Matter Expert (Robotics)</td><td>Peer developer</td><td>Linter, pytest</td></tr><tr><td>Accessibility</td><td>Accessibility specialist OR Frontend dev</td><td>UX designer</td><td>Lighthouse, axe DevTools</td></tr><tr><td>Pedagogical Review</td><td>Education specialist OR Instructor</td><td>Program manager</td><td>Word counter, structure validator</td></tr><tr><td>Deployment Readiness</td><td>DevOps engineer</td><td>Technical writer</td><td>broken-link-checker, Docusaurus build</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="exception-process">Exception Process<a href="#exception-process" class="hash-link" aria-label="Direct link to Exception Process" title="Direct link to Exception Process" translate="no">​</a></h2>
+<p>If a quality gate cannot be met due to technical constraints:</p>
+<ol>
+<li class=""><strong>Document exception</strong>: Explain why gate cannot be passed</li>
+<li class=""><strong>Propose mitigation</strong>: Alternative approach to achieve similar quality</li>
+<li class=""><strong>Obtain approval</strong>: Program manager or project lead approves exception</li>
+<li class=""><strong>Track exception</strong>: Add to exceptions log with resolution plan</li>
+<li class=""><strong>Revisit</strong>: Schedule review to remove exception when possible</li>
+</ol>
+<p><strong>Example Exception</strong>:</p>
+<ul>
+<li class=""><strong>Gate</strong>: Accessibility - Lighthouse score &lt;90</li>
+<li class=""><strong>Reason</strong>: Third-party embedded widget (Qdrant UI) lacks ARIA labels</li>
+<li class=""><strong>Mitigation</strong>: Provide text alternative, document accessibility limitations</li>
+<li class=""><strong>Approval</strong>: Program manager approved 2025-12-20</li>
+<li class=""><strong>Resolution Plan</strong>: Contact Qdrant team to request accessibility improvements</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="revision-history">Revision History<a href="#revision-history" class="hash-link" aria-label="Direct link to Revision History" title="Direct link to Revision History" translate="no">​</a></h2>
+<table><thead><tr><th>Date</th><th>Version</th><th>Changes</th><th>Author</th></tr></thead><tbody><tr><td>2025-12-20</td><td>1.0</td><td>Initial quality gates document</td><td>AI Assistant</td></tr></tbody></table>
+<hr>
+<p><strong>Status</strong>: ✅ Active
+<strong>Next Review</strong>: 2026-01-20 (monthly review)</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book/tree/main/docs/quality-gates.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#gate-1-technical-accuracy" class="table-of-contents__link toc-highlight">Gate 1: Technical Accuracy</a><ul><li><a href="#acceptance-criteria" class="table-of-contents__link toc-highlight">Acceptance Criteria</a></li><li><a href="#review-process" class="table-of-contents__link toc-highlight">Review Process</a></li><li><a href="#failure-criteria" class="table-of-contents__link toc-highlight">Failure Criteria</a></li></ul></li><li><a href="#gate-2-accessibility-wcag-21-aa-compliance" class="table-of-contents__link toc-highlight">Gate 2: Accessibility (WCAG 2.1 AA Compliance)</a><ul><li><a href="#acceptance-criteria-1" class="table-of-contents__link toc-highlight">Acceptance Criteria</a></li><li><a href="#review-process-1" class="table-of-contents__link toc-highlight">Review Process</a></li><li><a href="#failure-criteria-1" class="table-of-contents__link toc-highlight">Failure Criteria</a></li></ul></li><li><a href="#gate-3-pedagogical-review" class="table-of-contents__link toc-highlight">Gate 3: Pedagogical Review</a><ul><li><a href="#acceptance-criteria-2" class="table-of-contents__link toc-highlight">Acceptance Criteria</a></li><li><a href="#review-process-2" class="table-of-contents__link toc-highlight">Review Process</a></li><li><a href="#failure-criteria-2" class="table-of-contents__link toc-highlight">Failure Criteria</a></li></ul></li><li><a href="#gate-4-deployment-readiness" class="table-of-contents__link toc-highlight">Gate 4: Deployment Readiness</a><ul><li><a href="#acceptance-criteria-3" class="table-of-contents__link toc-highlight">Acceptance Criteria</a></li><li><a href="#review-process-3" class="table-of-contents__link toc-highlight">Review Process</a></li><li><a href="#failure-criteria-3" class="table-of-contents__link toc-highlight">Failure Criteria</a></li></ul></li><li><a href="#quality-gate-execution-workflow" class="table-of-contents__link toc-highlight">Quality Gate Execution Workflow</a><ul><li><a href="#pre-deployment-checklist" class="table-of-contents__link toc-highlight">Pre-Deployment Checklist</a></li><li><a href="#continuous-monitoring" class="table-of-contents__link toc-highlight">Continuous Monitoring</a></li></ul></li><li><a href="#gate-responsibilities" class="table-of-contents__link toc-highlight">Gate Responsibilities</a></li><li><a href="#exception-process" class="table-of-contents__link toc-highlight">Exception Process</a></li><li><a href="#revision-history" class="table-of-contents__link toc-highlight">Revision History</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Modules</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/AI-Humanoid-Robotics-Book/docs/intro">Module 1: ROS 2</a></li><li class="footer__item"><a class="footer__link-item" href="/AI-Humanoid-Robotics-Book/docs/modules/module-05-capstone">Module 5: Capstone</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Technologies</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://docs.ros.org/en/humble/" target="_blank" rel="noopener noreferrer" class="footer__link-item">ROS 2<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://gazebosim.org/docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Gazebo<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://developer.nvidia.com/isaac-sim" target="_blank" rel="noopener noreferrer" class="footer__link-item">Isaac Sim<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/asadaligith/AI-Humanoid-Robotics-Book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.piaic.org/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GIAIC<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 GIAIC Hackathon Q4. Built with Docusaurus.</div></div></div></footer><button class="chatButton_ZHk5" aria-label="Toggle chat">💬</button></div>
+</body>
+</html>
