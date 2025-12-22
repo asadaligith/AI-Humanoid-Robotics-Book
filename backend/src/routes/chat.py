@@ -13,6 +13,12 @@ from ..services.embeddings import embed_query
 from ..services.retrieval import search
 from ..services.agent import generate_answer
 from ..utils.session import session_manager
+from ..utils.validation import (
+    validate_and_sanitize_question,
+    validate_and_sanitize_selected_text,
+    validate_session_id,
+)
+from ..utils.errors import handle_service_error, create_error_response
 
 router = APIRouter(prefix="/api", tags=["chat"])
 
@@ -35,17 +41,18 @@ async def ask_question(request: AskRequest) -> ChatResponse:
     start_time = time.time()
 
     try:
+        # Step 0: Validate and sanitize inputs
+        sanitized_question = validate_and_sanitize_question(request.question)
+        validated_session_id = validate_session_id(request.session_id)
+
         # Step 1: Get conversation history (if multi-turn)
-        conversation_history = session_manager.get_history(request.session_id)
+        conversation_history = session_manager.get_history(validated_session_id)
 
         # Step 2: Generate query embedding
         try:
-            query_embedding = embed_query(request.question)
+            query_embedding = embed_query(sanitized_question)
         except Exception as e:
-            raise HTTPException(
-                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail=f"Embedding service unavailable: {str(e)}",
-            )
+            raise handle_service_error(e, "embedding")
 
         # Step 3: Retrieve similar chunks
         try:
@@ -54,33 +61,27 @@ async def ask_question(request: AskRequest) -> ChatResponse:
                 limit=10,  # Retrieve top-10, will be reranked to top-5
             )
         except Exception as e:
-            raise HTTPException(
-                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail=f"Retrieval service unavailable: {str(e)}",
-            )
+            raise handle_service_error(e, "qdrant")
 
-        # Step 4: Generate answer with Gemini
+        # Step 4: Generate answer with OpenAI
         try:
             result = await generate_answer(
-                question=request.question,
+                question=sanitized_question,
                 retrieved_chunks=retrieved_chunks,
                 conversation_history=conversation_history if conversation_history else None,
             )
         except Exception as e:
-            raise HTTPException(
-                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail=f"Answer generation failed: {str(e)}",
-            )
+            raise handle_service_error(e, "openai")
 
         # Step 5: Add to conversation history
         session_manager.add_message(
-            session_id=request.session_id,
+            session_id=validated_session_id,
             role="user",
-            content=request.question,
+            content=sanitized_question,
         )
 
         session_manager.add_message(
-            session_id=request.session_id,
+            session_id=validated_session_id,
             role="assistant",
             content=result["answer"],
             sources=result["sources"],
@@ -93,7 +94,7 @@ async def ask_question(request: AskRequest) -> ChatResponse:
         return ChatResponse(
             answer=result["answer"],
             sources=result["sources"],
-            session_id=request.session_id,
+            session_id=validated_session_id,
             latency_ms=latency_ms,
         )
 
@@ -126,18 +127,20 @@ async def ask_about_selected_text(
     start_time = time.time()
 
     try:
+        # Step 0: Validate and sanitize inputs
+        sanitized_question = validate_and_sanitize_question(request.question)
+        sanitized_selected_text = validate_and_sanitize_selected_text(request.selected_text)
+        validated_session_id = validate_session_id(request.session_id)
+
         # Step 1: Get conversation history
-        conversation_history = session_manager.get_history(request.session_id)
+        conversation_history = session_manager.get_history(validated_session_id)
 
         # Step 2: Generate embeddings for both question and selected text
         try:
-            query_embedding = embed_query(request.question)
-            selected_embedding = embed_query(request.selected_text)
+            query_embedding = embed_query(sanitized_question)
+            selected_embedding = embed_query(sanitized_selected_text)
         except Exception as e:
-            raise HTTPException(
-                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail=f"Embedding service unavailable: {str(e)}",
-            )
+            raise handle_service_error(e, "embedding")
 
         # Step 3: Retrieve with hybrid scoring
         try:
@@ -147,15 +150,12 @@ async def ask_about_selected_text(
                 selected_text_embedding=selected_embedding,  # Enable hybrid scoring
             )
         except Exception as e:
-            raise HTTPException(
-                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail=f"Retrieval service unavailable: {str(e)}",
-            )
+            raise handle_service_error(e, "qdrant")
 
         # Step 4: Generate answer (include selected text context in question)
-        enhanced_question = f"""Context: The user selected this text: "{request.selected_text[:200]}..."
+        enhanced_question = f"""Context: The user selected this text: "{sanitized_selected_text[:200]}..."
 
-Question: {request.question}"""
+Question: {sanitized_question}"""
 
         try:
             result = await generate_answer(
@@ -164,20 +164,17 @@ Question: {request.question}"""
                 conversation_history=conversation_history if conversation_history else None,
             )
         except Exception as e:
-            raise HTTPException(
-                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail=f"Answer generation failed: {str(e)}",
-            )
+            raise handle_service_error(e, "openai")
 
         # Step 5: Add to conversation history
         session_manager.add_message(
-            session_id=request.session_id,
+            session_id=validated_session_id,
             role="user",
-            content=f"{request.question} (about selected text)",
+            content=f"{sanitized_question} (about selected text)",
         )
 
         session_manager.add_message(
-            session_id=request.session_id,
+            session_id=validated_session_id,
             role="assistant",
             content=result["answer"],
             sources=result["sources"],
@@ -189,7 +186,7 @@ Question: {request.question}"""
         return ChatResponse(
             answer=result["answer"],
             sources=result["sources"],
-            session_id=request.session_id,
+            session_id=validated_session_id,
             latency_ms=latency_ms,
         )
 

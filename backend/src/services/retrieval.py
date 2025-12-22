@@ -10,6 +10,7 @@ from uuid import uuid4
 
 from ..config import settings
 from .embeddings import EMBEDDING_DIMENSIONS
+from ..utils.logging import setup_logger, LogContext
 
 # Initialize Qdrant client
 client = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key)
@@ -18,6 +19,9 @@ client = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key)
 COLLECTION_NAME = "book_content"
 DEFAULT_LIMIT = 10
 RERANK_LIMIT = 5
+
+# Initialize structured logger
+logger = setup_logger(__name__)
 
 
 def create_collection():
@@ -61,10 +65,17 @@ def create_collection():
             field_schema="keyword",
         )
 
-        print(f"Collection '{COLLECTION_NAME}' created successfully")
+        logger.info(
+            f"Collection '{COLLECTION_NAME}' created successfully",
+            extra={"service": "retrieval", "operation": "create_collection"},
+        )
 
     except Exception as e:
-        print(f"Error creating collection: {e}")
+        logger.error(
+            f"Error creating collection",
+            exc_info=True,
+            extra={"service": "retrieval", "operation": "create_collection"},
+        )
         raise
 
 
@@ -90,7 +101,11 @@ def upsert_chunk(chunk_id: str, vector: List[float], payload: Dict) -> bool:
         return True
 
     except Exception as e:
-        print(f"Error upserting chunk {chunk_id}: {e}")
+        logger.error(
+            f"Error upserting chunk",
+            exc_info=True,
+            extra={"service": "retrieval", "operation": "upsert_chunk", "chunk_id": chunk_id},
+        )
         raise
 
 
@@ -131,7 +146,16 @@ def search(
     if score_threshold is None:
         score_threshold = settings.similarity_threshold
 
-    try:
+    with LogContext(
+        logger,
+        operation="search",
+        service="retrieval",
+        metadata={
+            "limit": limit,
+            "score_threshold": score_threshold,
+            "hybrid_scoring": selected_text_embedding is not None,
+        },
+    ):
         # Basic semantic search using query_points (qdrant-client v1.7+)
         search_results = client.query_points(
             collection_name=COLLECTION_NAME,
@@ -159,11 +183,17 @@ def search(
         # Rerank and limit to top N
         results = rerank_results(results, limit=min(limit, RERANK_LIMIT))
 
-        return results
+        logger.info(
+            "Search completed",
+            extra={
+                "service": "retrieval",
+                "operation": "search",
+                "results_count": len(results),
+                "top_score": results[0]["score"] if results else 0,
+            },
+        )
 
-    except Exception as e:
-        print(f"Error searching Qdrant: {e}")
-        raise
+        return results
 
 
 def apply_hybrid_scoring(
@@ -245,7 +275,11 @@ def delete_chunk(chunk_id: str) -> bool:
         return True
 
     except Exception as e:
-        print(f"Error deleting chunk {chunk_id}: {e}")
+        logger.error(
+            f"Error deleting chunk",
+            exc_info=True,
+            extra={"service": "retrieval", "operation": "delete_chunk", "chunk_id": chunk_id},
+        )
         raise
 
 
@@ -275,5 +309,9 @@ def get_collection_info() -> Dict:
         return result
 
     except Exception as e:
-        print(f"Error getting collection info: {e}")
+        logger.error(
+            f"Error getting collection info",
+            exc_info=True,
+            extra={"service": "retrieval", "operation": "get_collection_info"},
+        )
         return {"error": str(e)}

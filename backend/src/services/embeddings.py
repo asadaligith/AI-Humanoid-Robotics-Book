@@ -8,6 +8,8 @@ from typing import List
 import time
 
 from ..config import settings
+from ..utils.logging import setup_logger, LogContext
+from ..utils.retry import with_exponential_backoff
 
 # Configure OpenAI client
 client = OpenAI(api_key=settings.openai_api_key)
@@ -16,9 +18,15 @@ client = OpenAI(api_key=settings.openai_api_key)
 EMBEDDING_MODEL = "text-embedding-3-small"
 EMBEDDING_DIMENSIONS = 1536  # OpenAI text-embedding-3-small dimensions
 
+# Initialize structured logger
+logger = setup_logger(__name__)
 
+
+@with_exponential_backoff(max_retries=3, initial_delay=1.0)
 def embed_text(text: str, task_type: str = "RETRIEVAL_DOCUMENT") -> List[float]:
     """Generate embedding vector for a single text using OpenAI.
+
+    Includes automatic retry with exponential backoff for transient failures (429, 503).
 
     Args:
         text: Input text to embed
@@ -29,12 +37,17 @@ def embed_text(text: str, task_type: str = "RETRIEVAL_DOCUMENT") -> List[float]:
 
     Raises:
         ValueError: If text is empty
-        API errors: If OpenAI API call fails
+        API errors: If OpenAI API call fails after retries
     """
     if not text or not text.strip():
         raise ValueError("Text cannot be empty")
 
-    try:
+    with LogContext(
+        logger,
+        operation="embed_text",
+        service="embeddings",
+        metadata={"text_length": len(text), "model": EMBEDDING_MODEL},
+    ):
         response = client.embeddings.create(
             model=EMBEDDING_MODEL,
             input=text,
@@ -48,11 +61,16 @@ def embed_text(text: str, task_type: str = "RETRIEVAL_DOCUMENT") -> List[float]:
                 f"Expected {EMBEDDING_DIMENSIONS} dimensions, got {len(embedding)}"
             )
 
-        return embedding
+        logger.debug(
+            "Embedding generated successfully",
+            extra={
+                "service": "embeddings",
+                "operation": "embed_text",
+                "dimensions": len(embedding),
+            },
+        )
 
-    except Exception as e:
-        print(f"Error generating embedding: {e}")
-        raise
+        return embedding
 
 
 def embed_query(text: str) -> List[float]:
@@ -131,7 +149,16 @@ def embed_batch(
                 time.sleep(0.1)
 
         except Exception as e:
-            print(f"Error generating batch embeddings (batch {i // batch_size}): {e}")
+            logger.error(
+                f"Error generating batch embeddings",
+                exc_info=True,
+                extra={
+                    "service": "embeddings",
+                    "operation": "embed_batch",
+                    "batch_number": i // batch_size,
+                    "batch_size": len(batch),
+                },
+            )
             raise
 
     return all_embeddings

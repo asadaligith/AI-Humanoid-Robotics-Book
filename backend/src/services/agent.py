@@ -10,10 +10,15 @@ import asyncio
 import os
 
 from ..config import settings
+from ..utils.logging import setup_logger, LogContext
+from ..utils.retry import async_retry_with_backoff
 
 # Set OpenAI API key for the Agents SDK
 os.environ["OPENAI_API_KEY"] = settings.openai_api_key
 set_default_openai_key(settings.openai_api_key)
+
+# Initialize structured logger
+logger = setup_logger(__name__)
 
 # System instructions for the agent
 AGENT_INSTRUCTIONS = """You are a helpful assistant for the AI Humanoid Robotics Book. Your role is to answer questions based ONLY on the provided book content.
@@ -91,11 +96,14 @@ Answer:"""
         if session_id:
             session = SQLiteSession(session_id, "/tmp/chat_sessions.db")
 
-        # Run the agent
-        result = await Runner.run(
+        # Run the agent with retry logic
+        result = await async_retry_with_backoff(
+            Runner.run,
             chatbot_agent,
             input=full_prompt,
             session=session,
+            max_retries=3,
+            initial_delay=1.0,
         )
 
         answer = result.final_output
@@ -106,9 +114,15 @@ Answer:"""
         return {"answer": answer, "sources": sources}
 
     except Exception as e:
-        import traceback
-        print(f"Error generating answer: {e}")
-        traceback.print_exc()
+        logger.error(
+            f"Error generating answer",
+            exc_info=True,
+            extra={
+                "service": "agent",
+                "operation": "generate_answer_async",
+                "question_length": len(question),
+            },
+        )
         return {
             "answer": "I encountered an error while generating the answer. Please try again.",
             "sources": [],
@@ -132,9 +146,25 @@ async def generate_answer(
     """
     # Check for greeting first (quick path, no RAG needed)
     if is_greeting(question):
+        logger.info(
+            "Greeting detected",
+            extra={
+                "service": "agent",
+                "operation": "generate_answer",
+                "type": "greeting",
+            },
+        )
         return handle_greeting()
 
     if not retrieved_chunks:
+        logger.warning(
+            "No retrieved chunks for question",
+            extra={
+                "service": "agent",
+                "operation": "generate_answer",
+                "question_length": len(question),
+            },
+        )
         return {
             "answer": "I don't have information about that in the book. Could you try rephrasing your question or asking about a different topic?",
             "sources": [],
@@ -174,7 +204,16 @@ Question: {question}
 
 Answer:"""
 
-    try:
+    with LogContext(
+        logger,
+        operation="generate_answer",
+        service="agent",
+        metadata={
+            "question_length": len(question),
+            "chunks_count": len(retrieved_chunks),
+            "has_history": conversation_history is not None and len(conversation_history) > 0,
+        },
+    ):
         # Use session_id approach if provided (for SQLite persistence)
         session_id = None
         if conversation_history:
@@ -183,15 +222,18 @@ Answer:"""
             history_str = str([msg.get("content", "")[:50] for msg in conversation_history[:2]])  # Use first 2 messages
             session_id = hashlib.md5(history_str.encode()).hexdigest()
 
-        # Run the agent
+        # Run the agent with retry logic
         session = None
         if session_id:
             session = SQLiteSession(session_id, "/tmp/chat_sessions.db")
 
-        result = await Runner.run(
+        result = await async_retry_with_backoff(
+            Runner.run,
             chatbot_agent,
             input=full_prompt,
             session=session,
+            max_retries=3,
+            initial_delay=1.0,
         )
 
         answer = result.final_output
@@ -199,16 +241,17 @@ Answer:"""
         # Extract sources
         sources = extract_sources(retrieved_chunks)
 
-        return {"answer": answer, "sources": sources}
+        logger.info(
+            "Answer generated successfully",
+            extra={
+                "service": "agent",
+                "operation": "generate_answer",
+                "answer_length": len(answer),
+                "sources_count": len(sources),
+            },
+        )
 
-    except Exception as e:
-        import traceback
-        print(f"Error generating answer: {e}")
-        traceback.print_exc()
-        return {
-            "answer": "I encountered an error while generating the answer. Please try again.",
-            "sources": [],
-        }
+        return {"answer": answer, "sources": sources}
 
 
 def is_greeting(text: str) -> bool:

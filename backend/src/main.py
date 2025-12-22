@@ -19,6 +19,11 @@ import time
 
 from .config import settings
 from .routes import chat, health
+from .utils.logging import setup_logger, log_slow_operation, set_request_id
+import uuid
+
+# Initialize logger
+logger = setup_logger(__name__)
 
 # Create FastAPI app
 app = FastAPI(
@@ -39,15 +44,74 @@ app.add_middleware(
 )
 
 
-# Request timing middleware
+# Performance monitoring middleware
 @app.middleware("http")
-async def add_process_time_header(request: Request, call_next):
-    """Add X-Process-Time header to responses."""
+async def performance_monitoring_middleware(request: Request, call_next):
+    """Track request latency and log slow queries.
+
+    - Adds X-Process-Time header to responses
+    - Sets request_id for distributed tracing
+    - Logs slow operations (>2s threshold)
+    - Tracks endpoint performance metrics
+    """
+    # Generate unique request ID
+    request_id = str(uuid.uuid4())
+    set_request_id(request_id)
+
+    # Extract path and method
+    path = request.url.path
+    method = request.method
+
+    # Start timing
     start_time = time.time()
-    response = await call_next(request)
-    process_time = time.time() - start_time
-    response.headers["X-Process-Time"] = f"{process_time:.3f}"
-    return response
+
+    try:
+        response = await call_next(request)
+
+        # Calculate latency
+        latency_ms = (time.time() - start_time) * 1000
+
+        # Add performance headers
+        response.headers["X-Process-Time"] = f"{latency_ms / 1000:.3f}"
+        response.headers["X-Request-ID"] = request_id
+
+        # Log request performance
+        logger.info(
+            f"{method} {path}",
+            extra={
+                "request_id": request_id,
+                "method": method,
+                "path": path,
+                "status_code": response.status_code,
+                "latency_ms": round(latency_ms, 2),
+            },
+        )
+
+        # Log slow queries (>2000ms threshold)
+        log_slow_operation(
+            logger,
+            operation=f"{method} {path}",
+            latency_ms=latency_ms,
+            threshold_ms=2000,
+        )
+
+        return response
+
+    except Exception as e:
+        # Log error with request context
+        latency_ms = (time.time() - start_time) * 1000
+        logger.error(
+            f"Request failed: {method} {path}",
+            exc_info=True,
+            extra={
+                "request_id": request_id,
+                "method": method,
+                "path": path,
+                "latency_ms": round(latency_ms, 2),
+                "error_type": type(e).__name__,
+            },
+        )
+        raise
 
 
 # Register routes
