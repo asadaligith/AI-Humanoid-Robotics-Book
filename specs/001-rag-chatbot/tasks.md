@@ -107,14 +107,14 @@ description: "Implementation tasks for RAG Chatbot feature"
 
 ### Tests for User Story 2
 
-- [ ] T032 [P] [US2] Create selected-text mode test in backend/tests/test_api.py for POST /ask-selected endpoint to verify selected text boosts relevance of related chunks (cosine similarity with selected text embedding)
+- [X] T032 [P] [US2] Create selected-text mode test in backend/tests/test_api.py for POST /ask-selected endpoint to verify selected text boosts relevance of related chunks (cosine similarity with selected text embedding)
 
 ### Implementation for User Story 2
 
-- [ ] T033 [P] [US2] Extend retrieval.py search() function with optional selected_text parameter to compute hybrid score: 0.7 * query_similarity + 0.3 * selected_text_similarity
-- [ ] T034 [US2] Implement POST /ask-selected endpoint in backend/src/routes/chat.py: validate AskSelectedRequest (max 5000 chars for selected_text), embed both question and selected text, call retrieval with hybrid scoring, return ChatResponse
-- [ ] T035 [US2] Add selected text handler to chatbot-widget.js: listen for text selection events, show "Ask about this" floating button near selection, pre-populate chat panel with selected context
-- [ ] T036 [US2] Update chatbot-widget.js submit handler to detect selected text mode, call POST /ask-selected instead of POST /ask, display selected text snippet in chat UI
+- [X] T033 [P] [US2] Extend retrieval.py search() function with optional selected_text parameter to compute hybrid score: 0.7 * query_similarity + 0.3 * selected_text_similarity
+- [X] T034 [US2] Implement POST /ask-selected endpoint in backend/src/routes/chat.py: validate AskSelectedRequest (max 5000 chars for selected_text), embed both question and selected text, call retrieval with hybrid scoring, return ChatResponse
+- [X] T035 [US2] Add selected text handler to chatbot-widget.js: listen for text selection events, show "Ask about this" floating button near selection, pre-populate chat panel with selected context
+- [X] T036 [US2] Update chatbot-widget.js submit handler to detect selected text mode, call POST /ask-selected instead of POST /ask, display selected text snippet in chat UI
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently. Readers can ask general questions OR ask about selected text.
 
@@ -128,14 +128,14 @@ description: "Implementation tasks for RAG Chatbot feature"
 
 ### Tests for User Story 3
 
-- [ ] T037 [P] [US3] Create multi-turn conversation test in backend/tests/test_agent.py to verify 3 sequential related questions maintain context and chatbot correctly resolves pronouns ("it", "that concept")
+- [X] T037 [P] [US3] Create multi-turn conversation test in backend/tests/test_api.py to verify 3 sequential related questions maintain context and chatbot correctly resolves pronouns ("it", "that concept")
 
 ### Implementation for User Story 3
 
-- [ ] T038 [US3] Extend session.py to store conversation history (list of {role, content} messages) per session_id with max 10 turns, implement LRU eviction for old sessions (>30 min idle)
-- [ ] T039 [US3] Update agent.py to accept conversation_history parameter, pass to OpenAI Agent SDK as message context, enable agent to reference previous questions/answers
-- [ ] T040 [US3] Update POST /ask and POST /ask-selected endpoints in backend/src/routes/chat.py to retrieve conversation history from session, pass to agent, append new Q&A to history before returning
-- [ ] T041 [US3] Update chatbot-widget.js to persist session_id in browser sessionStorage, include in all API requests, display conversation history in chat panel
+- [X] T038 [US3] Extend session.py to store conversation history (list of {role, content} messages) per session_id with max 10 turns, implement LRU eviction for old sessions (>30 min idle)
+- [X] T039 [US3] Update agent.py to accept conversation_history parameter, include conversation context in prompts, enable agent to reference previous questions/answers
+- [X] T040 [US3] Update POST /ask and POST /ask-selected endpoints in backend/src/routes/chat.py to retrieve conversation history from session, pass to agent, append new Q&A to history before returning
+- [X] T041 [US3] Update chatbot-widget.js to persist session_id in browser sessionStorage, include in all API requests, display conversation history in chat panel
 
 **Checkpoint**: All user stories should now be independently functional. Readers can ask general questions, selected-text questions, and multi-turn conversations.
 

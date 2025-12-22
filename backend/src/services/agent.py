@@ -120,26 +120,143 @@ async def generate_answer(
     retrieved_chunks: List[Dict],
     conversation_history: Optional[List[Dict]] = None,
 ) -> Dict:
-    """Async wrapper for generate_answer_async (FastAPI compatible).
+    """Generate answer with optional conversation history context.
 
     Args:
         question: User's question
         retrieved_chunks: List of retrieved document chunks from Qdrant
-        conversation_history: Optional conversation history (deprecated - use session_id)
+        conversation_history: Optional list of previous messages [{"role": "user/assistant", "content": "..."}]
 
     Returns:
         Dictionary with 'answer' and 'sources'
     """
-    # Generate session_id from conversation_history if provided
-    session_id = None
-    if conversation_history:
-        # Use hash of conversation for session ID
-        import hashlib
-        history_str = str(conversation_history)
-        session_id = hashlib.md5(history_str.encode()).hexdigest()
+    # Check for greeting first (quick path, no RAG needed)
+    if is_greeting(question):
+        return handle_greeting()
 
-    # Call async function directly (FastAPI handles the event loop)
-    return await generate_answer_async(question, retrieved_chunks, session_id)
+    if not retrieved_chunks:
+        return {
+            "answer": "I don't have information about that in the book. Could you try rephrasing your question or asking about a different topic?",
+            "sources": [],
+        }
+
+    # Format retrieved content
+    retrieved_content = format_retrieved_content(retrieved_chunks)
+
+    # Build conversation context if history provided
+    conversation_context = ""
+    if conversation_history and len(conversation_history) > 0:
+        # Include last 3 turns for context (avoid token limit)
+        recent_history = conversation_history[-6:]  # Last 3 Q&A pairs
+        history_parts = []
+        for msg in recent_history:
+            role = "User" if msg["role"] == "user" else "Assistant"
+            history_parts.append(f"{role}: {msg['content']}")
+        conversation_context = "\n".join(history_parts)
+
+    # Build full prompt with context
+    if conversation_context:
+        full_prompt = f"""Previous conversation:
+{conversation_context}
+
+Retrieved content from the book:
+{retrieved_content}
+
+Current question: {question}
+
+Please answer the current question using the retrieved content. You may reference the conversation history for context, but base your answer primarily on the retrieved content."""
+    else:
+        full_prompt = f"""Answer the user's question using the following retrieved content from the book:
+
+{retrieved_content}
+
+Question: {question}
+
+Answer:"""
+
+    try:
+        # Use session_id approach if provided (for SQLite persistence)
+        session_id = None
+        if conversation_history:
+            # Generate stable session ID from history
+            import hashlib
+            history_str = str([msg.get("content", "")[:50] for msg in conversation_history[:2]])  # Use first 2 messages
+            session_id = hashlib.md5(history_str.encode()).hexdigest()
+
+        # Run the agent
+        session = None
+        if session_id:
+            session = SQLiteSession(session_id, "/tmp/chat_sessions.db")
+
+        result = await Runner.run(
+            chatbot_agent,
+            input=full_prompt,
+            session=session,
+        )
+
+        answer = result.final_output
+
+        # Extract sources
+        sources = extract_sources(retrieved_chunks)
+
+        return {"answer": answer, "sources": sources}
+
+    except Exception as e:
+        import traceback
+        print(f"Error generating answer: {e}")
+        traceback.print_exc()
+        return {
+            "answer": "I encountered an error while generating the answer. Please try again.",
+            "sources": [],
+        }
+
+
+def is_greeting(text: str) -> bool:
+    """Check if text is a greeting.
+
+    Args:
+        text: User input text
+
+    Returns:
+        True if text is a greeting
+    """
+    greetings = [
+        "hi",
+        "hello",
+        "hey",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "greetings",
+        "howdy",
+    ]
+
+    normalized = text.lower().strip()
+
+    # Exact match or starts with greeting
+    return any(normalized == greeting or normalized.startswith(greeting + " ") for greeting in greetings)
+
+
+def handle_greeting() -> Dict:
+    """Return greeting response without RAG.
+
+    Returns:
+        Dictionary with greeting answer and empty sources
+    """
+    return {
+        "answer": """Hello! 👋 Welcome to the AI & Humanoid Robotics course!
+
+I'm your learning assistant with access to all 5 modules and 32 chapters covering:
+• ROS 2 fundamentals and architecture
+• Gazebo simulation and world building
+• Isaac Sim and perception systems
+• Vision-Language-Action (VLA) models
+• Autonomous humanoid robotics projects
+
+How can I help you today? You can ask me about any topic from the course!""",
+        "sources": [],
+        "type": "greeting",
+    }
 
 
 def format_retrieved_content(chunks: List[Dict]) -> str:

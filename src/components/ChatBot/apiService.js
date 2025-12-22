@@ -40,6 +40,40 @@ export async function askQuestion(question, sessionId = null) {
 }
 
 /**
+ * Ask a question about selected text
+ * @param {string} question - The user's question about the selected text
+ * @param {string} selectedText - The text selected by the user
+ * @param {string} sessionId - Optional session ID for conversation tracking
+ * @returns {Promise<Object>} The chatbot response
+ */
+export async function askAboutSelectedText(question, selectedText, sessionId = null) {
+  try {
+    const requestBody = { question, selected_text: selectedText };
+    if (sessionId) {
+      requestBody.session_id = sessionId;
+    }
+
+    const response = await fetch(`${API_BASE_URL}/api/ask-selected`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.detail || `HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Error asking about selected text:', error);
+    throw error;
+  }
+}
+
+/**
  * Check backend health status
  * @returns {Promise<Object>} Health status response
  */

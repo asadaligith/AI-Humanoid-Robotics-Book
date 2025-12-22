@@ -30,6 +30,39 @@
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
+/* Selection Button (appears when text is selected) */
+.selectionButton {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border: none;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(79, 172, 254, 0.4);
+  transition: all 0.3s ease;
+  z-index: 1001;
+  white-space: nowrap;
+  animation: fadeInScale 0.2s ease;
+}
+
+.selectionButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(79, 172, 254, 0.5);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Chat Window */
 .chatWindow {
   position: fixed;
@@ -296,6 +329,37 @@
 .chatInput:disabled {
   background: #f5f5f5;
   cursor: not-allowed;
+}
+
+/* Clear Selection Button */
+.clearSelectionButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  border: 1px solid #d0d0d0;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.clearSelectionButton:hover {
+  background: #ffe0e0;
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+/* Update chatForm to position clear button properly */
+.chatForm {
+  position: relative;
 }
 
 .sendButton {

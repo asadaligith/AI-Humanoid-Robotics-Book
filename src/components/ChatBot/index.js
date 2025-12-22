@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ChatMessage from './ChatMessage';
-import { askQuestion } from './apiService';
+import { askQuestion, askAboutSelectedText } from './apiService';
 import styles from './styles.module.css';
 
 /**
@@ -18,7 +18,16 @@ export default function ChatBot() {
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [sessionId, setSessionId] = useState(null);
+  const [sessionId, setSessionId] = useState(() => {
+    // Load session ID from sessionStorage on mount
+    if (typeof window !== 'undefined') {
+      return sessionStorage.getItem('chatbot_session_id') || null;
+    }
+    return null;
+  });
+  const [selectedText, setSelectedText] = useState('');
+  const [showSelectionButton, setShowSelectionButton] = useState(false);
+  const [selectionPosition, setSelectionPosition] = useState({ x: 0, y: 0 });
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -34,29 +43,88 @@ export default function ChatBot() {
     }
   }, [isOpen]);
 
+  // Text selection handler
+  useEffect(() => {
+    const handleSelection = (e) => {
+      const selection = window.getSelection();
+      const text = selection.toString().trim();
+
+      // Check if selection is valid (10-5000 chars, outside chatbot)
+      if (text.length >= 10 && text.length <= 5000) {
+        const range = selection.getRangeAt(0);
+        const rect = range.getBoundingClientRect();
+
+        // Don't show button for text selected inside chatbot
+        const chatWindow = document.querySelector(`.${styles.chatWindow}`);
+        if (chatWindow && chatWindow.contains(range.commonAncestorContainer)) {
+          setShowSelectionButton(false);
+          return;
+        }
+
+        setSelectedText(text);
+        setSelectionPosition({ x: rect.right, y: rect.bottom });
+        setShowSelectionButton(true);
+      } else {
+        setShowSelectionButton(false);
+        setSelectedText('');
+      }
+    };
+
+    document.addEventListener('mouseup', handleSelection);
+    document.addEventListener('selectionchange', handleSelection);
+
+    return () => {
+      document.removeEventListener('mouseup', handleSelection);
+      document.removeEventListener('selectionchange', handleSelection);
+    };
+  }, []);
+
+  // Persist session ID to sessionStorage whenever it changes
+  useEffect(() => {
+    if (typeof window !== 'undefined' && sessionId) {
+      sessionStorage.setItem('chatbot_session_id', sessionId);
+    }
+  }, [sessionId]);
+
   const toggleChat = () => {
     setIsOpen(!isOpen);
     setError(null);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, isSelectedTextMode = false) => {
     e.preventDefault();
     if (!inputValue.trim() || isLoading) return;
 
     const userMessage = {
       role: 'user',
-      content: inputValue.trim(),
+      content: isSelectedTextMode
+        ? `[About selected text: "${selectedText.substring(0, 100)}..."] ${inputValue.trim()}`
+        : inputValue.trim(),
     };
 
     // Add user message to chat
     setMessages(prev => [...prev, userMessage]);
+    const currentInput = inputValue.trim();
+    const currentSelectedText = selectedText;
     setInputValue('');
     setIsLoading(true);
     setError(null);
 
+    // Clear selection state if used
+    if (isSelectedTextMode) {
+      setSelectedText('');
+      setShowSelectionButton(false);
+    }
+
     try {
-      // Call backend API with session ID
-      const response = await askQuestion(userMessage.content, sessionId);
+      let response;
+
+      // Use appropriate endpoint based on mode
+      if (isSelectedTextMode && currentSelectedText) {
+        response = await askAboutSelectedText(currentInput, currentSelectedText, sessionId);
+      } else {
+        response = await askQuestion(currentInput, sessionId);
+      }
 
       // Store session ID from response for conversation continuity
       if (response.session_id && !sessionId) {
@@ -96,10 +164,61 @@ export default function ChatBot() {
     ]);
     setSessionId(null);  // Reset session for new conversation
     setError(null);
+    setSelectedText('');
+    setShowSelectionButton(false);
+
+    // Clear sessionStorage
+    if (typeof window !== 'undefined') {
+      sessionStorage.removeItem('chatbot_session_id');
+    }
+  };
+
+  const handleAskAboutSelection = () => {
+    if (!selectedText) return;
+
+    // Open chat if closed
+    if (!isOpen) {
+      setIsOpen(true);
+    }
+
+    // Set placeholder question or let user type their own
+    setInputValue('');
+
+    // Show indicator that selection is active
+    setMessages(prev => [
+      ...prev,
+      {
+        role: 'system',
+        content: `📝 Selected text: "${selectedText.substring(0, 150)}${selectedText.length > 150 ? '...' : ''}"\n\nAsk me a question about this selection!`,
+      }
+    ]);
+
+    // Focus input
+    setTimeout(() => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    }, 100);
   };
 
   return (
     <>
+      {/* Selection Button */}
+      {showSelectionButton && !isOpen && (
+        <button
+          className={styles.selectionButton}
+          style={{
+            position: 'fixed',
+            left: `${selectionPosition.x}px`,
+            top: `${selectionPosition.y + 5}px`,
+          }}
+          onClick={handleAskAboutSelection}
+          aria-label="Ask about this text"
+        >
+          💡 Ask about this
+        </button>
+      )}
+
       {/* Chat Button */}
       <button
         className={`${styles.chatButton} ${isOpen ? styles.chatButtonActive : ''}`}
@@ -151,17 +270,30 @@ export default function ChatBot() {
           </div>
 
           {/* Input Form */}
-          <form className={styles.chatForm} onSubmit={handleSubmit}>
+          <form className={styles.chatForm} onSubmit={(e) => handleSubmit(e, !!selectedText)}>
             <input
               ref={inputRef}
               type="text"
               className={styles.chatInput}
-              placeholder="Ask about robotics, ROS 2, Gazebo..."
+              placeholder={selectedText ? "Ask about the selected text..." : "Ask about robotics, ROS 2, Gazebo..."}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
               disabled={isLoading}
             />
+            {selectedText && (
+              <button
+                type="button"
+                className={styles.clearSelectionButton}
+                onClick={() => {
+                  setSelectedText('');
+                  setShowSelectionButton(false);
+                }}
+                title="Clear selection"
+              >
+                ✕
+              </button>
+            )}
             <button
               type="submit"
               className={styles.sendButton}
