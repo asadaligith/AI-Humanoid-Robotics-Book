@@ -91,13 +91,14 @@ def detect_xss(text: str) -> bool:
 
 
 def validate_and_sanitize_question(
-    question: str, max_length: int = MAX_QUESTION_LENGTH
+    question: str, max_length: int = MAX_QUESTION_LENGTH, allow_short: bool = True
 ) -> str:
     """Validate and sanitize user question.
 
     Args:
         question: User's question
         max_length: Maximum allowed length
+        allow_short: Allow short questions like greetings (default: True)
 
     Returns:
         Sanitized question
@@ -116,6 +117,14 @@ def validate_and_sanitize_question(
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail=f"Question too long (max {max_length} characters)",
+        )
+
+    # Allow short greetings (e.g., "hi", "hello")
+    # Don't require minimum length for greetings
+    if not allow_short and len(question.strip()) < 3:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Question too short (minimum 3 characters)",
         )
 
     # Check for SQL injection

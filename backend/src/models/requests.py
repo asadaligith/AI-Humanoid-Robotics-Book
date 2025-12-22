@@ -10,7 +10,7 @@ class AskRequest(BaseModel):
 
     question: str = Field(
         ...,
-        min_length=5,
+        min_length=1,
         max_length=2000,
         description="User's question about the book content",
         examples=["What are the key components of a humanoid robot?"],
@@ -28,7 +28,7 @@ class AskSelectedRequest(BaseModel):
 
     question: str = Field(
         ...,
-        min_length=5,
+        min_length=1,
         max_length=2000,
         description="User's question about the selected text",
         examples=["Explain this in simpler terms"],
