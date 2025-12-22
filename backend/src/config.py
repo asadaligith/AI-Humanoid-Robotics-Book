@@ -30,7 +30,7 @@ class Settings(BaseSettings):
     rate_limit_per_minute: int = 10
 
     # Retrieval Configuration
-    similarity_threshold: float = 0.3
+    similarity_threshold: float = 0.1  # Lowered from 0.3 to catch more results for debugging
     max_chunks: int = 5
 
     class Config:

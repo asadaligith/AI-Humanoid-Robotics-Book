@@ -183,15 +183,31 @@ def search(
         # Rerank and limit to top N
         results = rerank_results(results, limit=min(limit, RERANK_LIMIT))
 
-        logger.info(
-            "Search completed",
-            extra={
-                "service": "retrieval",
-                "operation": "search",
-                "results_count": len(results),
-                "top_score": results[0]["score"] if results else 0,
-            },
-        )
+        # Log detailed search results for debugging
+        if results:
+            scores = [r["score"] for r in results]
+            files = [r["payload"].get("file_path", "unknown")[:50] for r in results]
+            logger.info(
+                "Search completed",
+                extra={
+                    "service": "retrieval",
+                    "operation": "search",
+                    "results_count": len(results),
+                    "top_score": results[0]["score"] if results else 0,
+                    "all_scores": scores,  # All similarity scores
+                    "result_files": files,  # File paths for debugging
+                },
+            )
+        else:
+            logger.warning(
+                "Search returned no results - possible indexing issue or threshold too high",
+                extra={
+                    "service": "retrieval",
+                    "operation": "search",
+                    "score_threshold": score_threshold,
+                    "results_count": 0,
+                },
+            )
 
         return results
 
