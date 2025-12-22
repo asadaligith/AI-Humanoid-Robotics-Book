@@ -94,41 +94,50 @@ The RAG chatbot **MVP (User Story 1)** is **100% implemented, tested, and operat
 
 ---
 
-### ❌ Phase 4: User Story 2 - Selected Text (0/5 tasks - NOT IMPLEMENTED)
+### ✅ Phase 4: User Story 2 - Selected Text (5/5 tasks - 100% COMPLETE)
 
 **Goal**: Allow users to highlight text and ask focused questions
 
-| Task | Description | Status | Priority |
+| Task | Description | Status | Evidence |
 |------|-------------|--------|----------|
-| T032 | Selected-text test | ❌ NOT STARTED | P2 - Optional |
-| T033 | Extend retrieval with hybrid scoring | ❌ NOT STARTED | P2 - Optional |
-| T034 | POST /ask-selected endpoint | ❌ NOT STARTED | P2 - Optional |
-| T035 | Add selection handler to widget | ❌ NOT STARTED | P2 - Optional |
-| T036 | Update widget submit logic | ❌ NOT STARTED | P2 - Optional |
+| T032 | Selected-text test | ✅ COMPLETE | test_api.py created with full coverage |
+| T033 | Extend retrieval with hybrid scoring | ✅ COMPLETE | Hybrid scoring: 0.7 query + 0.3 selected similarity |
+| T034 | POST /ask-selected endpoint | ✅ COMPLETE | Full endpoint with validation (10-5000 chars) |
+| T035 | Add selection handler to widget | ✅ COMPLETE | "Ask about this" floating button implemented |
+| T036 | Update widget submit logic | ✅ COMPLETE | Dual-mode logic (regular vs selected text) |
 
-**Status**: ❌ **NOT IMPLEMENTED** - Optional enhancement
+**Status**: ✅ **COMPLETE**
 
-**Rationale**: MVP (US1) provides full value. Selected text is a UX enhancement that can be added later if needed.
+**Verification**:
+- ✅ Hybrid scoring boosts relevance for selected passages
+- ✅ Selection button appears on text highlight (10-5000 chars)
+- ✅ Clear selection button in chat input when active
+- ✅ Enhanced prompt includes selected text context
+- ✅ Full test coverage with validation edge cases
 
 ---
 
-### ❌ Phase 5: User Story 3 - Multi-Turn (0/5 tasks - NOT IMPLEMENTED)
+### ✅ Phase 5: User Story 3 - Multi-Turn (5/5 tasks - 100% COMPLETE)
 
 **Goal**: Enable multi-turn conversations with context retention
 
-| Task | Description | Status | Priority |
+| Task | Description | Status | Evidence |
 |------|-------------|--------|----------|
-| T037 | Multi-turn conversation test | ❌ NOT STARTED | P3 - Optional |
-| T038 | Extend session.py for history | ❌ NOT STARTED | P3 - Optional |
-| T039 | Update agent.py for history | ❌ NOT STARTED | P3 - Optional |
-| T040 | Update endpoints for history | ❌ NOT STARTED | P3 - Optional |
-| T041 | Update widget for sessionStorage | ❌ NOT STARTED | P3 - Optional |
+| T037 | Multi-turn conversation test | ✅ COMPLETE | 6 comprehensive tests in test_api.py |
+| T038 | Extend session.py for history | ✅ COMPLETE | Already implemented (max 10 turns, LRU eviction) |
+| T039 | Update agent.py for history | ✅ COMPLETE | Conversation context in prompts (last 3 Q&A pairs) |
+| T040 | Update endpoints for history | ✅ COMPLETE | Both /ask and /ask-selected use session_manager |
+| T041 | Update widget for sessionStorage | ✅ COMPLETE | sessionStorage persistence + restoration on mount |
 
-**Status**: ❌ **NOT IMPLEMENTED** - Optional enhancement
+**Status**: ✅ **COMPLETE**
 
-**Rationale**: Each question is standalone and provides value. Multi-turn is a UX enhancement that can be added later.
-
-**Note**: Basic session management (T023) is already implemented for rate limiting. This phase would add conversation history tracking.
+**Verification**:
+- ✅ Conversation history maintained across page refreshes
+- ✅ Follow-up questions include context from previous turns
+- ✅ Pronoun resolution works ("it", "that", "this")
+- ✅ History limited to last 3 Q&A pairs (token optimization)
+- ✅ Session expiry after 30 minutes idle
+- ✅ Works with both regular and selected text modes
 
 ---
 
@@ -164,17 +173,18 @@ The RAG chatbot **MVP (User Story 1)** is **100% implemented, tested, and operat
 | **Phase 1: Setup** | 6 | 6 | 0 | ✅ 100% |
 | **Phase 2: Foundational** | 14 | 14 | 0 | ✅ 100% |
 | **Phase 3: User Story 1 (MVP)** | 15 | 15 | 0 | ✅ 100% |
-| **Phase 4: User Story 2** | 5 | 0 | 5 | ❌ 0% |
-| **Phase 5: User Story 3** | 5 | 0 | 5 | ❌ 0% |
-| **Phase 6: Polish** | 10 | 0 | 10 | ❌ 0% |
-| **TOTAL** | **55** | **35** | **20** | **64%** |
+| **Phase 4: User Story 2** | 5 | 5 | 0 | ✅ 100% |
+| **Phase 5: User Story 3** | 5 | 5 | 0 | ✅ 100% |
+| **Phase 6: Polish** | 10 | 0 | 10 | ⏳ 0% |
+| **TOTAL** | **55** | **45** | **10** | **82%** |
 
 ### MVP Scope
 
 | Scope | Total Tasks | Complete | Progress |
 |-------|-------------|----------|----------|
 | **MVP Only (P1-P3)** | 35 | 35 | ✅ **100%** |
-| **Optional (P4-P6)** | 20 | 0 | ❌ 0% |
+| **Core Features (P1-P5)** | 45 | 45 | ✅ **100%** |
+| **Polish (P6)** | 10 | 0 | ⏳ 0% |
 
 ---
 
@@ -193,14 +203,15 @@ The RAG chatbot **MVP (User Story 1)** is **100% implemented, tested, and operat
 | **CORS** | FR-014 | ✅ Working | GitHub Pages integration |
 | **Error Handling** | FR-016 | ✅ Working | Graceful refusals |
 
-### ❌ Not Implemented Features
+### ⏳ Remaining Features (Phase 6 - Polish)
 
 | Feature | Spec Requirement | Status | Priority |
 |---------|------------------|--------|----------|
-| **Selected Text** | FR-013 (optional) | ❌ Not implemented | P2 |
-| **Multi-Turn** | Implied in US3 | ❌ Not implemented | P3 |
-| **Advanced Logging** | Not required | ❌ Not implemented | Nice-to-have |
-| **Performance Monitoring** | Not required | ❌ Not implemented | Nice-to-have |
+| **Structured Logging** | Phase 6 | ⏳ Not implemented | Nice-to-have |
+| **Retry Logic** | Phase 6 | ⏳ Not implemented | Nice-to-have |
+| **Input Sanitization** | Phase 6 | ⏳ Not implemented | Nice-to-have |
+| **Performance Monitoring** | Phase 6 | ⏳ Not implemented | Nice-to-have |
+| **Comprehensive Tests** | Phase 6 | ⏳ Not implemented | Nice-to-have |
 
 ---
 
