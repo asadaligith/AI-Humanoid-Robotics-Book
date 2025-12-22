@@ -44,22 +44,24 @@ description: "Implementation tasks for RAG Chatbot feature"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-**NOTE**: Using **Google Gemini** instead of OpenAI (768D vectors instead of 1536D)
+**NOTE**: Using **OpenAI API** for embeddings and chat completions (1536D vectors with text-embedding-3-large or text-embedding-3-small)
 
-- [X] T007 Create Qdrant collection "book_content" with **768D vectors** (Gemini text-embedding-004), cosine distance, HNSW index (M=16, ef_construct=100) - **MANUAL SETUP REQUIRED**
+- [X] T007 Create Qdrant collection "book_content" with **1536D vectors** (OpenAI text-embedding-3-small or text-embedding-3-large), cosine distance, HNSW index (M=16, ef_construct=100) - **MANUAL SETUP REQUIRED**
 - [X] T008 Create Neon Postgres database and execute schema from data-model.md: chunks_metadata table with indexes on file_path, section_heading, content_hash, created_at - **MANUAL SETUP REQUIRED**
-- [X] T009 [P] Implement config.py in backend/src/ using Pydantic Settings to load environment variables (GEMINI_API_KEY, QDRANT_URL, QDRANT_API_KEY, DATABASE_URL)
+- [X] T009 [P] Implement config.py in backend/src/ using Pydantic Settings to load environment variables (OPENAI_API_KEY, QDRANT_URL, QDRANT_API_KEY, DATABASE_URL)
 - [X] T010 [P] Implement database.py in backend/src/services/ with SQLAlchemy engine and session factory for Neon Postgres connection
-- [X] T011 [P] Implement embeddings.py in backend/src/services/ with embed_text() function using **Gemini text-embedding-004** model (768D)
+- [X] T011 [P] Implement embeddings.py in backend/src/services/ with embed_text() function using **OpenAI text-embedding-3-small** model (1536D)
 - [X] T012 [P] Implement chunking.py in backend/src/utils/ using LangChain RecursiveCharacterTextSplitter with 800 tokens, 200 overlap, markdown-aware splitting
 - [X] T013 [P] Implement hashing.py in backend/src/utils/ with compute_hash() function using SHA256 for content deduplication
 - [X] T014 [P] Create Pydantic request models in backend/src/models/requests.py: AskRequest (question, session_id), AskSelectedRequest (question, selected_text, session_id)
 - [X] T015 [P] Create Pydantic response models in backend/src/models/responses.py: ChatResponse (answer, sources, session_id), HealthResponse (status, services, version, timestamp), ErrorResponse (error, code, details)
 - [X] T021 [P] [US1] Implement retrieval.py in backend/src/services/ with search() function to query Qdrant for top-10 chunks, rerank by cosine similarity, filter by threshold >=0.7, return top-5
-- [X] T022 [US1] Implement agent.py in backend/src/services/ using **Gemini 1.5 Pro** with RAG, system prompt enforcing grounding ("ONLY use retrieved content"), citation requirement
+- [X] T022 [US1] Implement agent.py in backend/src/services/ using OpenAI API (GPT-4 or GPT-3.5-turbo) with RAG, system prompt enforcing grounding ("ONLY use retrieved content"), citation requirement, AND greeting detection logic
 - [X] T023 [US1] Implement session.py in backend/src/utils/ with in-memory session management using UUID for multi-turn conversation tracking
+- [X] T052 [P] [US1] Implement greeting detector in agent.py with pattern matching for common greetings (hi, hello, hey, good morning, good afternoon, etc.), return friendly welcome response without RAG retrieval
+- [X] T053 [P] [US1] Create greeting response template with welcome message, chatbot capabilities explanation, and prompt for book-related questions
 - [X] T016 Implement reindex_book.py script in backend/scripts/ to read /docs/**, chunk, hash, embed, and store in Qdrant + Postgres with idempotent upsert logic
-- [ ] T017 Run reindex_book.py script to index book content (estimated 300 chunks from /docs/** directory)
+- [X] T017 Run reindex_book.py script to index book content (estimated 300+ chunks from /docs/** directory, ACTUAL: 800+ chunks indexed)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -75,9 +77,10 @@ description: "Implementation tasks for RAG Chatbot feature"
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T018 [P] [US1] Create retrieval accuracy test in backend/tests/test_retrieval.py to verify top-5 chunks retrieved for query "robot sensors" are from sensor-related chapters (>0.7 similarity)
-- [ ] T019 [P] [US1] Create hallucination prevention test in backend/tests/test_agent.py to verify off-topic query "weather in New York" returns refusal message "I don't have information about that in the book"
-- [ ] T020 [P] [US1] Create integration test in backend/tests/test_api.py for POST /ask endpoint to verify end-to-end flow: question → embedding → retrieval → agent → response with citations
+- [X] T018 [P] [US1] Create retrieval accuracy test in backend/tests/test_retrieval.py to verify top-5 chunks retrieved for query "robot sensors" are from sensor-related chapters (>0.7 similarity)
+- [X] T019 [P] [US1] Create hallucination prevention test in backend/tests/test_agent.py to verify off-topic query "weather in New York" returns refusal message "I don't have information about that in the book"
+- [X] T020 [P] [US1] Create integration test in backend/tests/test_api.py for POST /ask endpoint to verify end-to-end flow: question → embedding → retrieval → agent → response with citations
+- [X] T054 [P] [US1] Create greeting detection test in backend/tests/test_agent.py to verify: (1) "hi" returns welcome message without RAG retrieval, (2) greeting response includes chatbot capabilities, (3) greeting processing takes <500ms, (4) no embedding API calls made for greetings
 
 ### Implementation for User Story 1
 
@@ -315,17 +318,17 @@ With 2 developers:
 ## Task Count Summary
 
 - **Phase 1 (Setup)**: 6 tasks
-- **Phase 2 (Foundational)**: 11 tasks ⚠️ CRITICAL PATH
-- **Phase 3 (User Story 1 - MVP)**: 14 tasks (3 tests + 11 implementation)
+- **Phase 2 (Foundational)**: 14 tasks ⚠️ CRITICAL PATH (includes T052, T053 for greeting support)
+- **Phase 3 (User Story 1 - MVP)**: 15 tasks (4 tests including T054 + 11 implementation)
 - **Phase 4 (User Story 2)**: 5 tasks (1 test + 4 implementation)
 - **Phase 5 (User Story 3)**: 5 tasks (1 test + 4 implementation)
 - **Phase 6 (Polish)**: 10 tasks
 
-**Total**: 51 tasks
+**Total**: 55 tasks (added T052, T053, T054 for greeting functionality)
 
-**Parallel Opportunities**: 18 tasks marked [P] can run in parallel within their phase
+**Parallel Opportunities**: 21 tasks marked [P] can run in parallel within their phase (added T052, T053, T054)
 
-**MVP Scope**: Phases 1-3 (31 tasks) = Core chatbot functionality
+**MVP Scope**: Phases 1-3 (35 tasks) = Core chatbot functionality with greeting support
 
 ---
 

@@ -65,6 +65,7 @@ A reader wants to have an ongoing conversation with the chatbot, asking multiple
 - **What happens when the OpenAI API rate limit is exceeded?** System should queue requests or display a message asking users to try again in a moment.
 - **What happens when selected text is extremely long (>1000 words)?** System should either chunk it or ask the user to select a more specific passage.
 - **How does the system handle ambiguous questions?** Chatbot should ask clarifying questions or provide answers for multiple interpretations.
+- **What happens when a user sends a conversational greeting instead of a question?** System should detect greetings ("hi", "hello", "hey", etc.) and respond with a friendly welcome message explaining chatbot capabilities and prompting the user to ask book-related questions, WITHOUT performing RAG retrieval or consuming API quota for embeddings.
 
 ## Requirements *(mandatory)*
 
@@ -82,7 +83,7 @@ A reader wants to have an ongoing conversation with the chatbot, asking multiple
 - **FR-007**: System MUST implement retrieval logic that queries Qdrant for semantically similar chunks and joins with Postgres metadata
 - **FR-008**: System MUST build an OpenAI Agent using the OpenAI Agent SDK that uses retrieved context to generate answers
 - **FR-009**: OpenAI Agent MUST be configured with a `search_book` tool/function that performs RAG retrieval
-- **FR-010**: System MUST ensure the chatbot answers ONLY from book content and refuses to answer questions outside this scope
+- **FR-010**: System MUST ensure the chatbot answers substantive questions ONLY from book content and refuses to answer off-topic questions outside this scope; conversational responses (greetings, clarifications, error messages, usage guidance) MAY be provided outside the RAG pipeline
 - **FR-011**: System MUST include citations in responses (section headings, chapter names, or file paths) for transparency
 - **FR-012**: System MUST embed a JavaScript-based chatbot widget in the Docusaurus site with:
   - A floating button/icon to open the chat
@@ -92,6 +93,8 @@ A reader wants to have an ongoing conversation with the chatbot, asking multiple
 - **FR-014**: System MUST deploy the FastAPI backend on a cloud platform (Render, Fly.io, or Railway)
 - **FR-015**: System MUST avoid hallucinations by grounding all answers strictly in retrieved content
 - **FR-016**: System MUST handle cases where no relevant content is found by responding with "I don't have information about that in the book"
+- **FR-017**: System MUST detect and respond appropriately to conversational greetings (e.g., "hi", "hello", "hey", "good morning", "good afternoon") with a friendly welcome message explaining chatbot capabilities and prompting user to ask book-related questions, WITHOUT triggering RAG retrieval
+- **FR-018**: System MUST format citations in responses with clear section references including module name, chapter name, and optionally file path; citations MAY include hyperlinks to source documentation sections if technically feasible
 
 ### Key Entities *(include if feature involves data)*
 
@@ -113,6 +116,7 @@ A reader wants to have an ongoing conversation with the chatbot, asking multiple
 - **SC-006**: Readers can open the chatbot widget, type a question, and receive a response in 3 clicks or less
 - **SC-007**: Multi-turn conversations (3+ turns) maintain context coherence in 80%+ of test cases
 - **SC-008**: Selected text feature (if implemented) allows users to get focused answers in 2 clicks or less (select text → ask)
+- **SC-009**: System MUST provide non-empty, relevant answers for 95%+ of book-related queries with proper citations; greeting responses MUST return within 500ms without RAG retrieval overhead
 
 ## Assumptions
 

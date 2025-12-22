@@ -5,12 +5,13 @@
 
 ## Summary
 
-Build a Retrieval-Augmented Generation (RAG) chatbot that allows readers of the AI Humanoid Robotics Book to ask questions and receive accurate, cited answers from book content. The system uses OpenAI's text-embedding-3-large for semantic search via Qdrant vector database, Neon Postgres for metadata storage, and the OpenAI Agent SDK for answer generation with strict grounding to prevent hallucinations.
+Build a Retrieval-Augmented Generation (RAG) chatbot that allows readers of the AI Humanoid Robotics Book to ask questions and receive accurate, cited answers from book content. The system uses OpenAI's text-embedding-3-small (1536D) for semantic search via Qdrant vector database, Neon Postgres for metadata storage, and OpenAI API (GPT-4/GPT-3.5-turbo) for answer generation with strict grounding to prevent hallucinations. Includes greeting detection for conversational UX without RAG overhead.
 
 **Technical Approach**:
-- **Ingestion Pipeline**: Extract markdown from `/docs/**`, chunk into 800-token segments with 200-token overlap, embed using text-embedding-3-large, store in Qdrant + Postgres
+- **Ingestion Pipeline**: Extract markdown from `/docs/**`, chunk into 800-token segments with 200-token overlap, embed using OpenAI text-embedding-3-small (1536D), store in Qdrant + Postgres
 - **Retrieval Pipeline**: Embed user questions, query Qdrant for top-10 similar chunks, rerank to select top-5, filter by 0.7 similarity threshold
-- **Generation Pipeline**: Use OpenAI Agent SDK with `search_book` tool, enforce strict grounding via system prompts and citations, return answers with source references
+- **Generation Pipeline**: Use OpenAI API (GPT-4 or GPT-3.5-turbo) with RAG pattern, enforce strict grounding via system prompts and citations, return answers with source references
+- **Greeting Detection**: Pre-process queries to detect conversational greetings (hi, hello, etc.), return welcome messages without RAG retrieval to optimize latency and API costs
 - **Frontend Integration**: Vanilla JavaScript chatbot widget embedded in Docusaurus with floating button and chat panel
 - **Deployment**: FastAPI backend on Render (free tier), CORS-enabled for GitHub Pages, health monitoring via `/health` endpoint
 
@@ -260,31 +261,38 @@ All design choices align with constitution principles and maintain simplicity:
    - User types question in chatbot widget
    - Widget sends POST to `/ask` with `{"question": str, "session_id": uuid}`
 
-2. **Backend Processing**:
+2. **Greeting Detection** (Fast Path):
    - FastAPI route validates request (Pydantic model)
-   - Calls `embeddings.embed_text(question)` → generates 1536D vector
+   - Checks if question matches greeting patterns (hi, hello, hey, good morning, etc.)
+   - **IF GREETING**: Return welcome response immediately, skip steps 3-4 (latency: <500ms)
+   - **IF NOT GREETING**: Proceed to step 3
+
+3. **Backend RAG Processing**:
+   - Calls `embeddings.embed_text(question)` → generates 1536D vector via OpenAI API
    - Calls `retrieval.search(query_embedding, limit=10)` → Qdrant returns top-10 chunks
    - Reranks top-10 by cosine(query_embedding, chunk_embedding)
    - Filters by similarity threshold >=0.7
    - Selects top-5 chunks
 
-3. **Agent Generation**:
+4. **Agent Generation**:
    - Calls `agent.generate_answer(question, retrieved_chunks, session_id)`
-   - Agent SDK invokes `search_book` tool (already executed in step 2)
-   - System prompt enforces: "ONLY use search_book results; cite sources"
+   - OpenAI API (GPT-4/GPT-3.5-turbo) with RAG context
+   - System prompt enforces: "ONLY use retrieved content; cite sources"
    - Agent generates answer with citations
 
-4. **Response**:
+5. **Response**:
    - Backend returns `{"answer": str, "sources": [...], "session_id": uuid}`
    - Widget displays answer in chat panel with clickable citations
 
-**Latency Breakdown** (Target <2s):
-- Embedding generation: ~300ms
-- Qdrant search: ~80ms
-- Reranking: ~20ms
-- Agent generation: ~1200ms
-- Network overhead: ~400ms
-- **Total**: ~2000ms (P95)
+**Latency Breakdown**:
+- **Greeting Path** (Fast): <500ms (pattern matching + template response)
+- **RAG Path** (Target <2s):
+  - Embedding generation: ~300ms
+  - Qdrant search: ~80ms
+  - Reranking: ~20ms
+  - Agent generation (OpenAI API): ~1200ms
+  - Network overhead: ~400ms
+  - **Total**: ~2000ms (P95)
 
 ---
 
